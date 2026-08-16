@@ -10,7 +10,7 @@ interface GalleryPageProps {
 
 export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<{ image: string; title: string; subtitle: string; location: string } | null>(null);
-  const [activeCategory, setActiveCategory] = useState<'all' | 'guest' | 'destinations' | 'fleet'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'guest' | 'destinations'>('all');
 
   const t = TRANSLATIONS[lang];
 
@@ -134,35 +134,6 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       location: 'Sembalun Valley, East Lombok',
       image: '/Gambar/sembalun.avif',
       badge: 'Sembalun Highland'
-    },
-
-    // Fleet (3 items)
-    {
-      id: 14,
-      category: 'fleet',
-      title: 'Toyota Avanza',
-      subtitle: 'Clean, reliable, and air-conditioned MPV perfect for couples and small families',
-      location: 'Lombok Local Transport Fleet',
-      image: '/Gambar/avanza.avif',
-      badge: 'Fleet 4-5 Seats'
-    },
-    {
-      id: 15,
-      category: 'fleet',
-      title: 'Toyota Innova',
-      subtitle: 'Spacious suspension and premium legroom comfort for long-distance scenic travel',
-      location: 'Lombok Local Transport Fleet',
-      image: '/Gambar/innova3.avif',
-      badge: 'Fleet 6-7 Seats'
-    },
-    {
-      id: 16,
-      category: 'fleet',
-      title: 'Toyota Hiace Commuter',
-      subtitle: 'High capacity microbus with 12-15 comfortable passenger seats for group tours',
-      location: 'Lombok Local Transport Fleet',
-      image: '/Gambar/hiace.avif',
-      badge: 'Fleet 12-15 Seats'
     }
   ];
 
@@ -191,7 +162,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-600/90 text-white font-extrabold text-[11px] uppercase tracking-widest mb-1 shadow-lg"
           >
             <Camera className="w-4 h-4 text-emerald-300" />
-            <span>AUTHENTIC TRAVEL MEMORIES &amp; FLEET</span>
+            <span>AUTHENTIC TRAVEL MEMORIES &amp; DESTINATIONS</span>
           </motion.div>
 
           <motion.h1 
@@ -222,7 +193,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
           </h2>
           <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
           <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-            Explore authentic documentation from our tours, island transfers, and premium transport fleet across Lombok.
+            Explore authentic documentation from our tours, island transfers, and scenic travel highlights across Lombok.
           </p>
 
           {/* Filter Pills */}
@@ -257,16 +228,6 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             >
               Destinations (5)
             </button>
-            <button
-              onClick={() => setActiveCategory('fleet')}
-              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
-                activeCategory === 'fleet'
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-              }`}
-            >
-              Fleet Cars (3)
-            </button>
           </div>
         </div>
 
@@ -285,7 +246,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
               <img
                 src={item.image}
                 alt={item.title}
-                className={`w-full h-full ${item.category === 'fleet' ? 'object-contain p-4' : 'object-cover'} group-hover:scale-110 transition-transform duration-700 opacity-95 group-hover:opacity-100`}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-95 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
 
