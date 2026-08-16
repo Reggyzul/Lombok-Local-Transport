@@ -1,51 +1,75 @@
+import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
-import sharp from 'sharp';
+import { fileURLToPath } from 'url';
 
-const publicDir = path.resolve('public');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
 
-async function convertImagesToAvif() {
-  console.log('🚀 Starting image conversion to AVIF in public/ directory...\n');
+const publicGambarDir = path.join(rootDir, 'public', 'Gambar');
+const publicDir = path.join(rootDir, 'public');
 
-  const files = fs.readdirSync(publicDir);
-  const imageFiles = files.filter((file) => {
+async function convertFileToAvif(inputPath, outputPath) {
+  console.log(`Converting: ${inputPath} -> ${outputPath}`);
+  const isPng = inputPath.toLowerCase().endsWith('.png');
+  
+  if (isPng) {
+    // Preserve alpha transparency for logo.png
+    await sharp(inputPath)
+      .avif({ quality: 90, lossless: false, effort: 6 })
+      .toFile(outputPath);
+  } else {
+    await sharp(inputPath)
+      .avif({ quality: 85, effort: 6 })
+      .toFile(outputPath);
+  }
+  console.log(`✓ Created: ${outputPath} (${fs.statSync(outputPath).size} bytes)`);
+}
+
+async function fetchAndSaveAvif(url, outputPath) {
+  console.log(`Fetching & converting remote: ${url} -> ${outputPath}`);
+  const response = await fetch(url);
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  
+  await sharp(buffer)
+    .avif({ quality: 85, effort: 6 })
+    .toFile(outputPath);
+  console.log(`✓ Fetched & saved: ${outputPath} (${fs.statSync(outputPath).size} bytes)`);
+}
+
+async function run() {
+  console.log('--- Starting AVIF Image Conversion with JavaScript & Sharp ---');
+
+  // 1. Convert all local images in public/Gambar
+  const gambarFiles = fs.readdirSync(publicGambarDir);
+  for (const file of gambarFiles) {
     const ext = path.extname(file).toLowerCase();
-    return (ext === '.jpg' || ext === '.jpeg' || ext === '.png') && !file.startsWith('.');
-  });
-
-  console.log(`📸 Found ${imageFiles.length} image files to convert:\n`);
-
-  let successCount = 0;
-  let totalSavedBytes = 0;
-
-  for (const file of imageFiles) {
-    const inputPath = path.join(publicDir, file);
-    const parsed = path.parse(file);
-    const outputFileName = `${parsed.name}.avif`;
-    const outputPath = path.join(publicDir, outputFileName);
-
-    try {
-      const originalStats = fs.statSync(inputPath);
-      const originalSizeKb = (originalStats.size / 1024).toFixed(1);
-
-      await sharp(inputPath)
-        .avif({ quality: 80, effort: 5 })
-        .toFile(outputPath);
-
-      const newStats = fs.statSync(outputPath);
-      const newSizeKb = (newStats.size / 1024).toFixed(1);
-      const savedKb = ((originalStats.size - newStats.size) / 1024).toFixed(1);
-      totalSavedBytes += (originalStats.size - newStats.size);
-
-      console.log(`✅ ${file} (${originalSizeKb} KB) ➔ ${outputFileName} (${newSizeKb} KB) | Saved: ${savedKb} KB`);
-      successCount++;
-    } catch (err) {
-      console.error(`❌ Failed to convert ${file}:`, err.message);
+    if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
+      const baseName = path.basename(file, ext);
+      const inputPath = path.join(publicGambarDir, file);
+      const outputPath = path.join(publicGambarDir, `${baseName}.avif`);
+      await convertFileToAvif(inputPath, outputPath);
     }
   }
 
-  console.log(`\n🎉 Conversion complete! Converted ${successCount}/${imageFiles.length} images.`);
-  console.log(`📉 Total disk space saved: ${(totalSavedBytes / (1024 * 1024)).toFixed(2)} MB`);
+  // 2. Convert root public/logo.png & public/favicon.png
+  if (fs.existsSync(path.join(publicDir, 'logo.png'))) {
+    await convertFileToAvif(path.join(publicDir, 'logo.png'), path.join(publicDir, 'logo.avif'));
+  }
+  if (fs.existsSync(path.join(publicDir, 'favicon.png'))) {
+    await convertFileToAvif(path.join(publicDir, 'favicon.png'), path.join(publicDir, 'favicon.avif'));
+  }
+
+  // 3. Fetch Sembalun image to make it a local AVIF
+  const sembalunUrl = 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200';
+  await fetchAndSaveAvif(sembalunUrl, path.join(publicGambarDir, 'sembalun.avif'));
+
+  console.log('--- AVIF Image Conversion Completed Successfully ---');
 }
 
-convertImagesToAvif();
+run().catch((err) => {
+  console.error('Error during AVIF conversion:', err);
+  process.exit(1);
+});

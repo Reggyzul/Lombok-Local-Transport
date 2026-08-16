@@ -42,7 +42,7 @@ export default function Hero({ lang }: HeroProps) {
         <div 
           className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/Gambar/tetebatu.jpg')`
+            backgroundImage: `url('/Gambar/tetebatu.avif')`
           }}
         />
 

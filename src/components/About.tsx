@@ -45,7 +45,7 @@ export default function About({ lang }: AboutProps) {
               
               <div className="flex items-center gap-3.5">
                 <img
-                  src="/Gambar/logo.png"
+                  src="/Gambar/logo.avif"
                   alt="Lombok Local Transport Official Logo"
                   className="w-14 h-14 object-contain drop-shadow-md shrink-0"
                 />

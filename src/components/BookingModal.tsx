@@ -110,7 +110,7 @@ Please confirm availability and the best price quote. Thank you!`;
             <div className="space-y-5 relative z-10">
               
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-extrabold uppercase tracking-widest">
-                <img src="/Gambar/logo.png" alt="Logo" className="w-4 h-4 object-contain" />
+                <img src="/Gambar/logo.avif" alt="Logo" className="w-4 h-4 object-contain" />
                 <span>Lombok Local Transport</span>
               </div>
 

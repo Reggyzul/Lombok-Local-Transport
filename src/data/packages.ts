@@ -31,7 +31,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Senaru Traditional Village', 'Sendang Gile Waterfall', 'Tiu Kelep Waterfall', 'Rinjani National Park Gateway', 'Local Culinary Stop'],
     routeDisplay: 'Mataram/Airport/Bangsal - Senaru - Sendang Gile - Tiu Kelep',
-    image: '/Gambar/senaru.jpg',
+    image: '/Gambar/senaru.avif',
     badge: 'Waterfalls & Nature',
     minPrice: 'Contact Us',
     tiers: [
@@ -68,7 +68,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Selong Hill Viewpoint', 'Beleq Ancient Sasak Village', 'Fresh Strawberry Picking Farm', 'Pusuk Sembalun Rinjani View', 'Sembalun Valley Flowers'],
     routeDisplay: 'Mataram/Airport - Sembalun Valley - Selong Hill - Pusuk Sembalun',
-    image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
+    image: '/Gambar/sembalun.avif',
     badge: 'Cool Mountain Highland',
     minPrice: 'Contact Us',
     tiers: [
@@ -104,7 +104,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Pertamina Mandalika International Circuit', 'Kuta Mandalika Beach', 'Tanjung Aan Beach', 'Merese Hill Sunset Point', 'Sade & Sukarara Traditional Weaving Villages'],
     routeDisplay: 'Airport/Mataram - Mandalika Circuit - Tanjung Aan - Merese Hill',
-    image: '/Gambar/mandalika.jpg',
+    image: '/Gambar/mandalika.avif',
     badge: 'Beach & Mandalika Circuit',
     minPrice: 'Contact Us',
     tiers: [
@@ -140,7 +140,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'One Way / Full Day',
     route: ['Lombok Airport (BIZAM)', 'Mataram / Senggigi', 'Bangsal Harbor', 'Teluk Nara Speedboat Pier', 'Gili Trawangan / Meno / Air Connection'],
     routeDisplay: 'Airport BIZAM / Mataram - Bangsal Harbor (Gili Ferry Point)',
-    image: '/Gambar/bangsal.jpg',
+    image: '/Gambar/bangsal.avif',
     badge: 'Airport & Harbor Transfer',
     minPrice: 'Contact Us',
     tiers: [
@@ -176,7 +176,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Tetebatu UNWTO Village', 'Cascading Rice Terraces', 'Sarang Walet Waterfall', 'Black Monkey Rainforest Sanctuary', 'East Lombok Countryside'],
     routeDisplay: 'Mataram/Airport/Kuta - Tetebatu - Sarang Walet - Rice Terraces',
-    image: '/Gambar/tetebatu.jpg',
+    image: '/Gambar/tetebatu.avif',
     badge: 'UNWTO Best Tourism Village',
     minPrice: 'Contact Us',
     tiers: [

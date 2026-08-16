@@ -60,7 +60,7 @@ export default function Header({
               id="header-logo"
             >
               <img
-                src="/Gambar/logo.png"
+                src="/Gambar/logo.avif"
                 alt="Lombok Local Transport Official Logo"
                 className="w-11 h-11 sm:w-12 sm:h-12 object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
               />

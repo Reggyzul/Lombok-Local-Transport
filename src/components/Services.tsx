@@ -70,7 +70,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Senaru Waterfalls & Rinjani Foothill',
       subtitle: 'Sendang Gile, Tiu Kelep & Traditional Sasak Village',
       badge: 'Waterfalls & Trekking',
-      image: '/Gambar/senaru.jpg',
+      image: '/Gambar/senaru.avif',
       rating: 5.0,
       reviews: 215,
       spots: ['Sendang Gile Spectacular Waterfall', 'Tiu Kelep Jungle Waterfall Adventure', 'Senaru Traditional Sasak Village', 'Scenic Foothill of Mount Rinjani']
@@ -82,7 +82,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Sembalun Highland & Selong Hill',
       subtitle: 'Selong Hill, Strawberry Farms & Cool Breeze',
       badge: 'Highland Tour',
-      image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/sembalun.avif',
       rating: 4.9,
       reviews: 198,
       spots: ['Selong Hill Valley Viewpoint', 'Sembalun Fresh Strawberry Picking Farm', 'Beleq Ancient Historic Village', 'Pusuk Sembalun Rinjani View & Photo Spots']
@@ -94,7 +94,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Kuta Mandalika & South Lombok',
       subtitle: 'Mandalika Circuit, Merese Hill & Tanjung Aan',
       badge: 'Beaches & Circuit',
-      image: '/Gambar/mandalika.jpg',
+      image: '/Gambar/mandalika.avif',
       rating: 5.0,
       reviews: 245,
       spots: ['Pertamina Mandalika International Circuit', 'Tanjung Aan White Pepper Sand Beach', 'Merese Hill Sunset Ocean View', 'Sade & Sukarara Sasak Weaving Villages']
@@ -106,7 +106,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Bangsal Harbor & Gili Islands Transfer',
       subtitle: 'Main Harbor to Gili Trawangan, Meno & Air',
       badge: 'Harbor Transfer',
-      image: '/Gambar/bangsal.jpg',
+      image: '/Gambar/bangsal.avif',
       rating: 4.9,
       reviews: 180,
       spots: ['Direct Airport / Hotel to Bangsal Transfer', 'Teluk Nara Speedboat Harbor Option', 'Luggage Assistance & Reliable Timings', 'Smooth Connection to 3 Gili Islands']
@@ -118,7 +118,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Tetebatu Nature & Rice Terraces',
       subtitle: 'UNWTO Tourist Village, Waterfalls & Black Monkeys',
       badge: 'Nature Village',
-      image: '/Gambar/tetebatu.jpg',
+      image: '/Gambar/tetebatu.avif',
       rating: 4.9,
       reviews: 165,
       spots: ['Lush Terraced Green Rice Fields', 'Sarang Walet & Durian Indah Waterfalls', 'Protected Black Monkey Endemic Habitat', 'Serene Rural Lombok Atmosphere']

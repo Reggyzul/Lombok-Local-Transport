@@ -52,7 +52,7 @@ export default function Footer({ lang, onNavigateSection }: FooterProps) {
           <div className="md:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/Gambar/logo.png"
+                src="/Gambar/logo.avif"
                 alt="Lombok Local Transport Official Logo"
                 className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-md shrink-0"
               />
