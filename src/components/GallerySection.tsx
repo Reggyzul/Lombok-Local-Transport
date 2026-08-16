@@ -40,7 +40,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
       category: 'destinasi',
       title: 'Senaru Waterfalls',
       subtitle: 'Sendang Gile & Tiu Kelep, Foot of Mount Rinjani',
-      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200'
+      image: '/Gambar/senaru.jpg'
     },
     {
       id: 5,
@@ -54,21 +54,21 @@ export default function GallerySection({ lang }: GallerySectionProps) {
       category: 'destinasi',
       title: 'Kuta Mandalika',
       subtitle: 'Mandalika MotoGP Circuit, Merese Hill & Tanjung Aan',
-      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200'
+      image: '/Gambar/mandalika.jpg'
     },
     {
       id: 7,
       category: 'destinasi',
       title: 'Bangsal Harbor',
       subtitle: 'Island Ferry Crossing to Gili Trawangan, Meno & Air',
-      image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200'
+      image: '/Gambar/bangsal.jpg'
     },
     {
       id: 8,
       category: 'destinasi',
       title: 'Tetebatu Eco Village',
       subtitle: 'Emerald Terraced Rice Fields & Sarang Walet Waterfall',
-      image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200'
+      image: '/Gambar/tetebatu.jpg'
     }
   ];
 

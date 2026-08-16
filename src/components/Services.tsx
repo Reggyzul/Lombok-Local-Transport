@@ -70,7 +70,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Senaru Waterfalls & Rinjani Foothill',
       subtitle: 'Sendang Gile, Tiu Kelep & Traditional Sasak Village',
       badge: 'Waterfalls & Trekking',
-      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/senaru.jpg',
       rating: 5.0,
       reviews: 215,
       spots: ['Sendang Gile Spectacular Waterfall', 'Tiu Kelep Jungle Waterfall Adventure', 'Senaru Traditional Sasak Village', 'Scenic Foothill of Mount Rinjani']
@@ -94,7 +94,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Kuta Mandalika & South Lombok',
       subtitle: 'Mandalika Circuit, Merese Hill & Tanjung Aan',
       badge: 'Beaches & Circuit',
-      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/mandalika.jpg',
       rating: 5.0,
       reviews: 245,
       spots: ['Pertamina Mandalika International Circuit', 'Tanjung Aan White Pepper Sand Beach', 'Merese Hill Sunset Ocean View', 'Sade & Sukarara Sasak Weaving Villages']
@@ -106,7 +106,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Bangsal Harbor & Gili Islands Transfer',
       subtitle: 'Main Harbor to Gili Trawangan, Meno & Air',
       badge: 'Harbor Transfer',
-      image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/bangsal.jpg',
       rating: 4.9,
       reviews: 180,
       spots: ['Direct Airport / Hotel to Bangsal Transfer', 'Teluk Nara Speedboat Harbor Option', 'Luggage Assistance & Reliable Timings', 'Smooth Connection to 3 Gili Islands']
@@ -118,7 +118,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
       title: 'Tetebatu Nature & Rice Terraces',
       subtitle: 'UNWTO Tourist Village, Waterfalls & Black Monkeys',
       badge: 'Nature Village',
-      image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/tetebatu.jpg',
       rating: 4.9,
       reviews: 165,
       spots: ['Lush Terraced Green Rice Fields', 'Sarang Walet & Durian Indah Waterfalls', 'Protected Black Monkey Endemic Habitat', 'Serene Rural Lombok Atmosphere']

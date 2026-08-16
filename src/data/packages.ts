@@ -31,7 +31,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Senaru Traditional Village', 'Sendang Gile Waterfall', 'Tiu Kelep Waterfall', 'Rinjani National Park Gateway', 'Local Culinary Stop'],
     routeDisplay: 'Mataram/Airport/Bangsal - Senaru - Sendang Gile - Tiu Kelep',
-    image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
+    image: '/Gambar/senaru.jpg',
     badge: 'Waterfalls & Nature',
     minPrice: 'Contact Us',
     tiers: [
@@ -104,7 +104,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Pertamina Mandalika International Circuit', 'Kuta Mandalika Beach', 'Tanjung Aan Beach', 'Merese Hill Sunset Point', 'Sade & Sukarara Traditional Weaving Villages'],
     routeDisplay: 'Airport/Mataram - Mandalika Circuit - Tanjung Aan - Merese Hill',
-    image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
+    image: '/Gambar/mandalika.jpg',
     badge: 'Beach & Mandalika Circuit',
     minPrice: 'Contact Us',
     tiers: [
@@ -140,7 +140,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'One Way / Full Day',
     route: ['Lombok Airport (BIZAM)', 'Mataram / Senggigi', 'Bangsal Harbor', 'Teluk Nara Speedboat Pier', 'Gili Trawangan / Meno / Air Connection'],
     routeDisplay: 'Airport BIZAM / Mataram - Bangsal Harbor (Gili Ferry Point)',
-    image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
+    image: '/Gambar/bangsal.jpg',
     badge: 'Airport & Harbor Transfer',
     minPrice: 'Contact Us',
     tiers: [
@@ -176,7 +176,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Tetebatu UNWTO Village', 'Cascading Rice Terraces', 'Sarang Walet Waterfall', 'Black Monkey Rainforest Sanctuary', 'East Lombok Countryside'],
     routeDisplay: 'Mataram/Airport/Kuta - Tetebatu - Sarang Walet - Rice Terraces',
-    image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
+    image: '/Gambar/tetebatu.jpg',
     badge: 'UNWTO Best Tourism Village',
     minPrice: 'Contact Us',
     tiers: [

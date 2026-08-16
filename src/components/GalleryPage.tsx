@@ -19,7 +19,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Sendang Gile & Tiu Kelep Waterfalls',
       subtitle: 'Spectacular Cascading Waterfalls in Senaru at the Foot of Mount Rinjani',
       location: 'Senaru, North Lombok, West Nusa Tenggara',
-      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/senaru.jpg',
       badge: 'Senaru Rinjani'
     },
     {
@@ -35,7 +35,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Kuta Mandalika & International Circuit',
       subtitle: 'South Coast Tourism Center & Pertamina Mandalika MotoGP Circuit',
       location: 'Kuta Mandalika, Central Lombok, West Nusa Tenggara',
-      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/mandalika.jpg',
       badge: 'Mandalika Circuit'
     },
     {
@@ -43,7 +43,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Bangsal Harbor & Ferry Point',
       subtitle: 'Main Departure Pier for Gili Trawangan, Gili Meno & Gili Air',
       location: 'Bangsal Harbor, Pemenang, North Lombok',
-      image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/bangsal.jpg',
       badge: 'Bangsal Harbor'
     },
     {
@@ -51,7 +51,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Tetebatu UNWTO Eco-Tourism Village',
       subtitle: 'Lush Terraced Rice Fields & Hidden Sarang Walet Waterfall',
       location: 'Tetebatu, Sikur, East Lombok',
-      image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/tetebatu.jpg',
       badge: 'Tetebatu Nature'
     },
     {
@@ -59,7 +59,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Tanjung Aan Beach & Merese Hill',
       subtitle: 'Pristine White Pepper Sand Coast & Breathtaking Sunset Over the Indian Ocean',
       location: 'Pujut, Central Lombok, West Nusa Tenggara',
-      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
+      image: '/Gambar/mandalika.jpg',
       badge: 'Tanjung Aan & Merese'
     }
   ];
@@ -72,7 +72,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-45 transform scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&q=80&w=1920')`
+            backgroundImage: `url('/Gambar/tetebatu.jpg')`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/65 to-slate-950/95" />

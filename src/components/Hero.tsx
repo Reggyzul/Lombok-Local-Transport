@@ -9,7 +9,7 @@ interface HeroProps {
   onBookingClick?: () => void;
 }
 
-export default function Hero({ onExploreClick, lang, onBookingClick }: HeroProps) {
+export default function Hero({ lang }: HeroProps) {
   const [destinationInput, setDestinationInput] = useState('Senaru (Sendang Gile & Tiu Kelep Waterfalls)');
   const [travelDateInput, setTravelDateInput] = useState('');
 
@@ -38,16 +38,16 @@ export default function Hero({ onExploreClick, lang, onBookingClick }: HeroProps
       {/* 1. HERO BANNER */}
       <div className="relative w-full min-h-[500px] sm:min-h-[540px] flex flex-col justify-between bg-slate-900 text-white overflow-hidden border-b border-slate-200">
         
-        {/* Lombok Landscape Background Image */}
+        {/* Tetebatu Terraced Rice Fields Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&q=80&w=1920')`
+            backgroundImage: `url('/Gambar/tetebatu.jpg')`
           }}
         />
 
         {/* Soft Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/55 to-slate-950/85 backdrop-blur-[0.5px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950/85 backdrop-blur-[0.5px]" />
 
         {/* Top Spacer */}
         <div className="h-20 sm:h-24" />
