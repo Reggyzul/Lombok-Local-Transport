@@ -31,12 +31,12 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Desa Adat Senaru', 'Air Terjun Sendang Gile', 'Air Terjun Tiu Kelep', 'Pintu Gerbang Rinjani', 'Pusat Kuliner Khas'],
     routeDisplay: 'Mataram/Airport/Bangsal - Senaru - Sendang Gile - Tiu Kelep',
-    image: '/dest_lombok.avif',
-    badge: 'Wisata Air Terjun & Alam',
+    image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
+    badge: 'Air Terjun & Alam',
     minPrice: 'Hubungi Kami',
     tiers: [
       {
-        busType: 'Toyota Avanza / Innova / Hiace',
+        busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
         capacity: '2 - 15 Orang',
         pricePerPerson: 'Konsultasikan via WA',
         hotelDetails: 'Tanpa Menginap / Custom Sesuai Rencana',
@@ -50,7 +50,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
       'Sangat cocok untuk wisatawan keluarga, rombongan, dan pencinta alam'
     ],
     includes: [
-      'Kendaraan AC Prima (Avanza / Innova / Hiace)',
+      'Kendaraan AC Prima (Toyota Avanza / Innova / Hiace)',
       'Sopir Lokal Berpengalaman + BBM',
       'Antar-Jemput Hotel / Pelabuhan / Bandara',
       'Tiket Masuk Wisata & Parkir'
@@ -68,7 +68,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Bukit Selong', 'Desa Adat Beleq Sembalun', 'Kebun Stroberi Sembalun', 'Pusuk Sembalun Rinjani View', 'Taman Bunga Sembalun'],
     routeDisplay: 'Mataram/Airport - Sembalun - Bukit Selong - Pusuk Sembalun',
-    image: '/gallery_senggigi.avif',
+    image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
     badge: 'Wisata Pegunungan Sejuk',
     minPrice: 'Hubungi Kami',
     tiers: [
@@ -104,12 +104,12 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Sirkuit Internasional Mandalika', 'Pantai Kuta Mandalika', 'Pantai Tanjung Aan', 'Bukit Merese Sunset', 'Desa Adat Sade / Sukarara'],
     routeDisplay: 'Airport/Mataram - Sirkuit Mandalika - Tanjung Aan - Bukit Merese',
-    image: '/dest_lombok.avif',
+    image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
     badge: 'Pantai & Sirkuit Mandalika',
     minPrice: 'Hubungi Kami',
     tiers: [
       {
-        busType: 'Toyota Avanza / Innova / Hiace Premio',
+        busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
         capacity: '2 - 15 Orang',
         pricePerPerson: 'Konsultasikan via WA',
         hotelDetails: 'Resort Kuta Mandalika / Hotel Mataram',
@@ -140,7 +140,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'One Way / Full Day',
     route: ['Lombok Airport (BIZAM)', 'Mataram / Senggigi', 'Pelabuhan Bangsal', 'Pelabuhan Teluk Nara', 'Gili Trawangan / Meno / Air'],
     routeDisplay: 'Airport BIZAM / Mataram - Pelabuhan Bangsal (Gili Ferry Point)',
-    image: '/gallery_senggigi.avif',
+    image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
     badge: 'Airport & Harbor Transfer',
     minPrice: 'Hubungi Kami',
     tiers: [
@@ -176,12 +176,12 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: 'Full Day',
     route: ['Desa Wisata Tetebatu', 'Sawah Terasering Bertingkat', 'Air Terjun Sarang Walet', 'Hutan Monyet Hitam (Black Monkey Forest)', 'Pedesaan Lombok Timur'],
     routeDisplay: 'Mataram/Airport/Kuta - Tetebatu - Sarang Walet - Rice Terrace',
-    image: '/dest_lombok.avif',
+    image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
     badge: 'Desa Wisata Dunia UNWTO',
     minPrice: 'Hubungi Kami',
     tiers: [
       {
-        busType: 'Toyota Avanza / Innova / Hiace',
+        busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
         capacity: '2 - 15 Orang',
         pricePerPerson: 'Konsultasikan via WA',
         hotelDetails: 'Tanpa Menginap / Custom Trip',
@@ -231,7 +231,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
       'Proses konsultasi dan booking mudah langsung melalui WhatsApp Official'
     ],
     includes: [
-      'Armada Pilihan (Avanza / Innova / Hiace) Kondisi Bersih & Prima',
+      'Armada Pilihan (Toyota Avanza / Toyota Innova / Toyota Hiace) Kondisi Bersih & Prima',
       'Driver Lokal Berpengalaman + BBM',
       'Konsultasi Rekomendasi Rute Wisata Terbaik'
     ],

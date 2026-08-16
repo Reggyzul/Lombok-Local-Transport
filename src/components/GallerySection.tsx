@@ -8,7 +8,7 @@ interface GallerySectionProps {
 }
 
 export default function GallerySection({ lang }: GallerySectionProps) {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'armada' | 'gathering' | 'destinasi'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'armada' | 'destinasi'>('all');
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
   const t = TRANSLATIONS[lang];
@@ -17,58 +17,58 @@ export default function GallerySection({ lang }: GallerySectionProps) {
     {
       id: 1,
       category: 'armada',
-      title: 'Toyota Innova Reborn',
-      subtitle: 'Armada Nyaman untuk Perjalanan Jarak Jauh',
-      image: '/innova3.avif'
+      title: 'Toyota Avanza',
+      subtitle: 'Praktis untuk Keluarga & Airport Transfer',
+      image: '/Gambar/avanza.avif'
     },
     {
       id: 2,
-      category: 'destinasi',
-      title: 'Air Terjun Senaru',
-      subtitle: 'Sendang Gile & Tiu Kelep, Lombok Utara',
-      image: '/dest_lombok.avif'
+      category: 'armada',
+      title: 'Toyota Innova',
+      subtitle: 'Kenyamanan Jarak Jauh & Perjalanan Wisata',
+      image: '/Gambar/innova3.avif'
     },
     {
       id: 3,
-      category: 'destinasi',
-      title: 'Sembalun Highland',
-      subtitle: 'Bukit Selong & Pemandangan Rinjani',
-      image: '/gallery_senggigi.avif'
+      category: 'armada',
+      title: 'Toyota Hiace',
+      subtitle: 'Kapasitas 12-15 Kursi untuk Wisata Rombongan',
+      image: '/Gambar/hiace.avif'
     },
     {
       id: 4,
-      category: 'armada',
-      title: 'Toyota Hiace Premio',
-      subtitle: 'Kapasitas 12-15 Kursi untuk Rombongan',
-      image: '/hiace_premio.avif'
+      category: 'destinasi',
+      title: 'Air Terjun Senaru',
+      subtitle: 'Sendang Gile & Tiu Kelep, Kaki Gunung Rinjani',
+      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 5,
       category: 'destinasi',
-      title: 'Kuta Mandalika & Pantai Tanjung Aan',
-      subtitle: 'Sirkuit Internasional & Bukit Merese',
-      image: '/dest_lombok.avif'
+      title: 'Sembalun Highland',
+      subtitle: 'Bukit Selong, Kebun Stroberi & Pemandangan Rinjani',
+      image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 6,
-      category: 'gathering',
-      title: 'Pelabuhan Bangsal',
-      subtitle: 'Penyeberangan Wisatawan ke 3 Gili',
-      image: '/gallery_senggigi.avif'
+      category: 'destinasi',
+      title: 'Kuta Mandalika',
+      subtitle: 'Sirkuit Mandalika, Bukit Merese & Tanjung Aan',
+      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 7,
       category: 'destinasi',
-      title: 'Desa Wisata Tetebatu',
-      subtitle: 'Sawah Terasering & Air Terjun',
-      image: '/dest_lombok.avif'
+      title: 'Pelabuhan Bangsal',
+      subtitle: 'Penyeberangan Wisatawan Menuju Gili Trawangan',
+      image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 8,
-      category: 'armada',
-      title: 'Toyota Avanza',
-      subtitle: 'Praktis untuk Keluarga & Airport Transfer',
-      image: '/avanza.avif'
+      category: 'destinasi',
+      title: 'Desa Wisata Tetebatu',
+      subtitle: 'Sawah Terasering Hijau & Air Terjun Sarang Walet',
+      image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200'
     }
   ];
 
@@ -95,7 +95,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
           <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
 
           <p className="font-sans text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
-            Dokumentasi armada Avanza, Innova, Hiace, dan destinasi wisata populer di Lombok.
+            Dokumentasi armada Toyota Avanza, Toyota Innova, Toyota Hiace, dan destinasi wisata populer di Lombok.
           </p>
 
           {/* FILTER TABS */}
@@ -143,12 +143,12 @@ export default function GallerySection({ lang }: GallerySectionProps) {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               key={item.id}
               onClick={() => setSelectedPhoto(item.image)}
-              className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-white/10 group cursor-pointer bg-slate-950"
+              className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-white/10 group cursor-pointer bg-slate-950 flex items-center justify-center p-2"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-85"
+                className={`w-full h-full ${item.category === 'armada' ? 'object-contain p-2' : 'object-cover'} group-hover:scale-110 transition-transform duration-700 opacity-95`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
 

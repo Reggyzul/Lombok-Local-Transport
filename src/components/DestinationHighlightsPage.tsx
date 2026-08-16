@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Globe, MessageCircle, CheckCircle2, MapPin } from 'lucide-react';
+import { Globe, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 
 interface DestinationHighlightsPageProps {
@@ -34,7 +34,7 @@ export default function DestinationHighlightsPage({ lang, onNavigateHome }: Dest
       subtitleID: 'Sendang Gile, Tiu Kelep & Desa Adat Tradisional',
       badgeEN: 'North Lombok',
       badgeID: 'Lombok Utara',
-      image: '/dest_lombok.avif',
+      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
       rating: 5.0,
       reviews: 215,
       spotsEN: ['Sendang Gile Spectacular Waterfall', 'Tiu Kelep Jungle Waterfall Adventure', 'Senaru Traditional Sasak Village', 'Rinjani Trekking Gateway'],
@@ -53,7 +53,7 @@ export default function DestinationHighlightsPage({ lang, onNavigateHome }: Dest
       subtitleID: 'Bukit Selong, Kebun Stroberi & Udara Sejuk',
       badgeEN: 'Highland Tour',
       badgeID: 'Lombok Timur',
-      image: '/gallery_senggigi.avif',
+      image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
       rating: 4.9,
       reviews: 198,
       spotsEN: ['Bukit Selong Valley Viewpoint', 'Sembalun Fresh Strawberry Picking Farm', 'Desa Adat Beleq Historic Village', 'Pusuk Sembalun Rinjani View'],
@@ -72,7 +72,7 @@ export default function DestinationHighlightsPage({ lang, onNavigateHome }: Dest
       subtitleID: 'Sirkuit Mandalika, Bukit Merese & Tanjung Aan',
       badgeEN: 'South Lombok',
       badgeID: 'Lombok Tengah',
-      image: '/dest_lombok.avif',
+      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
       rating: 5.0,
       reviews: 245,
       spotsEN: ['Pertamina Mandalika International Circuit', 'Tanjung Aan White Pepper Sand Beach', 'Bukit Merese Sunset Hill View', 'Desa Sade / Sukarara Sasak Weaving Village'],
@@ -91,7 +91,7 @@ export default function DestinationHighlightsPage({ lang, onNavigateHome }: Dest
       subtitleID: 'Pelabuhan Utama ke Gili Trawangan, Meno & Air',
       badgeEN: 'Harbor Transfer',
       badgeID: 'Pelabuhan Utama',
-      image: '/gallery_senggigi.avif',
+      image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
       rating: 4.9,
       reviews: 180,
       spotsEN: ['Direct Airport / Hotel to Bangsal Transfer', 'Teluk Nara Speedboat Harbor Option', 'Luggage Assistance & Reliable Timings', 'Smooth Connection to 3 Gili Islands'],
@@ -110,7 +110,7 @@ export default function DestinationHighlightsPage({ lang, onNavigateHome }: Dest
       subtitleID: 'Desa Wisata Dunia, Air Terjun & Monyet Hitam',
       badgeEN: 'Nature Village',
       badgeID: 'Desa Wisata',
-      image: '/dest_lombok.avif',
+      image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
       rating: 4.9,
       reviews: 165,
       spotsEN: ['Lush Terraced Green Rice Fields', 'Sarang Walet & Durian Indah Waterfalls', 'Protected Black Monkey Endemic Habitat', 'Serene Rural Lombok Atmosphere'],

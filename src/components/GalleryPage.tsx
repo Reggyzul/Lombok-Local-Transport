@@ -19,7 +19,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Air Terjun Sendang Gile & Tiu Kelep',
       subtitle: 'Wisata Air Terjun Spektakuler di Senaru Kaki Gunung Rinjani',
       location: 'Senaru, Lombok Utara, Nusa Tenggara Barat',
-      image: '/dest_lombok.avif',
+      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
       badge: 'Senaru Rinjani'
     },
     {
@@ -27,15 +27,15 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Sembalun Highland & Bukit Selong',
       subtitle: 'Pemandangan Lembah Hijau dan Gunung Rinjani Megah',
       location: 'Sembalun, Lombok Timur, NTB',
-      image: '/gallery_senggigi.avif',
+      image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
       badge: 'Sembalun Highland'
     },
     {
       id: 3,
       title: 'Kuta Mandalika & Sirkuit Internasional',
-      subtitle: 'Pusat Wisata Pantai Selatan & Sirkuit MotoGP',
+      subtitle: 'Pusat Wisata Pantai Selatan & Sirkuit MotoGP Mandalika',
       location: 'Kuta Mandalika, Lombok Tengah, NTB',
-      image: '/dest_lombok.avif',
+      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
       badge: 'Mandalika Circuit'
     },
     {
@@ -43,7 +43,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Pelabuhan Bangsal',
       subtitle: 'Titik Penyeberangan Wisatawan Menuju Gili Trawangan, Meno & Air',
       location: 'Pelabuhan Bangsal, Pemenang, Lombok Utara',
-      image: '/gallery_senggigi.avif',
+      image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
       badge: 'Pelabuhan Bangsal'
     },
     {
@@ -51,7 +51,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Desa Wisata Tetebatu',
       subtitle: 'Sawah Terasering Hijau dan Air Terjun Sarang Walet',
       location: 'Tetebatu, Sikur, Lombok Timur',
-      image: '/dest_lombok.avif',
+      image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
       badge: 'Tetebatu Nature'
     },
     {
@@ -59,7 +59,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       title: 'Pantai Tanjung Aan & Bukit Merese',
       subtitle: 'Pantai Pasir Merica dan Sunset Eksotis Samudera Hindia',
       location: 'Pujut, Lombok Tengah, NTB',
-      image: '/gallery_senggigi.avif',
+      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
       badge: 'Tanjung Aan & Merese'
     }
   ];
@@ -72,7 +72,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-45 transform scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/dest_lombok.avif')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&q=80&w=1920')`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/65 to-slate-950/95" />
