@@ -51,9 +51,11 @@ export default function Footer({ lang, onNavigateSection }: FooterProps) {
           {/* Column 1: Company Profile & Logo (col-span-4) */}
           <div className="md:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center text-white shadow-md shrink-0">
-                <Car className="w-6 h-6" />
-              </div>
+              <img
+                src="/Gambar/logo.png"
+                alt="Lombok Local Transport Official Logo"
+                className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-md shrink-0"
+              />
               <div>
                 <span className="font-display font-black text-lg tracking-tight text-white uppercase block leading-tight">
                   LOMBOK LOCAL <span className="text-emerald-400">TRANSPORT</span>

@@ -43,10 +43,12 @@ export default function About({ lang }: AboutProps) {
           >
             <div className="space-y-6">
               
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-md">
-                  <Award className="w-6 h-6" />
-                </div>
+              <div className="flex items-center gap-3.5">
+                <img
+                  src="/Gambar/logo.png"
+                  alt="Lombok Local Transport Official Logo"
+                  className="w-14 h-14 object-contain drop-shadow-md shrink-0"
+                />
                 <div>
                   <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-400 block">
                     {t.vision_title}

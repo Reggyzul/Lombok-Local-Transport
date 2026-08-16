@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Car } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from '../utils/translations';
 
@@ -15,7 +15,6 @@ export default function Header({
   activeSection,
   onNavClick,
   lang,
-  setLang,
   onBookingClick
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,8 +46,8 @@ export default function Header({
       <div
         className={`w-full transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md py-3 shadow-md border-b border-slate-200/90'
-            : 'bg-white py-4 border-b border-slate-100'
+            ? 'bg-white/95 backdrop-blur-md py-2.5 shadow-md border-b border-slate-200/90'
+            : 'bg-white py-3.5 border-b border-slate-100'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,9 +59,11 @@ export default function Header({
               className="flex items-center gap-3 cursor-pointer group shrink-0"
               id="header-logo"
             >
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
-                <Car className="w-6 h-6" />
-              </div>
+              <img
+                src="/Gambar/logo.png"
+                alt="Lombok Local Transport Official Logo"
+                className="w-11 h-11 sm:w-12 sm:h-12 object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
+              />
               <div className="flex flex-col leading-snug text-left">
                 <span className="font-display font-black text-sm sm:text-base uppercase tracking-tight transition-colors">
                   <span className="text-emerald-700 font-black">Lombok Local</span> <span className="text-[#0f2b5c]">TRANSPORT</span>
