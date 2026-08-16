@@ -15,9 +15,36 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
   const t = TRANSLATIONS[lang];
 
   const galleryItems = [
-    // Real Customer Tour Documentation Photos
+    // Real Customer Tour Documentation Photos (8 items)
     {
       id: 1,
+      category: 'guest',
+      title: 'Mount Rinjani Summit Sunrise',
+      subtitle: 'Golden sunrise emerging above the ethereal sea of clouds atop Mount Rinjani summit',
+      location: 'Mount Rinjani Summit (3,726m)',
+      image: '/Gambar/gallery-sunrise-clouds.avif',
+      badge: 'Guest Highlight'
+    },
+    {
+      id: 2,
+      category: 'guest',
+      title: 'Mountain Ridge Above the Clouds',
+      subtitle: 'Traveler couple taking in the sweeping ocean of clouds and sunny mountain air',
+      location: 'Mount Pergasingan Ridge, Sembalun',
+      image: '/Gambar/gallery-couple-clouds.avif',
+      badge: 'Guest Highlight'
+    },
+    {
+      id: 3,
+      category: 'guest',
+      title: 'Sembalun Valley & Rinjani Panorama',
+      subtitle: 'Golden morning light illuminating the geometric farming plots of Sembalun with Mount Rinjani backdrop',
+      location: 'Selong Hill Viewpoint, Sembalun',
+      image: '/Gambar/gallery-sembalun-rinjani-view.avif',
+      badge: 'Guest Highlight'
+    },
+    {
+      id: 4,
       category: 'guest',
       title: 'Sembalun Valley Mountain Swing',
       subtitle: 'Scenic wooden swing overlooking the colorful agricultural fields of Sembalun & Mount Pergasingan',
@@ -26,7 +53,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Guest Highlight'
     },
     {
-      id: 2,
+      id: 5,
       category: 'guest',
       title: 'Gili Islands Boat Crossing Transfer',
       subtitle: 'Guest group enjoying the ocean crossing from Lombok harbor to Gili Trawangan',
@@ -35,7 +62,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Guest Highlight'
     },
     {
-      id: 3,
+      id: 6,
       category: 'guest',
       title: 'Mount Rinjani Caldera Breakfast View',
       subtitle: 'Guests savoring breakfast with morning clouds over Segara Anak volcanic crater lake',
@@ -44,7 +71,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Guest Highlight'
     },
     {
-      id: 4,
+      id: 7,
       category: 'guest',
       title: 'Bale Adat Desa Beleq Sembalun',
       subtitle: 'Travelers visiting the preserved ancient Sasak houses at the base of Mount Rinjani hills',
@@ -53,7 +80,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Guest Highlight'
     },
     {
-      id: 5,
+      id: 8,
       category: 'guest',
       title: 'Pergasingan Ridge Trekking',
       subtitle: 'Trekking along the high mountain ridge overlooking the vast panorama of Sembalun valley',
@@ -62,9 +89,9 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Guest Highlight'
     },
 
-    // Destination Highlights
+    // Destination Highlights (5 items)
     {
-      id: 6,
+      id: 9,
       category: 'destinations',
       title: 'Sendang Gile & Tiu Kelep Waterfalls',
       subtitle: 'Lush tropical rainforest waterfalls nestled in Senaru at the northern base of Mount Rinjani',
@@ -73,7 +100,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Senaru Rinjani'
     },
     {
-      id: 7,
+      id: 10,
       category: 'destinations',
       title: 'Kuta Mandalika Beach & Coastline',
       subtitle: 'Pristine turquoise waters, white pepper sand, and iconic beach gazebos in South Lombok',
@@ -82,7 +109,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Mandalika Coast'
     },
     {
-      id: 8,
+      id: 11,
       category: 'destinations',
       title: 'Bangsal Harbor Departure Pier',
       subtitle: 'Main departure point and speedboat dock for Gili Trawangan, Gili Meno, and Gili Air',
@@ -91,7 +118,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Harbor Gateway'
     },
     {
-      id: 9,
+      id: 12,
       category: 'destinations',
       title: 'Tetebatu Terraced Rice Fields',
       subtitle: 'Cascading green rice terraces and serene countryside atmosphere on the southern slope of Rinjani',
@@ -100,7 +127,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Eco Village'
     },
     {
-      id: 10,
+      id: 13,
       category: 'destinations',
       title: 'Sembalun Patchwork Valley',
       subtitle: 'Colorful geometric farmland plots framed by majestic mountain peaks',
@@ -109,9 +136,9 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Sembalun Highland'
     },
 
-    // Fleet
+    // Fleet (3 items)
     {
-      id: 11,
+      id: 14,
       category: 'fleet',
       title: 'Toyota Avanza',
       subtitle: 'Clean, reliable, and air-conditioned MPV perfect for couples and small families',
@@ -120,7 +147,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Fleet 4-5 Seats'
     },
     {
-      id: 12,
+      id: 15,
       category: 'fleet',
       title: 'Toyota Innova',
       subtitle: 'Spacious suspension and premium legroom comfort for long-distance scenic travel',
@@ -129,7 +156,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       badge: 'Fleet 6-7 Seats'
     },
     {
-      id: 13,
+      id: 16,
       category: 'fleet',
       title: 'Toyota Hiace Commuter',
       subtitle: 'High capacity microbus with 12-15 comfortable passenger seats for group tours',
@@ -152,7 +179,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40 transform scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/Gambar/gallery-rinjani-caldera.avif')`
+            backgroundImage: `url('/Gambar/gallery-sunrise-clouds.avif')`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/65 to-slate-950/95" />
@@ -218,7 +245,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
                   : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              ★ Guest Moments (5)
+              ★ Guest Moments (8)
             </button>
             <button
               onClick={() => setActiveCategory('destinations')}
@@ -250,7 +277,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: (index % 3) * 0.06 }}
+              transition={{ duration: 0.4, delay: (index % 3) * 0.05 }}
               key={item.id}
               onClick={() => setSelectedPhoto({ image: item.image, title: item.title, subtitle: item.subtitle, location: item.location })}
               className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer bg-slate-950 border border-slate-200/80"
