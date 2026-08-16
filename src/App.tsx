@@ -6,6 +6,8 @@ import Services from './components/Services';
 import CarList from './components/CarList';
 import DestinationHighlightsPage from './components/DestinationHighlightsPage';
 import TransportRentPage from './components/TransportRentPage';
+import GallerySection from './components/GallerySection';
+import GalleryPage from './components/GalleryPage';
 import BookingSteps from './components/BookingSteps';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
@@ -17,7 +19,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from './utils/translations';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'rentals' | 'destinations'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'rentals' | 'destinations' | 'gallery'>('home');
   const [activeSection, setActiveSection] = useState('home');
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -53,7 +55,7 @@ export default function App() {
       }
 
       if (currentPage === 'home') {
-        const sections = ['home', 'destinations', 'cars', 'footer-contact'];
+        const sections = ['home', 'cars', 'destinations', 'gallery', 'footer-contact'];
         const scrollPosition = window.scrollY + 250;
 
         for (const section of sections) {
@@ -83,6 +85,9 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (sectionId === 'destinations' && currentPage !== 'home') {
       setCurrentPage('destinations');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (sectionId === 'gallery' || sectionId === 'gallery-page') {
+      setCurrentPage('gallery');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setCurrentPage('home');
@@ -138,6 +143,12 @@ export default function App() {
               onViewAllDestinations={() => handleNavClick('destinations')}
             />
 
+            {/* Gallery Section - 3 Featured Photos on Home */}
+            <GallerySection 
+              lang={lang} 
+              onViewAllGallery={() => handleNavClick('gallery')}
+            />
+
             <BookingSteps lang={lang} />
 
             <Testimonials lang={lang} />
@@ -146,6 +157,8 @@ export default function App() {
           <AboutPage lang={lang} onNavigateHome={() => handleNavClick('home')} />
         ) : currentPage === 'destinations' ? (
           <DestinationHighlightsPage lang={lang} onNavigateHome={() => handleNavClick('home')} />
+        ) : currentPage === 'gallery' ? (
+          <GalleryPage lang={lang} onNavigateHome={() => handleNavClick('home')} />
         ) : (
           <TransportRentPage 
             onSelectCar={handleSelectCar} 

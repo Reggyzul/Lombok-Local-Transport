@@ -10,69 +10,149 @@ interface GalleryPageProps {
 
 export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<{ image: string; title: string; subtitle: string; location: string } | null>(null);
+  const [activeCategory, setActiveCategory] = useState<'all' | 'guest' | 'destinations' | 'fleet'>('all');
 
   const t = TRANSLATIONS[lang];
 
   const galleryItems = [
+    // Real Customer Tour Documentation Photos
     {
       id: 1,
+      category: 'guest',
+      title: 'Sembalun Valley Mountain Swing',
+      subtitle: 'Scenic wooden swing overlooking the colorful agricultural fields of Sembalun & Mount Pergasingan',
+      location: 'Pergasingan Hill, Sembalun Lawang',
+      image: '/Gambar/gallery-swing.avif',
+      badge: 'Guest Highlight'
+    },
+    {
+      id: 2,
+      category: 'guest',
+      title: 'Gili Islands Boat Crossing Transfer',
+      subtitle: 'Guest group enjoying the ocean crossing from Lombok harbor to Gili Trawangan',
+      location: 'Bangsal Harbor to Gili Islands',
+      image: '/Gambar/gallery-gili-boat.avif',
+      badge: 'Guest Highlight'
+    },
+    {
+      id: 3,
+      category: 'guest',
+      title: 'Mount Rinjani Caldera Breakfast View',
+      subtitle: 'Guests savoring breakfast with morning clouds over Segara Anak volcanic crater lake',
+      location: 'Mount Rinjani Crater Rim Summit',
+      image: '/Gambar/gallery-rinjani-caldera.avif',
+      badge: 'Guest Highlight'
+    },
+    {
+      id: 4,
+      category: 'guest',
+      title: 'Bale Adat Desa Beleq Sembalun',
+      subtitle: 'Travelers visiting the preserved ancient Sasak houses at the base of Mount Rinjani hills',
+      location: 'Desa Beleq, Sembalun Lawang',
+      image: '/Gambar/gallery-beleq.avif',
+      badge: 'Guest Highlight'
+    },
+    {
+      id: 5,
+      category: 'guest',
+      title: 'Pergasingan Ridge Trekking',
+      subtitle: 'Trekking along the high mountain ridge overlooking the vast panorama of Sembalun valley',
+      location: 'Bukit Selong / Pergasingan, Sembalun',
+      image: '/Gambar/gallery-ridge.avif',
+      badge: 'Guest Highlight'
+    },
+
+    // Destination Highlights
+    {
+      id: 6,
+      category: 'destinations',
       title: 'Sendang Gile & Tiu Kelep Waterfalls',
-      subtitle: 'Spectacular Cascading Waterfalls in Senaru at the Foot of Mount Rinjani',
-      location: 'Senaru, North Lombok, West Nusa Tenggara',
+      subtitle: 'Lush tropical rainforest waterfalls nestled in Senaru at the northern base of Mount Rinjani',
+      location: 'Senaru, North Lombok',
       image: '/Gambar/senaru.avif',
       badge: 'Senaru Rinjani'
     },
     {
-      id: 2,
-      title: 'Sembalun Highland & Selong Hill',
-      subtitle: 'Panoramic Emerald Agricultural Valley & Majestic Mount Rinjani Peak',
-      location: 'Sembalun, East Lombok, West Nusa Tenggara',
+      id: 7,
+      category: 'destinations',
+      title: 'Kuta Mandalika Beach & Coastline',
+      subtitle: 'Pristine turquoise waters, white pepper sand, and iconic beach gazebos in South Lombok',
+      location: 'Kuta Mandalika, Central Lombok',
+      image: '/Gambar/mandalika.avif',
+      badge: 'Mandalika Coast'
+    },
+    {
+      id: 8,
+      category: 'destinations',
+      title: 'Bangsal Harbor Departure Pier',
+      subtitle: 'Main departure point and speedboat dock for Gili Trawangan, Gili Meno, and Gili Air',
+      location: 'Bangsal Harbor, Pemenang',
+      image: '/Gambar/bangsal.avif',
+      badge: 'Harbor Gateway'
+    },
+    {
+      id: 9,
+      category: 'destinations',
+      title: 'Tetebatu Terraced Rice Fields',
+      subtitle: 'Cascading green rice terraces and serene countryside atmosphere on the southern slope of Rinjani',
+      location: 'Tetebatu, Sikur, East Lombok',
+      image: '/Gambar/tetebatu.avif',
+      badge: 'Eco Village'
+    },
+    {
+      id: 10,
+      category: 'destinations',
+      title: 'Sembalun Patchwork Valley',
+      subtitle: 'Colorful geometric farmland plots framed by majestic mountain peaks',
+      location: 'Sembalun Valley, East Lombok',
       image: '/Gambar/sembalun.avif',
       badge: 'Sembalun Highland'
     },
+
+    // Fleet
     {
-      id: 3,
-      title: 'Kuta Mandalika & International Circuit',
-      subtitle: 'South Coast Tourism Center & Pertamina Mandalika MotoGP Circuit',
-      location: 'Kuta Mandalika, Central Lombok, West Nusa Tenggara',
-      image: '/Gambar/mandalika.avif',
-      badge: 'Mandalika Circuit'
+      id: 11,
+      category: 'fleet',
+      title: 'Toyota Avanza',
+      subtitle: 'Clean, reliable, and air-conditioned MPV perfect for couples and small families',
+      location: 'Lombok Local Transport Fleet',
+      image: '/Gambar/avanza.avif',
+      badge: 'Fleet 4-5 Seats'
     },
     {
-      id: 4,
-      title: 'Bangsal Harbor & Ferry Point',
-      subtitle: 'Main Departure Pier for Gili Trawangan, Gili Meno & Gili Air',
-      location: 'Bangsal Harbor, Pemenang, North Lombok',
-      image: '/Gambar/bangsal.avif',
-      badge: 'Bangsal Harbor'
+      id: 12,
+      category: 'fleet',
+      title: 'Toyota Innova',
+      subtitle: 'Spacious suspension and premium legroom comfort for long-distance scenic travel',
+      location: 'Lombok Local Transport Fleet',
+      image: '/Gambar/innova3.avif',
+      badge: 'Fleet 6-7 Seats'
     },
     {
-      id: 5,
-      title: 'Tetebatu UNWTO Eco-Tourism Village',
-      subtitle: 'Lush Terraced Rice Fields & Hidden Sarang Walet Waterfall',
-      location: 'Tetebatu, Sikur, East Lombok',
-      image: '/Gambar/tetebatu.avif',
-      badge: 'Tetebatu Nature'
-    },
-    {
-      id: 6,
-      title: 'Tanjung Aan Beach & Merese Hill',
-      subtitle: 'Pristine White Pepper Sand Coast & Breathtaking Sunset Over the Indian Ocean',
-      location: 'Pujut, Central Lombok, West Nusa Tenggara',
-      image: '/Gambar/mandalika.avif',
-      badge: 'Tanjung Aan & Merese'
+      id: 13,
+      category: 'fleet',
+      title: 'Toyota Hiace Commuter',
+      subtitle: 'High capacity microbus with 12-15 comfortable passenger seats for group tours',
+      location: 'Lombok Local Transport Fleet',
+      image: '/Gambar/hiace.avif',
+      badge: 'Fleet 12-15 Seats'
     }
   ];
+
+  const filteredItems = galleryItems.filter(item => {
+    if (activeCategory === 'all') return true;
+    return item.category === activeCategory;
+  });
 
   return (
     <div className="bg-slate-50 text-[#0d1b37] min-h-screen pt-20 text-left">
       
       {/* 1. TOP HEADER BANNER */}
-      <div className="relative w-full h-[250px] sm:h-[320px] bg-slate-950 text-white overflow-hidden flex items-center justify-center">
+      <div className="relative w-full h-[260px] sm:h-[320px] bg-slate-950 text-white overflow-hidden flex items-center justify-center">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-45 transform scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center opacity-40 transform scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/Gambar/tetebatu.avif')`
+            backgroundImage: `url('/Gambar/gallery-rinjani-caldera.avif')`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/65 to-slate-950/95" />
@@ -84,7 +164,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-600/90 text-white font-extrabold text-[11px] uppercase tracking-widest mb-1 shadow-lg"
           >
             <Camera className="w-4 h-4 text-emerald-300" />
-            <span>LOMBOK LOCAL TRANSPORT DESTINATIONS</span>
+            <span>AUTHENTIC TRAVEL MEMORIES &amp; FLEET</span>
           </motion.div>
 
           <motion.h1 
@@ -92,7 +172,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             animate={{ opacity: 1, scale: 1 }}
             className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight uppercase drop-shadow-lg"
           >
-            Lombok Destination Gallery
+            Lombok Photo Gallery
           </motion.h1>
 
           <motion.p 
@@ -108,33 +188,77 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       {/* MAIN CONTENT CONTAINER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
         
-        {/* Subtitle Description */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+        {/* Section Heading & Category Filter Tabs */}
+        <div className="text-center max-w-3xl mx-auto space-y-4">
           <h2 className="font-display font-black text-3xl sm:text-4xl text-[#0d1b37]">
-            Popular Destinations Across Lombok Island
+            Guest Moments &amp; Island Highlights
           </h2>
           <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
           <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-            Lombok Local Transport caters to sightseeing tours, daily car rentals, airport pickups, and harbor transfers to all top attractions in Lombok.
+            Explore authentic documentation from our tours, island transfers, and premium transport fleet across Lombok.
           </p>
+
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-3">
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
+                activeCategory === 'all'
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+              }`}
+            >
+              All Photos ({galleryItems.length})
+            </button>
+            <button
+              onClick={() => setActiveCategory('guest')}
+              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
+                activeCategory === 'guest'
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+              }`}
+            >
+              ★ Guest Moments (5)
+            </button>
+            <button
+              onClick={() => setActiveCategory('destinations')}
+              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
+                activeCategory === 'destinations'
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+              }`}
+            >
+              Destinations (5)
+            </button>
+            <button
+              onClick={() => setActiveCategory('fleet')}
+              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
+                activeCategory === 'fleet'
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+              }`}
+            >
+              Fleet Cars (3)
+            </button>
+          </div>
         </div>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryItems.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <motion.div
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
+              transition={{ duration: 0.4, delay: (index % 3) * 0.06 }}
               key={item.id}
               onClick={() => setSelectedPhoto({ image: item.image, title: item.title, subtitle: item.subtitle, location: item.location })}
-              className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer bg-slate-950 border border-slate-200/60"
+              className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer bg-slate-950 border border-slate-200/80"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-95 group-hover:opacity-100"
+                className={`w-full h-full ${item.category === 'fleet' ? 'object-contain p-4' : 'object-cover'} group-hover:scale-110 transition-transform duration-700 opacity-95 group-hover:opacity-100`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
 
@@ -177,7 +301,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedPhoto(null)}
-            className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer"
           >
             <div 
               onClick={(e) => e.stopPropagation()} 

@@ -75,7 +75,7 @@ export default function Header({
             </div>
 
             {/* 2. CENTER: DESKTOP NAV LINKS */}
-            <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 text-xs font-sans font-bold text-slate-700 flex-1 px-4" id="desktop-nav">
+            <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-7 text-xs font-sans font-bold text-slate-700 flex-1 px-4" id="desktop-nav">
               
               <button
                 onClick={() => handleItemClick('home')}
@@ -111,6 +111,15 @@ export default function Header({
                 }`}
               >
                 {t.nav_rentals}
+              </button>
+
+              <button
+                onClick={() => handleItemClick('gallery')}
+                className={`hover:text-emerald-700 transition-colors cursor-pointer py-1 ${
+                  activeSection === 'gallery' ? 'text-emerald-700 font-black border-b-2 border-emerald-600' : ''
+                }`}
+              >
+                {t.nav_gallery}
               </button>
 
             </nav>
@@ -173,6 +182,12 @@ export default function Header({
                 className="block w-full text-left font-display font-bold text-sm text-slate-800 hover:text-emerald-700 py-2 border-b border-slate-100"
               >
                 {t.nav_rentals}
+              </button>
+              <button
+                onClick={() => handleItemClick('gallery')}
+                className="block w-full text-left font-display font-bold text-sm text-slate-800 hover:text-emerald-700 py-2 border-b border-slate-100"
+              >
+                {t.nav_gallery}
               </button>
 
               <div className="pt-2">
