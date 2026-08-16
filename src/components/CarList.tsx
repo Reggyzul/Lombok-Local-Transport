@@ -14,12 +14,11 @@ interface CarListProps {
 export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListProps) {
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const t = TRANSLATIONS[lang];
-  const isEN = lang === 'EN';
 
   const categories = [
-    { id: 'all', label: isEN ? 'All Vehicles' : 'Semua Armada' },
-    { id: 'mpv', label: isEN ? 'Family & Private (Avanza / Innova)' : 'Keluarga & Pribadi (Avanza / Innova)' },
-    { id: 'hiace', label: isEN ? 'Group Transport (Hiace)' : 'Rombongan (Hiace)' }
+    { id: 'all', label: 'All Vehicles' },
+    { id: 'mpv', label: 'Family & Private (Avanza / Innova)' },
+    { id: 'hiace', label: 'Group Transport (Hiace)' }
   ];
 
   const filteredCars = CARS.filter(car => {
@@ -31,9 +30,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
 
   const handleWhatsAppBooking = (car: Car) => {
     const waNumber = '6281999344480';
-    const message = isEN
-      ? `Hello Lombok Local Transport, I am interested in renting: ${car.name}. Please inform price quote & date availability. Thank you!`
-      : `Halo Lombok Local Transport, saya berminat sewa armada: ${car.name}. Mohon informasi penawaran harga & ketersediaan tanggal. Terima kasih!`;
+    const message = `Hello Lombok Local Transport, I am interested in renting: ${car.name}. Please inform price quote & date availability. Thank you!`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
   };
 
@@ -49,15 +46,13 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
           </div>
 
           <h2 className="font-display font-black text-4xl sm:text-5xl text-[#0d1b37] tracking-tight leading-tight uppercase">
-            {isEN ? 'Lombok Local Transport Fleet' : 'Pilihan Armada Lombok Local Transport'}
+            Lombok Local Transport Fleet
           </h2>
 
           <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
 
           <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium max-w-2xl mx-auto">
-            {isEN 
-              ? 'With Avanza, Innova, and Hiace vehicle choices, Lombok Local Transport is ready to serve individual, family, and group trips across Lombok.' 
-              : 'Dengan pilihan kendaraan Avanza, Innova, dan Hiace, Lombok Local Transport siap melayani kebutuhan perjalanan individu, keluarga, maupun rombongan.'}
+            With Toyota Avanza, Toyota Innova, and Toyota Hiace vehicle choices, Lombok Local Transport is ready to serve individual, family, and group journeys across Lombok.
           </p>
 
           {/* Filter Category Tabs */}
@@ -115,7 +110,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
                     <div className="flex items-center gap-4 text-xs font-bold text-slate-700 pt-2 border-t border-slate-100">
                       <div className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
                         <Users className="w-4 h-4 text-emerald-600" />
-                        <span>{`${car.seats} ${isEN ? 'Seats' : 'Kursi'}`}</span>
+                        <span>{`${car.seats} Seats`}</span>
                       </div>
                       <div className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
                         <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -125,7 +120,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
 
                     <div className="space-y-1.5 pt-2">
                       <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
-                        {isEN ? 'Key Advantages:' : 'Keunggulan & Fasilitas:'}
+                        Key Features &amp; Highlights:
                       </span>
                       <ul className="space-y-1">
                         {car.includeList.map((inc, idx) => (
@@ -148,7 +143,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
                     className="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-display font-black text-xs uppercase py-3.5 rounded-2xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
                   >
                     <Sparkles className="w-4 h-4" />
-                    <span>{isEN ? 'Book This Vehicle' : 'Pesan Kendaraan Ini'}</span>
+                    <span>Book This Vehicle</span>
                   </button>
 
                   <button
@@ -159,7 +154,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
                     className="w-full bg-[#0f2b5c] hover:bg-[#0a1c3f] text-white font-display font-black text-xs uppercase py-3 rounded-2xl shadow-sm transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>{isEN ? 'Consult via WA' : 'Konsultasi via WA'}</span>
+                    <span>Consult via WhatsApp</span>
                   </button>
                 </div>
               </motion.div>
@@ -175,7 +170,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
               className="group flex flex-col items-center justify-center gap-1.5 cursor-pointer text-slate-700 hover:text-emerald-700 transition-colors py-2"
             >
               <span className="font-display font-black text-xs uppercase tracking-widest text-slate-800 group-hover:text-emerald-700 transition-colors">
-                {lang === 'ID' ? 'Lihat Semua Layanan' : 'View All Services'}
+                View All Services
               </span>
               <ChevronDown className="w-6 h-6 text-emerald-600 animate-bounce group-hover:translate-y-1 transition-transform" />
             </button>

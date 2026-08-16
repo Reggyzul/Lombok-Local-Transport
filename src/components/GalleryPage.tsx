@@ -16,49 +16,49 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
   const galleryItems = [
     {
       id: 1,
-      title: 'Air Terjun Sendang Gile & Tiu Kelep',
-      subtitle: 'Wisata Air Terjun Spektakuler di Senaru Kaki Gunung Rinjani',
-      location: 'Senaru, Lombok Utara, Nusa Tenggara Barat',
+      title: 'Sendang Gile & Tiu Kelep Waterfalls',
+      subtitle: 'Spectacular Cascading Waterfalls in Senaru at the Foot of Mount Rinjani',
+      location: 'Senaru, North Lombok, West Nusa Tenggara',
       image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
       badge: 'Senaru Rinjani'
     },
     {
       id: 2,
-      title: 'Sembalun Highland & Bukit Selong',
-      subtitle: 'Pemandangan Lembah Hijau dan Gunung Rinjani Megah',
-      location: 'Sembalun, Lombok Timur, NTB',
+      title: 'Sembalun Highland & Selong Hill',
+      subtitle: 'Panoramic Emerald Agricultural Valley & Majestic Mount Rinjani Peak',
+      location: 'Sembalun, East Lombok, West Nusa Tenggara',
       image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
       badge: 'Sembalun Highland'
     },
     {
       id: 3,
-      title: 'Kuta Mandalika & Sirkuit Internasional',
-      subtitle: 'Pusat Wisata Pantai Selatan & Sirkuit MotoGP Mandalika',
-      location: 'Kuta Mandalika, Lombok Tengah, NTB',
+      title: 'Kuta Mandalika & International Circuit',
+      subtitle: 'South Coast Tourism Center & Pertamina Mandalika MotoGP Circuit',
+      location: 'Kuta Mandalika, Central Lombok, West Nusa Tenggara',
       image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
       badge: 'Mandalika Circuit'
     },
     {
       id: 4,
-      title: 'Pelabuhan Bangsal',
-      subtitle: 'Titik Penyeberangan Wisatawan Menuju Gili Trawangan, Meno & Air',
-      location: 'Pelabuhan Bangsal, Pemenang, Lombok Utara',
+      title: 'Bangsal Harbor & Ferry Point',
+      subtitle: 'Main Departure Pier for Gili Trawangan, Gili Meno & Gili Air',
+      location: 'Bangsal Harbor, Pemenang, North Lombok',
       image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
-      badge: 'Pelabuhan Bangsal'
+      badge: 'Bangsal Harbor'
     },
     {
       id: 5,
-      title: 'Desa Wisata Tetebatu',
-      subtitle: 'Sawah Terasering Hijau dan Air Terjun Sarang Walet',
-      location: 'Tetebatu, Sikur, Lombok Timur',
+      title: 'Tetebatu UNWTO Eco-Tourism Village',
+      subtitle: 'Lush Terraced Rice Fields & Hidden Sarang Walet Waterfall',
+      location: 'Tetebatu, Sikur, East Lombok',
       image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
       badge: 'Tetebatu Nature'
     },
     {
       id: 6,
-      title: 'Pantai Tanjung Aan & Bukit Merese',
-      subtitle: 'Pantai Pasir Merica dan Sunset Eksotis Samudera Hindia',
-      location: 'Pujut, Lombok Tengah, NTB',
+      title: 'Tanjung Aan Beach & Merese Hill',
+      subtitle: 'Pristine White Pepper Sand Coast & Breathtaking Sunset Over the Indian Ocean',
+      location: 'Pujut, Central Lombok, West Nusa Tenggara',
       image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
       badge: 'Tanjung Aan & Merese'
     }
@@ -84,7 +84,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-600/90 text-white font-extrabold text-[11px] uppercase tracking-widest mb-1 shadow-lg"
           >
             <Camera className="w-4 h-4 text-emerald-300" />
-            <span>DOKUMENTASI &amp; DESTINASI LOMBOK LOCAL TRANSPORT</span>
+            <span>LOMBOK LOCAL TRANSPORT DESTINATIONS</span>
           </motion.div>
 
           <motion.h1 
@@ -92,7 +92,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             animate={{ opacity: 1, scale: 1 }}
             className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight uppercase drop-shadow-lg"
           >
-            Galeri Destinasi Lombok
+            Lombok Destination Gallery
           </motion.h1>
 
           <motion.p 
@@ -100,7 +100,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             animate={{ opacity: 1, y: 0 }}
             className="font-sans text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-widest"
           >
-            <span onClick={onNavigateHome} className="hover:text-emerald-400 cursor-pointer transition-colors">HOME</span> / GALERI DOKUMENTASI
+            <span onClick={onNavigateHome} className="hover:text-emerald-400 cursor-pointer transition-colors">HOME</span> / GALLERY
           </motion.p>
         </div>
       </div>
@@ -111,11 +111,11 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
         {/* Subtitle Description */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <h2 className="font-display font-black text-3xl sm:text-4xl text-[#0d1b37]">
-            Destinasi Populer Pulau Lombok
+            Popular Destinations Across Lombok Island
           </h2>
           <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
           <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-            Lombok Local Transport melayani perjalanan wisata, rental mobil harian, dan antar-jemput menuju berbagai destinasi favorit di Lombok.
+            Lombok Local Transport caters to sightseeing tours, daily car rentals, airport pickups, and harbor transfers to all top attractions in Lombok.
           </p>
         </div>
 

@@ -11,145 +11,117 @@ interface ServicesProps {
 export default function Services({ lang, onViewAllDestinations }: ServicesProps) {
   const [activeCategory, setActiveCategory] = useState<'all' | 'jabar' | 'jateng' | 'jatim' | 'bali'>('all');
   const t = TRANSLATIONS[lang];
-  const isEN = lang === 'EN';
 
   const handleWhatsAppBooking = (highlightTitle: string, categoryName: string) => {
     const waNumber = '6281999344480';
-    const message = isEN
-      ? `Hello Lombok Local Transport, I would like to consult on the tour route / service: ${highlightTitle} (${categoryName}). Please inform availability & price quote. Thank you!`
-      : `Halo Lombok Local Transport, saya ingin berkonsultasi mengenai rute wisata / layanan: ${highlightTitle} (${categoryName}). Mohon informasi ketersediaan & penawaran harga. Terima kasih!`;
+    const message = `Hello Lombok Local Transport, I would like to consult on the tour route / service: ${highlightTitle} (${categoryName}). Please inform availability & price quote. Thank you!`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
   };
 
   const coreServices = [
     {
       icon: Car,
-      title: isEN ? 'Car Rental' : 'Rental Mobil',
-      desc: isEN ? 'Vehicle rental for private, family, and tour travel needs across Lombok.' : 'Penyewaan kendaraan untuk kebutuhan perjalanan pribadi, keluarga, maupun wisata di seluruh Lombok.'
+      title: 'Car Rental',
+      desc: 'Vehicle rental for private, family, and tour travel needs across Lombok Island.'
     },
     {
       icon: Plane,
-      title: isEN ? 'Airport Transfer' : 'Airport Transfer',
-      desc: isEN ? 'Punctual pickup and drop-off service to and from Lombok International Airport (BIZAM).' : 'Layanan antar-jemput tepat waktu dari dan menuju Lombok International Airport (BIZAM).'
+      title: 'Airport Transfer',
+      desc: 'Punctual pickup and drop-off service to and from Lombok International Airport (BIZAM).'
     },
     {
       icon: Ship,
-      title: isEN ? 'Harbor Transfer' : 'Pelabuhan Transfer',
-      desc: isEN ? 'Transport to and from ports in Lombok, including the main Bangsal Port (Gili Islands), Lembar & Kayangan.' : 'Transportasi menuju dan dari pelabuhan, termasuk kawasan Pelabuhan Bangsal (Gili), Lembar & Kayangan.'
+      title: 'Harbor Transfer',
+      desc: 'Transport to and from ports in Lombok, including Bangsal Harbor (Gili Islands), Lembar & Kayangan.'
     },
     {
       icon: Compass,
-      title: isEN ? 'Tourism Transport' : 'Transportasi Wisata',
-      desc: isEN ? 'Trips to popular Lombok destinations like Senaru, Sembalun, Kuta Mandalika, and Tetebatu.' : 'Perjalanan menuju destinasi wisata populer di Lombok seperti Senaru, Sembalun, Kuta Mandalika, dan Tetebatu.'
+      title: 'Tourism Transport',
+      desc: 'Scenic trips to popular Lombok destinations like Senaru, Sembalun, Kuta Mandalika, and Tetebatu.'
     },
     {
       icon: Users,
-      title: isEN ? 'Group Transport' : 'Transportasi Rombongan',
-      desc: isEN ? 'Toyota Hiace as the prime vehicle choice for group, family, community, or corporate journeys.' : 'Toyota Hiace sebagai pilihan kendaraan nyaman untuk perjalanan bersama keluarga atau rombongan.'
+      title: 'Group Transport',
+      desc: 'Toyota Hiace as the premier vehicle choice for group, family, community, or corporate journeys.'
     },
     {
       icon: Route,
-      title: isEN ? 'Custom Trip / Flexible Route' : 'Custom Trip / Sesuai Tujuan',
-      desc: isEN ? 'Guests can customize their travel itinerary and destinations based on their personal holiday plan.' : 'Pelanggan dapat menentukan tujuan perjalanan sesuai kebutuhan dan rencana wisata pribadi.'
+      title: 'Custom Trip / Flexible Route',
+      desc: 'Guests can freely customize their travel itinerary and destinations based on their personal holiday plan.'
     }
   ];
 
   const popularRoutes = [
-    'Senaru (Air Terjun Sendang Gile & Tiu Kelep)',
-    'Pelabuhan Bangsal (Gili Trawangan, Meno, Air)',
-    'Pelabuhan di Lombok (Lembar & Kayangan)',
+    'Senaru (Sendang Gile & Tiu Kelep Waterfalls)',
+    'Bangsal Port (Gili Trawangan, Meno, Air)',
+    'Lombok Ports (Lembar & Kayangan)',
     'Lombok International Airport (BIZAM)',
-    'Kuta Mandalika (Sirkuit & Pantai Kuta)',
-    'Sembalun (Bukit Selong & Lembah Rinjani)',
-    'Tetebatu (Desa Wisata & Air Terjun)',
-    'Senggigi, Mataram Kota & Pantai Pink'
+    'Kuta Mandalika (Circuit & South Beaches)',
+    'Sembalun (Selong Hill & Rinjani Valley)',
+    'Tetebatu (Cultural Village & Waterfalls)',
+    'Senggigi, Mataram City & Pink Beach'
   ];
 
   const allDestinationHighlights = [
     {
       id: 'senaru',
       categoryKey: 'jabar',
-      categoryNameEN: 'Rinjani Waterfalls',
-      categoryNameID: 'Air Terjun & Alam',
-      titleEN: 'Senaru Waterfalls & Rinjani Foothill',
-      titleID: 'Senaru & Air Terjun Sendang Gile - Tiu Kelep',
-      subtitleEN: 'Sendang Gile, Tiu Kelep & Traditional Village',
-      subtitleID: 'Sendang Gile, Tiu Kelep & Desa Adat Tradisional',
-      badgeEN: 'Waterfalls & Trekking',
-      badgeID: 'Air Terjun & Alam',
+      categoryName: 'Rinjani Waterfalls',
+      title: 'Senaru Waterfalls & Rinjani Foothill',
+      subtitle: 'Sendang Gile, Tiu Kelep & Traditional Sasak Village',
+      badge: 'Waterfalls & Trekking',
       image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
       rating: 5.0,
       reviews: 215,
-      spotsEN: ['Sendang Gile Spectacular Waterfall', 'Tiu Kelep Jungle Waterfall Adventure', 'Senaru Traditional Sasak Village', 'Scenic Foothill of Mount Rinjani'],
-      spotsID: ['Air Terjun Sendang Gile Megah', 'Petualangan Air Terjun Tiu Kelep', 'Desa Adat Tradisional Senaru', 'Gerbang Pendakian Gunung Rinjani']
+      spots: ['Sendang Gile Spectacular Waterfall', 'Tiu Kelep Jungle Waterfall Adventure', 'Senaru Traditional Sasak Village', 'Scenic Foothill of Mount Rinjani']
     },
     {
       id: 'sembalun',
       categoryKey: 'jabar',
-      categoryNameEN: 'Highland & Rinjani View',
-      categoryNameID: 'Pegunungan Sejuk',
-      titleEN: 'Sembalun Highland & Bukit Selong',
-      titleID: 'Sembalun Highland & Panorama Rinjani',
-      subtitleEN: 'Selong Hill, Strawberry Farms & Cool Breeze',
-      subtitleID: 'Bukit Selong, Kebun Stroberi & Udara Sejuk',
-      badgeEN: 'Highland Tour',
-      badgeID: 'Pegunungan',
+      categoryName: 'Highland & Rinjani View',
+      title: 'Sembalun Highland & Selong Hill',
+      subtitle: 'Selong Hill, Strawberry Farms & Cool Breeze',
+      badge: 'Highland Tour',
       image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
       rating: 4.9,
       reviews: 198,
-      spotsEN: ['Bukit Selong Valley Viewpoint', 'Sembalun Fresh Strawberry Picking Farm', 'Desa Adat Beleq Historic Village', 'Pusuk Sembalun Rinjani View & Photo Spots'],
-      spotsID: ['Panorama Lembah Bukit Selong', 'Agrowisata Petik Stroberi Segar', 'Desa Adat Kuno Beleq Sembalun', 'Pusuk Sembalun Spot Foto Rinjani']
+      spots: ['Selong Hill Valley Viewpoint', 'Sembalun Fresh Strawberry Picking Farm', 'Beleq Ancient Historic Village', 'Pusuk Sembalun Rinjani View & Photo Spots']
     },
     {
       id: 'mandalika',
       categoryKey: 'jateng',
-      categoryNameEN: 'Mandalika & South Beaches',
-      categoryNameID: 'Pantai & Sirkuit',
-      titleEN: 'Kuta Mandalika & South Lombok',
-      titleID: 'Kuta Mandalika & Pantai Selatan',
-      subtitleEN: 'Mandalika Circuit, Merese Hill & Tanjung Aan',
-      subtitleID: 'Sirkuit Mandalika, Bukit Merese & Tanjung Aan',
-      badgeEN: 'Beaches & Circuit',
-      badgeID: 'Kawasan Wisata',
+      categoryName: 'Mandalika & South Beaches',
+      title: 'Kuta Mandalika & South Lombok',
+      subtitle: 'Mandalika Circuit, Merese Hill & Tanjung Aan',
+      badge: 'Beaches & Circuit',
       image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
       rating: 5.0,
       reviews: 245,
-      spotsEN: ['Pertamina Mandalika International Circuit', 'Tanjung Aan White Pepper Sand Beach', 'Bukit Merese Sunset Hill View', 'Desa Sade / Sukarara Sasak Weaving Village'],
-      spotsID: ['Sirkuit Internasional Mandalika', 'Pantai Pasir Merica Tanjung Aan', 'Bukit Merese Sunset Eksotis', 'Desa Wisata Tenun Sade & Sukarara']
+      spots: ['Pertamina Mandalika International Circuit', 'Tanjung Aan White Pepper Sand Beach', 'Merese Hill Sunset Ocean View', 'Sade & Sukarara Sasak Weaving Villages']
     },
     {
       id: 'bangsal',
       categoryKey: 'jatim',
-      categoryNameEN: 'Harbor & Gili Crossing',
-      categoryNameID: 'Pelabuhan & Gili',
-      titleEN: 'Pelabuhan Bangsal & Gili Islands Transfer',
-      titleID: 'Pelabuhan Bangsal & Antar-Jemput Gili',
-      subtitleEN: 'Main Harbor to Gili Trawangan, Meno & Air',
-      subtitleID: 'Pelabuhan Utama Penyeberangan Gili Trawangan',
-      badgeEN: 'Harbor Transfer',
-      badgeID: 'Transfer Pelabuhan',
+      categoryName: 'Harbor & Gili Crossing',
+      title: 'Bangsal Harbor & Gili Islands Transfer',
+      subtitle: 'Main Harbor to Gili Trawangan, Meno & Air',
+      badge: 'Harbor Transfer',
       image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
       rating: 4.9,
       reviews: 180,
-      spotsEN: ['Direct Airport / Hotel to Bangsal Transfer', 'Teluk Nara Speedboat Harbor Option', 'Luggage Assistance & Reliable Timings', 'Smooth Connection to 3 Gili Islands'],
-      spotsID: ['Antar-Jemput Bandara / Hotel ke Bangsal', 'Pelabuhan Teluk Nara & Speedboat', 'Bantuan Bagasi & Tepat Waktu', 'Koneksi Praktis ke 3 Gili (Trawangan/Meno/Air)']
+      spots: ['Direct Airport / Hotel to Bangsal Transfer', 'Teluk Nara Speedboat Harbor Option', 'Luggage Assistance & Reliable Timings', 'Smooth Connection to 3 Gili Islands']
     },
     {
       id: 'tetebatu',
       categoryKey: 'bali',
-      categoryNameEN: 'Nature & Cultural Village',
-      categoryNameID: 'Desa Wisata Alam',
-      titleEN: 'Tetebatu Nature & Rice Terraces',
-      titleID: 'Tetebatu & Sawah Terasering Hijau',
-      subtitleEN: 'UNWTO Tourist Village, Waterfalls & Black Monkeys',
-      subtitleID: 'Desa Wisata Dunia, Air Terjun & Monyet Hitam',
-      badgeEN: 'Nature Village',
-      badgeID: 'Desa Wisata',
+      categoryName: 'Nature & Cultural Village',
+      title: 'Tetebatu Nature & Rice Terraces',
+      subtitle: 'UNWTO Tourist Village, Waterfalls & Black Monkeys',
+      badge: 'Nature Village',
       image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
       rating: 4.9,
       reviews: 165,
-      spotsEN: ['Lush Terraced Green Rice Fields', 'Sarang Walet & Durian Indah Waterfalls', 'Protected Black Monkey Endemic Habitat', 'Serene Rural Lombok Atmosphere'],
-      spotsID: ['Pemandangan Sawah Terasering Bertingkat', 'Air Terjun Sarang Walet & Durian Indah', 'Hutan Lindung Monyet Hitam Endemik', 'Kopi Lokal & Suasana Pedesaan Asri']
+      spots: ['Lush Terraced Green Rice Fields', 'Sarang Walet & Durian Indah Waterfalls', 'Protected Black Monkey Endemic Habitat', 'Serene Rural Lombok Atmosphere']
     }
   ];
 
@@ -169,7 +141,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-5xl text-[#0d1b37] tracking-tight leading-tight uppercase">
-            {isEN ? 'Our Services & Travel Routes' : 'Layanan & Area Rute di Lombok'}
+            Our Services &amp; Travel Routes
           </h2>
           <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
           <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
@@ -214,10 +186,10 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
             </div>
             <div>
               <h3 className="font-display font-black text-xl text-white uppercase tracking-tight">
-                {isEN ? 'Area & Key Service Routes' : 'Area & Rute Layanan Populer'}
+                Key Travel Routes in Lombok
               </h3>
               <p className="font-sans text-xs text-slate-300 font-medium">
-                {isEN ? 'Lombok Local Transport serves travel to all destinations, ports, and airports in Lombok' : 'Lombok Local Transport melayani perjalanan menuju berbagai destinasi wisata, pelabuhan, dan bandara di Lombok'}
+                Lombok Local Transport caters to all scenic destinations, ferry ports, and airport hubs across Lombok
               </p>
             </div>
           </div>
@@ -231,7 +203,7 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
             ))}
           </div>
           <p className="text-[11px] text-emerald-300 italic text-center pt-2">
-            *Tersedia juga perjalanan antar-jemput door to door dan custom trip sesuai kebutuhan rencana perjalanan Anda.
+            *Door-to-door transfers, multi-day itineraries, and custom trips are available upon request.
           </p>
         </div>
 
@@ -239,10 +211,10 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
         <div className="space-y-8">
           <div className="text-center space-y-2">
             <h3 className="font-display font-black text-2xl text-[#0d1b37] uppercase">
-              {isEN ? 'Featured Lombok Travel Highlights' : 'Destinasi Unggulan Wisata Lombok'}
+              Featured Lombok Travel Highlights
             </h3>
             <p className="font-sans text-xs text-slate-600 font-medium">
-              {isEN ? 'Senaru, Sembalun, Kuta Mandalika, Bangsal Harbor & Tetebatu' : 'Senaru, Sembalun, Kuta Mandalika, Pelabuhan Bangsal & Tetebatu'}
+              Senaru, Sembalun, Kuta Mandalika, Bangsal Harbor &amp; Tetebatu
             </p>
           </div>
 
@@ -252,12 +224,12 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
                 <div className="relative h-60 overflow-hidden">
                   <img
                     src={dest.image}
-                    alt={dest.titleID}
+                    alt={dest.title}
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-emerald-600 text-white font-display font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-md">
-                      {dest.badgeID}
+                      {dest.badge}
                     </span>
                   </div>
                 </div>
@@ -265,14 +237,14 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
                 <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                   <div className="space-y-2">
                     <h4 className="font-display font-black text-xl text-[#0d1b37] uppercase">
-                      {dest.titleID}
+                      {dest.title}
                     </h4>
                     <p className="font-sans text-xs text-emerald-700 font-bold">
-                      {dest.subtitleID}
+                      {dest.subtitle}
                     </p>
                     
                     <div className="pt-3 space-y-1.5">
-                      {dest.spotsID.map((spot, sIdx) => (
+                      {dest.spots.map((spot, sIdx) => (
                         <div key={sIdx} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           <span>{spot}</span>
@@ -283,11 +255,11 @@ export default function Services({ lang, onViewAllDestinations }: ServicesProps)
 
                   <div className="pt-4 border-t border-slate-100">
                     <button
-                      onClick={() => handleWhatsAppBooking(dest.titleID, dest.categoryNameID)}
+                      onClick={() => handleWhatsAppBooking(dest.title, dest.categoryName)}
                       className="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-sans font-bold text-xs uppercase rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4" />
-                      <span>Konsultasi Rute ini via WA</span>
+                      <span>Consult This Route via WhatsApp</span>
                     </button>
                   </div>
                 </div>

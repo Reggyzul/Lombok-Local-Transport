@@ -21,10 +21,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [lang, setLang] = useState<'EN' | 'ID'>(() => {
-    const saved = localStorage.getItem('lombok_transport_lang');
-    return (saved === 'ID' || saved === 'EN') ? saved : 'ID';
-  });
+  const [lang, setLang] = useState<'EN' | 'ID'>('EN');
 
   const t = TRANSLATIONS[lang];
 
@@ -35,7 +32,7 @@ export default function App() {
 
   useEffect(() => {
     // Dynamic SEO Metadata Synchronization
-    document.documentElement.lang = lang === 'EN' ? 'en' : 'id';
+    document.documentElement.lang = 'en';
     document.title = t.seo_title;
     
     let metaDesc = document.querySelector('meta[name="description"]');
@@ -174,7 +171,7 @@ export default function App() {
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={scrollToTop}
               className="w-10 h-10 rounded-full bg-[#0d1b37] text-white flex items-center justify-center shadow-lg hover:bg-slate-800 transition-colors cursor-pointer border border-slate-700"
-              title={lang === 'EN' ? "Scroll to top" : "Kembali ke atas"}
+              title="Scroll to top"
             >
               <ChevronUp className="w-5 h-5" />
             </motion.button>
@@ -185,11 +182,11 @@ export default function App() {
         <motion.a
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          href="https://api.whatsapp.com/send?phone=6281999344480&text=Halo%20Lombok%20Local%20Transport,%20saya%20ingin%20konsultasi%20layanan%20transportasi%20dan%20rental%20mobil%20di%20Lombok"
+          href="https://api.whatsapp.com/send?phone=6281999344480&text=Hello%20Lombok%20Local%20Transport,%20I%20would%20like%20to%20consult%20transportation%20and%20car%20rental%20services%20in%20Lombok"
           target="_blank"
           rel="noreferrer"
           className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl hover:scale-110 transition-transform duration-300 border-2 border-white cursor-pointer"
-          title={lang === 'EN' ? "Chat with Lombok Local Transport on WhatsApp" : "Hubungi Lombok Local Transport via WhatsApp"}
+          title="Chat with Lombok Local Transport on WhatsApp"
         >
           {/* Authentic WhatsApp Logo SVG */}
           <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">

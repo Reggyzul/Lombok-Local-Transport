@@ -33,7 +33,7 @@ export default function About({ lang }: AboutProps) {
         {/* 2-COLUMN VISION & ADVANTAGES CONTAINER */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* LEFT COLUMN: VISI & KEUNGGULAN */}
+          {/* LEFT COLUMN: VISION & ADVANTAGES */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -57,7 +57,7 @@ export default function About({ lang }: AboutProps) {
                 </div>
               </div>
 
-              {/* Visi Statement */}
+              {/* Vision Statement */}
               <div className="space-y-4 pt-2">
                 <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
                   <p className="font-sans text-sm text-slate-100 leading-relaxed font-medium">
@@ -113,12 +113,12 @@ export default function About({ lang }: AboutProps) {
                 </div>
               </div>
 
-              {/* Misi Bullet Items */}
+              {/* Service Items */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
                   <div className="flex items-center gap-2 font-display font-black text-xs text-emerald-700 uppercase">
                     <span>01.</span>
-                    <span>Rental Mobil</span>
+                    <span>Car Rental</span>
                   </div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed font-medium">
                     {t.mission_1}
@@ -138,7 +138,7 @@ export default function About({ lang }: AboutProps) {
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
                   <div className="flex items-center gap-2 font-display font-black text-xs text-emerald-700 uppercase">
                     <span>03.</span>
-                    <span>Pelabuhan Transfer</span>
+                    <span>Harbor Transfer</span>
                   </div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed font-medium">
                     {t.mission_3}
@@ -148,7 +148,7 @@ export default function About({ lang }: AboutProps) {
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
                   <div className="flex items-center gap-2 font-display font-black text-xs text-emerald-700 uppercase">
                     <span>04.</span>
-                    <span>Transportasi Wisata</span>
+                    <span>Tourism Transport</span>
                   </div>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed font-medium">
                     {t.mission_4}

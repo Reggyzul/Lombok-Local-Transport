@@ -14,12 +14,11 @@ interface TransportRentPageProps {
 export default function TransportRentPage({ onSelectCar, lang, onNavigateHome }: TransportRentPageProps) {
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const t = TRANSLATIONS[lang];
-  const isEN = lang === 'EN';
 
   const categories = [
-    { id: 'all', label: isEN ? 'All Vehicles' : 'Semua Armada' },
-    { id: 'mpv', label: isEN ? 'Family & Private (Avanza / Innova)' : 'Keluarga & Pribadi (Avanza / Innova)' },
-    { id: 'hiace', label: isEN ? 'Group Transport (Hiace)' : 'Rombongan (Hiace)' }
+    { id: 'all', label: 'All Vehicles' },
+    { id: 'mpv', label: 'Family & Private (Avanza / Innova)' },
+    { id: 'hiace', label: 'Group Transport (Hiace)' }
   ];
 
   const filteredCars = CARS.filter(car => {
@@ -31,9 +30,7 @@ export default function TransportRentPage({ onSelectCar, lang, onNavigateHome }:
 
   const handleWhatsAppBooking = (car: Car) => {
     const waNumber = '6281999344480';
-    const message = isEN
-      ? `Hello Lombok Local Transport, I am interested in renting: ${car.name}. Please inform price quote, schedule & unit availability. Thank you!`
-      : `Halo Lombok Local Transport, saya berminat sewa armada: ${car.name}. Mohon informasi penawaran harga, jadwal & ketersediaan unit. Terima kasih!`;
+    const message = `Hello Lombok Local Transport, I am interested in renting: ${car.name}. Please inform price quote, schedule & unit availability. Thank you!`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
   };
 
@@ -134,7 +131,7 @@ export default function TransportRentPage({ onSelectCar, lang, onNavigateHome }:
                     <div className="flex items-center gap-4 text-xs font-bold text-slate-700 pt-2 border-t border-slate-100">
                       <div className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
                         <Users className="w-4 h-4 text-emerald-600" />
-                        <span>{`${car.seats} ${isEN ? 'Seats' : 'Kursi'}`}</span>
+                        <span>{`${car.seats} Seats`}</span>
                       </div>
                       <div className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
                         <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -167,7 +164,7 @@ export default function TransportRentPage({ onSelectCar, lang, onNavigateHome }:
                     className="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-display font-black text-xs uppercase py-3.5 rounded-2xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
                   >
                     <Sparkles className="w-4 h-4" />
-                    <span>{isEN ? 'Book Vehicle Service' : 'Pesan Layanan Armada'}</span>
+                    <span>Book Vehicle Service</span>
                   </button>
 
                   <button
@@ -178,7 +175,7 @@ export default function TransportRentPage({ onSelectCar, lang, onNavigateHome }:
                     className="w-full bg-[#0f2b5c] hover:bg-[#0a1c3f] text-white font-display font-black text-xs uppercase py-3 rounded-2xl shadow-sm transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>{isEN ? 'Consult via WA' : 'Konsultasi via WA'}</span>
+                    <span>Consult via WhatsApp</span>
                   </button>
                 </div>
               </motion.div>

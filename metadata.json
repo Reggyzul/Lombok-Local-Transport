@@ -1,6 +1,6 @@
 {
   "name": "Lombok Local Transport",
-  "description": "Lombok Local Transport - Layanan sewa mobil, driver, airport transfer, dan paket wisata pulau Lombok.",
+  "description": "Lombok Local Transport - Premier car rental, private driver, airport transfer, and tour transport service across Lombok Island.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

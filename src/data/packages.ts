@@ -23,220 +23,220 @@ export interface TourPackage {
 }
 
 export const TOUR_PACKAGES: TourPackage[] = [
-  // 1. SENARU & AIR TERJUN RINJANI
+  // 1. SENARU & RINJANI WATERFALLS
   {
     id: 'tour-senaru',
-    title: 'PAKET WISATA SENARU & AIR TERJUN RINJANI',
+    title: 'SENARU WATERFALLS & RINJANI FOOTHILL TOUR',
     categoryKey: 'domestik',
     duration: 'Full Day',
-    route: ['Desa Adat Senaru', 'Air Terjun Sendang Gile', 'Air Terjun Tiu Kelep', 'Pintu Gerbang Rinjani', 'Pusat Kuliner Khas'],
+    route: ['Senaru Traditional Village', 'Sendang Gile Waterfall', 'Tiu Kelep Waterfall', 'Rinjani National Park Gateway', 'Local Culinary Stop'],
     routeDisplay: 'Mataram/Airport/Bangsal - Senaru - Sendang Gile - Tiu Kelep',
     image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200',
-    badge: 'Air Terjun & Alam',
-    minPrice: 'Hubungi Kami',
+    badge: 'Waterfalls & Nature',
+    minPrice: 'Contact Us',
     tiers: [
       {
         busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
-        capacity: '2 - 15 Orang',
-        pricePerPerson: 'Konsultasikan via WA',
-        hotelDetails: 'Tanpa Menginap / Custom Sesuai Rencana',
-        notes: 'Termasuk Tiket Masuk & Pemandu Lokal Air Terjun'
+        capacity: '2 - 15 Persons',
+        pricePerPerson: 'Consult via WhatsApp',
+        hotelDetails: 'Day Trip / Tailored Itinerary',
+        notes: 'Includes Entrance Tickets & Local Waterfall Guide'
       }
     ],
     highlights: [
-      'Menikmati kesegaran Air Terjun Sendang Gile & Air Terjun Tiu Kelep yang megah di kaki Gunung Rinjani',
-      'Trekking asri menyusuri hutan tropis dan aliran sungai alami',
-      'Mengunjungi Desa Adat Tradisional Senaru di Lombok Utara',
-      'Sangat cocok untuk wisatawan keluarga, rombongan, dan pencinta alam'
+      'Experience the majesty of Sendang Gile & Tiu Kelep waterfalls nestled in the tropical jungle of Mount Rinjani',
+      'Trek through lush rainforest paths and natural river crossings',
+      'Visit the ancient traditional Sasak village in Senaru, North Lombok',
+      'Ideal for nature lovers, families, couples, and photography enthusiasts'
     ],
     includes: [
-      'Kendaraan AC Prima (Toyota Avanza / Innova / Hiace)',
-      'Sopir Lokal Berpengalaman + BBM',
-      'Antar-Jemput Hotel / Pelabuhan / Bandara',
-      'Tiket Masuk Wisata & Parkir'
+      'Full AC Vehicle (Toyota Avanza / Toyota Innova / Toyota Hiace)',
+      'Experienced English-Friendly Local Driver + Fuel',
+      'Hotel / Port / Airport Pickup & Drop-Off',
+      'Attraction Entrance Tickets & Parking Fees'
     ],
     excludes: [
-      'Pengeluaran Pribadi & Tipping Sopir / Guide'
+      'Personal Expenses & Driver / Guide Tipping'
     ]
   },
 
   // 2. SEMBALUN HIGHLAND
   {
     id: 'tour-sembalun',
-    title: 'PAKET WISATA SEMBALUN HIGHLAND & RINJANI VIEW',
+    title: 'SEMBALUN HIGHLAND & RINJANI PANORAMA TOUR',
     categoryKey: 'domestik',
     duration: 'Full Day',
-    route: ['Bukit Selong', 'Desa Adat Beleq Sembalun', 'Kebun Stroberi Sembalun', 'Pusuk Sembalun Rinjani View', 'Taman Bunga Sembalun'],
-    routeDisplay: 'Mataram/Airport - Sembalun - Bukit Selong - Pusuk Sembalun',
+    route: ['Selong Hill Viewpoint', 'Beleq Ancient Sasak Village', 'Fresh Strawberry Picking Farm', 'Pusuk Sembalun Rinjani View', 'Sembalun Valley Flowers'],
+    routeDisplay: 'Mataram/Airport - Sembalun Valley - Selong Hill - Pusuk Sembalun',
     image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200',
-    badge: 'Wisata Pegunungan Sejuk',
-    minPrice: 'Hubungi Kami',
+    badge: 'Cool Mountain Highland',
+    minPrice: 'Contact Us',
     tiers: [
       {
         busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
-        capacity: '2 - 15 Orang',
-        pricePerPerson: 'Konsultasikan via WA',
-        hotelDetails: 'Pilihan Resort Sembalun / Hotel Mataram / Senggigi',
-        notes: 'Udara Sejuk Pegunungan & Spot Foto Instagramable Panorama Rinjani'
+        capacity: '2 - 15 Persons',
+        pricePerPerson: 'Consult via WhatsApp',
+        hotelDetails: 'Day Trip / Sembalun Resort Drop-Off',
+        notes: 'Crisp Mountain Breeze & Iconic Instagrammable Rinjani Photo Spots'
       }
     ],
     highlights: [
-      'Panorama lembah Sembalun dan sawah petak-petak dari puncak Bukit Selong',
-      'Pemandangan megah Gunung Rinjani dari Pusuk Sembalun',
-      'Wisata petik stroberi segar langsung di kebun petani Sembalun',
-      'Sejarah dan rumah adat tradisional Desa Adat Beleq'
+      'Breathtaking panorama of the colorful patchwork valley from the peak of Selong Hill',
+      'Panoramic view of Mount Rinjani from Pusuk Sembalun pass',
+      'Pick fresh organic strawberries directly at local hillside agro-farms',
+      'Discover ancient architecture and heritage at Desa Beleq'
     ],
     includes: [
-      'Mobil AC Terawat + Driver Lokal BBM',
-      'Tiket Masuk Seluruh Objek Wisata Sembalun',
-      'Air Mineral Selama Perjalanan'
+      'Well-Maintained AC Vehicle + Local Driver & Fuel',
+      'Entrance Tickets to All Sembalun Attractions',
+      'Complimentary Bottled Mineral Water'
     ],
     excludes: [
-      'Pengeluaran Pribadi & Makan Siang'
+      'Personal Expenses & Lunch'
     ]
   },
 
-  // 3. KUTA MANDALIKA & PANTAI SELATAN
+  // 3. KUTA MANDALIKA & SOUTH BEACHES
   {
     id: 'tour-mandalika',
-    title: 'PAKET WISATA KUTA MANDALIKA & PANTAI SELATAN',
+    title: 'KUTA MANDALIKA & SOUTH LOMBOK BEACH TOUR',
     categoryKey: 'domestik',
     duration: 'Full Day',
-    route: ['Sirkuit Internasional Mandalika', 'Pantai Kuta Mandalika', 'Pantai Tanjung Aan', 'Bukit Merese Sunset', 'Desa Adat Sade / Sukarara'],
-    routeDisplay: 'Airport/Mataram - Sirkuit Mandalika - Tanjung Aan - Bukit Merese',
+    route: ['Pertamina Mandalika International Circuit', 'Kuta Mandalika Beach', 'Tanjung Aan Beach', 'Merese Hill Sunset Point', 'Sade & Sukarara Traditional Weaving Villages'],
+    routeDisplay: 'Airport/Mataram - Mandalika Circuit - Tanjung Aan - Merese Hill',
     image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200',
-    badge: 'Pantai & Sirkuit Mandalika',
-    minPrice: 'Hubungi Kami',
+    badge: 'Beach & Mandalika Circuit',
+    minPrice: 'Contact Us',
     tiers: [
       {
         busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
-        capacity: '2 - 15 Orang',
-        pricePerPerson: 'Konsultasikan via WA',
-        hotelDetails: 'Resort Kuta Mandalika / Hotel Mataram',
-        notes: 'Sunset Eksotis di Bukit Merese & Wisata Bahari Pasir Merica'
+        capacity: '2 - 15 Persons',
+        pricePerPerson: 'Consult via WhatsApp',
+        hotelDetails: 'Kuta Mandalika Resort / Mataram Hotel Drop-Off',
+        notes: 'Exotic Sunset at Merese Hill & Unique Pepper-Sand Beach'
       }
     ],
     highlights: [
-      'Mengunjungi kawasan Sirkuit Internasional Pertamina Mandalika',
-      'Menikmati keunikan pasir merica di Pantai Tanjung Aan dan bukit karang',
-      'Melihat panorama sunset spektakuler samudera Hindia dari atas Bukit Merese',
-      'Belajar kebudayaan suku Sasak dan kain tenun tradisional di Desa Sade / Sukarara'
+      'Visit the world-renowned Pertamina Mandalika International MotoGP Circuit',
+      'Relax at Tanjung Aan Beach with its distinctive white pepper sand and turquoise waters',
+      'Catch a spectacular sunset over the Indian Ocean from the rolling hills of Merese Hill',
+      'Learn about authentic Sasak weaving culture at Sade and Sukarara villages'
     ],
     includes: [
-      'Transportasi AC Bersih + Driver BBM',
-      'Antar-Jemput Bandara BIZAM atau Hotel',
-      'Parkir dan Donasi Kawasan Wisata'
+      'Clean Air-Conditioned Vehicle + Driver & Fuel',
+      'Airport (BIZAM) or Hotel Pickup & Drop-Off',
+      'Parking & Tourism Area Donation Fees'
     ],
     excludes: [
-      'Pengeluaran Pribadi & Makan'
+      'Personal Expenses & Meals'
     ]
   },
 
-  // 4. PELABUHAN BANGSAL & GILI ISLANDS TRANSFER
+  // 4. BANGSAL PORT & GILI ISLANDS TRANSFER
   {
     id: 'tour-bangsal-gili',
-    title: 'TRANSFER PELABUHAN BANGSAL & JELAJAH GILI',
+    title: 'BANGSAL HARBOR & GILI ISLANDS TRANSFER',
     categoryKey: 'internasional',
     duration: 'One Way / Full Day',
-    route: ['Lombok Airport (BIZAM)', 'Mataram / Senggigi', 'Pelabuhan Bangsal', 'Pelabuhan Teluk Nara', 'Gili Trawangan / Meno / Air'],
-    routeDisplay: 'Airport BIZAM / Mataram - Pelabuhan Bangsal (Gili Ferry Point)',
+    route: ['Lombok Airport (BIZAM)', 'Mataram / Senggigi', 'Bangsal Harbor', 'Teluk Nara Speedboat Pier', 'Gili Trawangan / Meno / Air Connection'],
+    routeDisplay: 'Airport BIZAM / Mataram - Bangsal Harbor (Gili Ferry Point)',
     image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200',
     badge: 'Airport & Harbor Transfer',
-    minPrice: 'Hubungi Kami',
+    minPrice: 'Contact Us',
     tiers: [
       {
         busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
-        capacity: '2 - 15 Orang',
-        pricePerPerson: 'Konsultasikan via WA',
-        hotelDetails: 'Transfer Menuju / Dari Pelabuhan',
-        notes: 'Pintu Masuk Utama Menuju 3 Gili (Trawangan, Meno, Air)'
+        capacity: '2 - 15 Persons',
+        pricePerPerson: 'Consult via WhatsApp',
+        hotelDetails: 'Direct Transfer to / from Port',
+        notes: 'Main Gateway for Gili Trawangan, Gili Meno, and Gili Air'
       }
     ],
     highlights: [
-      'Layanan penjemputan tepat waktu dari Bandara Internasional Lombok (BIZAM) ke Pelabuhan Bangsal',
-      'Layanan antar-jemput dari hotel kawasan Senggigi / Mataram / Senaru menuju Pelabuhan Bangsal',
-      'Kapasitas armada fleksibel untuk rombongan keluarga atau pasangan dengan banyak bagasi',
-      'Driver ramah siap membantu kelancaran penyeberangan tiket kapal/boat'
+      'Punctual door-to-door transfer from Lombok International Airport (BIZAM) to Bangsal Harbor',
+      'Reliable transport from Senggigi, Mataram, or Senaru directly to the port',
+      'Flexible vehicle sizing suitable for couples, families, or group tours with ample luggage',
+      'Friendly local driver assisting with luggage and boat terminal navigation'
     ],
     includes: [
-      'Mobil AC Nyaman + Driver Berpengalaman BBM',
-      'Antar-Jemput Door-to-Door Tepat Waktu',
-      'Bantuan Angkat Bagasi'
+      'Comfortable AC Vehicle + Experienced Driver & Fuel',
+      'Punctual Door-to-Door Pickup Service',
+      'Luggage Handling Assistance'
     ],
     excludes: [
-      'Tiket Kapal / Speedboat Penyeberangan Gili'
+      'Public Boat / Private Speedboat Crossing Tickets'
     ]
   },
 
-  // 5. TETEBATU NATURE & WATERFALL
+  // 5. TETEBATU NATURE & RICE TERRACES
   {
     id: 'tour-tetebatu',
-    title: 'PAKET WISATA TETEBATU NATURE & RICE TERRACE',
+    title: 'TETEBATU ECO-NATURE & RICE TERRACE TOUR',
     categoryKey: 'domestik',
     duration: 'Full Day',
-    route: ['Desa Wisata Tetebatu', 'Sawah Terasering Bertingkat', 'Air Terjun Sarang Walet', 'Hutan Monyet Hitam (Black Monkey Forest)', 'Pedesaan Lombok Timur'],
-    routeDisplay: 'Mataram/Airport/Kuta - Tetebatu - Sarang Walet - Rice Terrace',
+    route: ['Tetebatu UNWTO Village', 'Cascading Rice Terraces', 'Sarang Walet Waterfall', 'Black Monkey Rainforest Sanctuary', 'East Lombok Countryside'],
+    routeDisplay: 'Mataram/Airport/Kuta - Tetebatu - Sarang Walet - Rice Terraces',
     image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200',
-    badge: 'Desa Wisata Dunia UNWTO',
-    minPrice: 'Hubungi Kami',
+    badge: 'UNWTO Best Tourism Village',
+    minPrice: 'Contact Us',
     tiers: [
       {
         busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
-        capacity: '2 - 15 Orang',
-        pricePerPerson: 'Konsultasikan via WA',
-        hotelDetails: 'Tanpa Menginap / Custom Trip',
-        notes: 'Suasana Alam Pedesaan Asri & Udara Segar di Kaki Selatan Rinjani'
+        capacity: '2 - 15 Persons',
+        pricePerPerson: 'Consult via WhatsApp',
+        hotelDetails: 'Day Trip / Private Itinerary',
+        notes: 'Tranquil Countryside & Fresh Mountain Air on the South Slope of Rinjani'
       }
     ],
     highlights: [
-      'Mengeksplor keindahan persawahan terasering hijau berlatar belakang Gunung Rinjani',
-      'Trekking menyusuri gua dan Air Terjun Sarang Walet yang eksotis',
-      'Melihat habitat monyet hitam endemik (black monkey) di kawasan hutan lindung',
-      'Menikmati kopi lokal dan keramahan masyarakat desa Tetebatu'
+      'Wander through picturesque emerald terraced rice fields with Mount Rinjani backdrop',
+      'Explore hidden caves and refreshing waters at Sarang Walet Waterfall',
+      'Spot the rare endemic black monkeys in their protected tropical forest sanctuary',
+      'Savor authentic local Lombok robusta coffee and village hospitality'
     ],
     includes: [
-      'Mobil AC + Driver BBM Seharian',
-      'Antar-Jemput Lokasi Fleksibel',
-      'Parkir dan Retribusi Wisata'
+      'Full Day AC Vehicle + Local Driver & Fuel',
+      'Flexible Pickup & Drop-Off Locations',
+      'Parking & Village Entrance Retribution'
     ],
     excludes: [
-      'Pengeluaran Pribadi'
+      'Personal Expenses'
     ]
   },
 
   // 6. CUSTOM TRIP & PRIVATE LOMBOK TOUR
   {
     id: 'tour-custom-lombok',
-    title: 'CUSTOM TRIP & PERJALANAN SESUAI TUJUAN',
+    title: 'CUSTOM TRIP & TAILORED PRIVATE ITINERARY',
     categoryKey: 'internasional',
-    duration: 'Fleksibel (1 - 7 Hari)',
-    route: ['Pantai Pink (Tangsi)', 'Gili Nanggu Sekotong', 'Kota Mataram', 'Pelabuhan Lembar', 'Pelabuhan Kayangan', 'Seluruh Wilayah Lombok'],
-    routeDisplay: 'Rute Fleksibel Sesuai Rencana Perjalanan Wisata Anda',
+    duration: 'Flexible (1 - 7 Days)',
+    route: ['Pink Beach (Tangsi)', 'Gili Nanggu & Sekotong', 'Mataram City', 'Lembar Ferry Port', 'Kayangan Port', 'Any Destination in Lombok'],
+    routeDisplay: 'Flexible Itinerary Tailored to Your Personal Travel Plan',
     image: '/dest_lombok.avif',
-    badge: 'Custom Tour & Private Trip',
-    minPrice: 'Hubungi Kami',
+    badge: 'Private & Custom Tour',
+    minPrice: 'Contact Us',
     tiers: [
       {
         busType: 'Toyota Avanza / Toyota Innova / Toyota Hiace',
-        capacity: '2 - 15 Orang',
-        pricePerPerson: 'Konsultasikan via WA',
-        hotelDetails: 'Sesuai Pilihan Tamu',
-        notes: 'Bebas Mengatur Itinerary Perjalanan dan Jam Penjemputan'
+        capacity: '2 - 15 Persons',
+        pricePerPerson: 'Consult via WhatsApp',
+        hotelDetails: 'Client Selected Hotels / Resorts',
+        notes: 'Full Freedom to Customize Stops, Timing, and Pickups'
       }
     ],
     highlights: [
-      'Pelanggan bebas menentukan tujuan perjalanan sesuai kebutuhan dan rencana wisata',
-      'Didampingi driver lokal yang menguasai seluruh rute, spot kuliner, dan destinasi tersembunyi di Lombok',
-      'Pilihan sewa harian dengan driver profesional untuk perjalanan wisata, keluarga, bisnis, atau dinas',
-      'Proses konsultasi dan booking mudah langsung melalui WhatsApp Official'
+      'Guests have total freedom to customize travel routes and schedule according to holiday plans',
+      'Accompanied by a dedicated local driver who knows all shortcuts, hidden gems, and dining spots',
+      'Daily rental option with professional driver for leisure, family vacations, or business trips',
+      'Fast, straightforward consultation and booking directly via official WhatsApp'
     ],
     includes: [
-      'Armada Pilihan (Toyota Avanza / Toyota Innova / Toyota Hiace) Kondisi Bersih & Prima',
-      'Driver Lokal Berpengalaman + BBM',
-      'Konsultasi Rekomendasi Rute Wisata Terbaik'
+      'Choice Fleet (Toyota Avanza / Toyota Innova / Toyota Hiace) in Spotless Condition',
+      'Licensed Local Driver + Fuel',
+      'Free Route Consultation & Recommendations'
     ],
     excludes: [
-      'Tiket Destinasi Khusus / Penyeberangan Kapal & Pengeluaran Pribadi'
+      'Special Attraction Tickets / Boat Charters & Personal Expenses'
     ]
   }
 ];

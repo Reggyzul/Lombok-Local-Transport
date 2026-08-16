@@ -12,7 +12,6 @@ export default function Testimonials({ lang }: TestimonialsProps) {
   const [reviews] = useState<TestimonialItem[]>(TESTIMONIALS);
   const [activeIdx, setActiveIdx] = useState(0);
   const t = TRANSLATIONS[lang];
-  const isEN = lang === 'EN';
 
   const handlePrev = () => {
     setActiveIdx((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
@@ -78,7 +77,7 @@ export default function Testimonials({ lang }: TestimonialsProps) {
 
                   {/* Testimonial text block */}
                   <p className="font-sans text-slate-700 italic text-base sm:text-xl leading-relaxed font-medium">
-                    "{isEN ? currentRev.textEN : currentRev.textID}"
+                    "{currentRev.textEN}"
                   </p>
 
                   {/* Renter profile */}
@@ -94,12 +93,12 @@ export default function Testimonials({ lang }: TestimonialsProps) {
                         {currentRev.name}
                       </h4>
                       <p className="font-sans text-xs text-slate-500 font-semibold">
-                        {isEN ? currentRev.roleEN : currentRev.roleID}
+                        {currentRev.roleEN}
                       </p>
                       <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-emerald-200 mt-1">
                         <Sparkles className="w-2.5 h-2.5 text-emerald-600" />
                         <span>
-                          {t.testi_rented_model} {isEN ? currentRev.carModelEN : currentRev.carModelID} ({isEN ? currentRev.dateEN : currentRev.dateID})
+                          {t.testi_rented_model} {currentRev.carModelEN} ({currentRev.dateEN})
                         </span>
                       </span>
                     </div>

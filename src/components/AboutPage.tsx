@@ -9,30 +9,18 @@ interface AboutPageProps {
 
 export default function AboutPage({ lang, onNavigateHome }: AboutPageProps) {
   const t = TRANSLATIONS[lang];
-  const isEN = lang === 'EN';
 
-  const servicesList = isEN ? [
-    'Car Rental (Avanza, Innova, Hiace)',
+  const servicesList = [
+    'Car Rental (Toyota Avanza, Toyota Innova, Toyota Hiace)',
     'Airport Transfer (Lombok International Airport / BIZAM)',
     'Harbor Transfer (Bangsal, Lembar, Kayangan, Teluk Nara)',
     'Tourism Transport (Senaru, Sembalun, Mandalika, Tetebatu)',
     'Group Transport with Toyota Hiace',
     'Custom Trip / Flexible Itinerary across Lombok',
-    'Family Vacation Travel',
-    'Private Transport & Driver Services',
-    'Corporate & Official Travel in Lombok',
+    'Family Vacation Travel Logistics',
+    'Private Transport & Licensed Driver Services',
+    'Corporate & Official Delegations in Lombok',
     'Gili Islands Crossing Logistics Support'
-  ] : [
-    'Rental Mobil (Avanza, Innova, Hiace)',
-    'Airport Transfer (Lombok International Airport / BIZAM)',
-    'Pelabuhan Transfer (Bangsal, Lembar, Kayangan, Teluk Nara)',
-    'Transportasi Wisata (Senaru, Sembalun, Mandalika, Tetebatu)',
-    'Transportasi Rombongan dengan Toyota Hiace',
-    'Custom Trip / Perjalanan Sesuai Tujuan di Lombok',
-    'Wisata Liburan Keluarga',
-    'Layanan Sewa dengan Sopir Lokal Berpengalaman',
-    'Perjalanan Dinas & Bisnis di NTB',
-    'Layanan Antar-Jemput Titik Strategis di Seluruh Lombok'
   ];
 
   return (
@@ -84,22 +72,22 @@ export default function AboutPage({ lang, onNavigateHome }: AboutPageProps) {
 
           <div className="space-y-4 text-xs sm:text-sm font-sans text-slate-700 leading-relaxed">
             
-            {/* Keunggulan Usaha */}
+            {/* Key Advantages */}
             <div className="flex items-start gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-200">
               <span className="text-emerald-600 font-black text-base shrink-0 mt-0.5">✓</span>
               <div className="space-y-1.5">
                 <span className="font-bold text-slate-900 text-base block">{t.vision_title}:</span>
                 <ul className="list-disc pl-5 space-y-1 text-slate-700 font-medium">
-                  <li>{isEN ? 'Based on local Lombok transport expertise' : 'Berbasis layanan transportasi lokal Lombok'}</li>
-                  <li>{isEN ? 'Vehicle options for individuals to large groups (Avanza, Innova, Hiace)' : 'Pilihan kendaraan untuk kebutuhan individu hingga rombongan (Avanza, Innova, Hiace)'}</li>
-                  <li>{isEN ? 'Serving various tourist spots and key transportation hubs' : 'Melayani berbagai destinasi wisata dan titik transportasi penting'}</li>
-                  <li>{isEN ? 'Easy and prompt booking via WhatsApp' : 'Pemesanan mudah melalui WhatsApp'}</li>
-                  <li>{isEN ? 'Ideal for tourists needing comfortable transport in Lombok' : 'Cocok untuk wisatawan yang membutuhkan transportasi selama berada di Lombok'}</li>
+                  <li>Rooted in local Lombok transport expertise and deep route knowledge</li>
+                  <li>Fleet selection for individuals to large groups (Toyota Avanza, Toyota Innova, Toyota Hiace)</li>
+                  <li>Serving all major tourist spots, ports, and airport transportation hubs</li>
+                  <li>Fast and reliable booking directly through WhatsApp</li>
+                  <li>Perfect for international and domestic travelers seeking smooth travel in Lombok</li>
                 </ul>
               </div>
             </div>
 
-            {/* Layanan Utama */}
+            {/* Core Services */}
             <div className="flex items-start gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-200">
               <span className="text-emerald-600 font-black text-base shrink-0 mt-0.5">✓</span>
               <div className="space-y-1.5">
@@ -120,12 +108,12 @@ export default function AboutPage({ lang, onNavigateHome }: AboutPageProps) {
         <section className="space-y-8 border-t border-slate-100 pt-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 font-display font-black text-xs sm:text-sm uppercase tracking-widest border border-emerald-200 shadow-sm">
             <Sparkles className="w-4 h-4 text-emerald-600" />
-            <span>{isEN ? 'Service Coverage & Destinations' : 'Area & Rute Layanan'}</span>
+            <span>Service Coverage &amp; Destinations</span>
           </div>
 
           <div className="space-y-4 text-xs sm:text-sm font-sans text-slate-700 leading-relaxed">
             <h3 className="font-display font-bold text-lg sm:text-xl text-[#0d1b37]">
-              {isEN ? 'Key Routes in Lombok' : 'Cakupan Destinasi Populer'}
+              Key Routes in Lombok
             </h3>
             <p>
               {t.dest_desc}
@@ -144,23 +132,23 @@ export default function AboutPage({ lang, onNavigateHome }: AboutPageProps) {
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase">
                   <MapPin className="w-4 h-4" />
-                  <span>{isEN ? 'Office Location' : 'Alamat Resmi'}</span>
+                  <span>Official Address</span>
                 </div>
                 <p className="text-xs text-slate-300 font-medium">
-                  Karang Bajo, Kecamatan Bayan, Kabupaten Lombok Utara, Nusa Tenggara Barat 83354
+                  Karang Bajo, Bayan District, North Lombok Regency, West Nusa Tenggara 83354
                 </p>
                 <p className="text-xs text-amber-300 font-bold pt-1">
-                  WhatsApp: 081999344480
+                  WhatsApp: +62 819-9934-4480
                 </p>
               </div>
 
               <a
-                href="https://api.whatsapp.com/send?phone=6281999344480&text=Halo%20Lombok%20Local%20Transport,%20saya%20ingin%20konsultasi%20layanan%20transportasi%20di%20Lombok"
+                href="https://api.whatsapp.com/send?phone=6281999344480&text=Hello%20Lombok%20Local%20Transport,%20I%20would%20like%20to%20consult%20transportation%20and%20car%20rental%20services%20in%20Lombok"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-6 py-3 rounded-2xl shadow-md transition-all shrink-0 cursor-pointer uppercase"
               >
-                {isEN ? 'Contact on WhatsApp' : 'Hubungi WhatsApp'}
+                Contact on WhatsApp
               </a>
             </div>
           </div>

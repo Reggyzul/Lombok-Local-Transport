@@ -9,33 +9,26 @@ interface BookingStepsProps {
 
 export default function BookingSteps({ lang }: BookingStepsProps) {
   const t = TRANSLATIONS[lang];
-  const isEN = lang === 'EN';
 
   const stepsList = [
     {
       step: '01',
-      title: isEN ? 'Select Vehicle & Dates' : 'Pilih Kendaraan & Tanggal',
-      description: isEN
-        ? 'Choose Toyota Avanza, Innova, or Hiace based on your passenger count and comfort preference.'
-        : 'Pilih armada Avanza, Innova, atau Hiace sesuai jumlah penumpang dan kenyamanan perjalanan Anda.',
+      title: 'Select Vehicle & Dates',
+      description: 'Choose Toyota Avanza, Toyota Innova, or Toyota Hiace based on your passenger count and comfort preference.',
       icon: <Car className="w-7 h-7 text-white" />,
       bgGradient: 'bg-gradient-to-br from-emerald-600 to-teal-700',
     },
     {
       step: '02',
-      title: isEN ? 'Send Booking Details via WA' : 'Kirim Format Pemesanan via WA',
-      description: isEN
-        ? 'Share: Travel Date → Passenger Count → Chosen Vehicle → Pickup Location → Destination.'
-        : 'Sampaikan: Tanggal perjalanan → Jumlah penumpang → Kendaraan yang diinginkan → Lokasi penjemputan → Tujuan perjalanan.',
+      title: 'Send Booking Details via WhatsApp',
+      description: 'Share: Travel Date → Passenger Count → Preferred Vehicle → Pickup Location → Destination.',
       icon: <MessageSquare className="w-7 h-7 text-white" />,
       bgGradient: 'bg-gradient-to-br from-[#0f2b5c] to-blue-700',
     },
     {
       step: '03',
-      title: isEN ? 'Enjoy Your Lombok Trip' : 'Nikmati Perjalanan di Lombok',
-      description: isEN
-        ? 'Our friendly local driver will pick you up on time at the airport, harbor, or hotel.'
-        : 'Driver lokal kami siap menjemput tepat waktu di bandara BIZAM, Pelabuhan Bangsal, atau hotel Anda.',
+      title: 'Enjoy Your Lombok Trip',
+      description: 'Our licensed local driver will pick you up promptly at Lombok Airport (BIZAM), Bangsal Port, or your hotel.',
       icon: <Compass className="w-7 h-7 text-white" />,
       bgGradient: 'bg-gradient-to-br from-emerald-700 via-teal-700 to-[#0f2b5c]',
     },
@@ -104,12 +97,10 @@ export default function BookingSteps({ lang }: BookingStepsProps) {
         {/* Highlighted Booking Format Box */}
         <div className="mt-14 max-w-3xl mx-auto p-6 bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-950 text-white rounded-3xl border border-emerald-500/30 text-center space-y-2 shadow-xl">
           <span className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-400">
-            {isEN ? 'Format WhatsApp Quick Booking' : 'Format Pemesanan Cepat via WhatsApp'}
+            WhatsApp Quick Booking Format
           </span>
           <p className="font-display font-bold text-sm sm:text-base text-emerald-200">
-            {isEN 
-              ? 'Travel Date ➔ Passenger Count ➔ Preferred Vehicle ➔ Pickup Location ➔ Destination' 
-              : 'Tanggal perjalanan ➔ Jumlah penumpang ➔ Kendaraan yang diinginkan ➔ Lokasi penjemputan ➔ Tujuan perjalanan'}
+            Travel Date ➔ Passenger Count ➔ Preferred Vehicle ➔ Pickup Location ➔ Destination
           </p>
         </div>
 

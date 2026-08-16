@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Calendar, Search, ChevronDown, Sparkles } from 'lucide-react';
+import { MapPin, Calendar, Search, ChevronDown } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 
 interface HeroProps {
@@ -10,12 +10,12 @@ interface HeroProps {
 }
 
 export default function Hero({ onExploreClick, lang, onBookingClick }: HeroProps) {
-  const [destinationInput, setDestinationInput] = useState('Senaru (Air Terjun Sendang Gile & Tiu Kelep)');
+  const [destinationInput, setDestinationInput] = useState('Senaru (Sendang Gile & Tiu Kelep Waterfalls)');
   const [travelDateInput, setTravelDateInput] = useState('');
 
   const t = TRANSLATIONS[lang];
 
-  const destOptions = lang === 'EN' ? [
+  const destOptions = [
     { value: 'Senaru (Sendang Gile & Tiu Kelep Waterfalls)', label: 'Senaru (Sendang Gile & Tiu Kelep Waterfalls)' },
     { value: 'Bangsal Harbor (Gili Trawangan, Meno, Air Transfers)', label: 'Bangsal Harbor (Gili Trawangan, Meno, Air Transfers)' },
     { value: 'Lombok International Airport (BIZAM Transfer)', label: 'Lombok International Airport (BIZAM Transfer)' },
@@ -23,22 +23,12 @@ export default function Hero({ onExploreClick, lang, onBookingClick }: HeroProps
     { value: 'Sembalun (Selong Hill & Rinjani Highland)', label: 'Sembalun (Selong Hill & Rinjani Highland)' },
     { value: 'Tetebatu (Rice Terraces & Waterfall Nature)', label: 'Tetebatu (Rice Terraces & Waterfall Nature)' },
     { value: 'Custom Route across Lombok Island', label: 'Custom Route across Lombok Island' }
-  ] : [
-    { value: 'Senaru (Air Terjun Sendang Gile & Tiu Kelep)', label: 'Senaru (Air Terjun Sendang Gile & Tiu Kelep)' },
-    { value: 'Pelabuhan Bangsal (Penyeberangan Gili Trawangan)', label: 'Pelabuhan Bangsal (Penyeberangan Gili Trawangan)' },
-    { value: 'Lombok International Airport (Antar-Jemput BIZAM)', label: 'Lombok International Airport (Antar-Jemput BIZAM)' },
-    { value: 'Kuta Mandalika (Sirkuit & Pantai Kuta Mandalika)', label: 'Kuta Mandalika (Sirkuit & Pantai Kuta Mandalika)' },
-    { value: 'Sembalun (Bukit Selong & Pemandangan Rinjani)', label: 'Sembalun (Bukit Selong & Pemandangan Rinjani)' },
-    { value: 'Tetebatu (Desa Wisata & Sawah Terasering)', label: 'Tetebatu (Desa Wisata & Sawah Terasering)' },
-    { value: 'Custom Trip Seluruh Wilayah Lombok', label: 'Custom Trip Seluruh Wilayah Lombok' }
   ];
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const waNumber = '6281999344480';
-    const message = lang === 'EN'
-      ? `Hello Lombok Local Transport, I would like to consult route / vehicle rental for: ${destinationInput}${travelDateInput ? ` (Planned Date: ${travelDateInput})` : ''}. Please inform price quote & details. Thank you!`
-      : `Halo Lombok Local Transport, saya ingin konsultasi sewa mobil / rute transportasi: ${destinationInput}${travelDateInput ? ` (Rencana Tanggal: ${travelDateInput})` : ''}. Mohon informasi penawaran harga & rincian terbaik. Terima kasih!`;
+    const message = `Hello Lombok Local Transport, I would like to consult route / vehicle rental for: ${destinationInput}${travelDateInput ? ` (Planned Date: ${travelDateInput})` : ''}. Please inform price quote & details. Thank you!`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
   };
 
@@ -92,7 +82,7 @@ export default function Hero({ onExploreClick, lang, onBookingClick }: HeroProps
               {t.hero_motto}
             </span>
             <span className="text-[11px] text-amber-300 font-medium normal-case pt-1">
-              📍 Karang Bajo, Kec. Bayan, Lombok Utara, NTB 83354 • Avanza, Innova &amp; Hiace
+              📍 Karang Bajo, Bayan, North Lombok, West Nusa Tenggara 83354 • Toyota Avanza, Toyota Innova &amp; Toyota Hiace
             </span>
           </motion.div>
         </div>

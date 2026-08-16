@@ -20,27 +20,27 @@ export const CARS: Car[] = [
   {
     id: 'avanza',
     name: 'Toyota Avanza',
-    category: 'MPV Praktis',
+    category: 'Practical MPV',
     pricePerDay: 0,
-    priceDisplay: 'Hubungi Kami',
+    priceDisplay: 'Contact Us',
     image: '/Gambar/avanza.avif',
     seats: 7,
     transmission: 'Manual/Matic',
-    fuel: 'Bensin',
+    fuel: 'Petrol',
     includeList: [
-      'Pilihan praktis untuk keluarga & pribadi',
-      'Kapasitas hingga 6-7 penumpang',
-      'AC Double Blower sejuk dan dingin',
-      'Interior bersih, harum & terawat',
-      'Sopir lokal ramah & tepat waktu'
+      'Practical choice for families & solo travelers',
+      'Accommodates up to 6–7 passengers comfortably',
+      'Dual blower air conditioning for a cool ride',
+      'Clean, fresh & well-maintained interior',
+      'Friendly, punctual, and licensed local driver'
     ],
-    description: 'Pilihan praktis untuk perjalanan keluarga maupun perjalanan pribadi dengan jumlah penumpang yang lebih sedikit.',
+    description: 'A practical vehicle choice for family vacations or private travel with smaller group sizes exploring Lombok.',
     rating: 4.9,
     reviewsCount: 142,
     specifications: [
-      { label: 'Kapasitas', value: '6 - 7 Penumpang' },
-      { label: 'Cocok Untuk', value: 'Perjalanan Pribadi, Keluarga & Airport' },
-      { label: 'Layanan', value: 'Dengan Sopir / Sewa Harian / Drop-Off' }
+      { label: 'Capacity', value: '6 - 7 Passengers' },
+      { label: 'Ideal For', value: 'Private Trips, Family Tours & Airport Transfers' },
+      { label: 'Services', value: 'With Driver / Daily Rental / Drop-Off' }
     ]
   },
 
@@ -48,27 +48,27 @@ export const CARS: Car[] = [
   {
     id: 'innova',
     name: 'Toyota Innova',
-    category: 'MPV Nyaman',
+    category: 'Comfortable MPV',
     pricePerDay: 0,
-    priceDisplay: 'Hubungi Kami',
+    priceDisplay: 'Contact Us',
     image: '/Gambar/innova3.avif',
     seats: 7,
     transmission: 'Manual/Matic',
-    fuel: 'Diesel / Bensin',
+    fuel: 'Diesel / Petrol',
     includeList: [
-      'Kenyamanan ekstra untuk perjalanan jarak jauh',
-      'Suspensi empuk & kabin senyap berkelas',
-      'AC Dingin merata ke semua baris kursi',
-      'Bagasi luas untuk koper & perlengkapan wisata',
-      'Driver berpengalaman rute pegunungan & pantai'
+      'Superior ride comfort for long-distance scenic travel',
+      'Smooth suspension & quiet premium cabin acoustics',
+      'Multi-zone air conditioning across all seating rows',
+      'Generous luggage capacity for suitcases & gear',
+      'Experienced driver for mountain & coastal roads'
     ],
-    description: 'Pilihan kendaraan yang lebih nyaman untuk perjalanan jarak jauh maupun perjalanan wisata bersama keluarga.',
+    description: 'A higher-comfort vehicle ideal for long-distance scenic journeys and family holidays across Lombok.',
     rating: 5.0,
     reviewsCount: 168,
     specifications: [
-      { label: 'Kapasitas', value: '7 Penumpang' },
-      { label: 'Keunggulan', value: 'Kenyamanan Jarak Jauh & Wisata Keluarga' },
-      { label: 'Layanan', value: 'Wisata Sembalun, Senaru, Mandalika, Bandara' }
+      { label: 'Capacity', value: '7 Passengers' },
+      { label: 'Key Feature', value: 'Long-Distance Comfort & Family Touring' },
+      { label: 'Services', value: 'Sembalun, Senaru, Mandalika, Airport Transfer' }
     ]
   },
 
@@ -76,27 +76,27 @@ export const CARS: Car[] = [
   {
     id: 'hiace',
     name: 'Toyota Hiace',
-    category: 'Transportasi Rombongan',
+    category: 'Group Transportation',
     pricePerDay: 0,
-    priceDisplay: 'Hubungi Kami',
+    priceDisplay: 'Contact Us',
     image: '/Gambar/hiace.avif',
     seats: 15,
     transmission: 'Manual',
     fuel: 'Diesel',
     includeList: [
-      'Kapasitas lega untuk 12-15 penumpang',
-      'Reclining seats & ruang kaki ekstra luas',
-      'Full AC Ducting dingin di setiap baris',
-      'Audio entertainment & multimedia',
-      'Sopir profesional berpengalaman rombongan'
+      'Spacious seating capacity for 12–15 passengers',
+      'Ergonomic reclining seats & generous legroom',
+      'Central ducting cold air conditioning at each row',
+      'High-quality audio & multimedia entertainment',
+      'Professional group driver experienced in Lombok tours'
     ],
-    description: 'Cocok untuk perjalanan bersama rombongan, wisata keluarga, maupun kebutuhan transportasi dengan kapasitas penumpang lebih banyak.',
+    description: 'Perfect for group journeys, extended family vacations, and tour groups requiring higher seating capacity across Lombok.',
     rating: 5.0,
     reviewsCount: 195,
     specifications: [
-      { label: 'Kapasitas', value: '12 - 15 Penumpang' },
-      { label: 'Peruntukan', value: 'Rombongan Keluarga, Tour Group & Kantor' },
-      { label: 'Fasilitas', value: 'Full AC Ducting, Audio, Reclining Seats' }
+      { label: 'Capacity', value: '12 - 15 Passengers' },
+      { label: 'Suitable For', value: 'Group Tours, Family Gatherings & Corporate' },
+      { label: 'Amenities', value: 'Full AC Ducting, Audio, Reclining Seats' }
     ]
   }
 ];
@@ -104,44 +104,44 @@ export const CARS: Car[] = [
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: 'testi-1',
-    name: 'Bpk. Rizky Pratama & Keluarga',
-    roleEN: 'Family Vacation - Jakarta',
-    roleID: 'Wisata Keluarga - Jakarta',
-    textEN: 'Excellent service from Lombok Local Transport! The Toyota Innova was very clean and comfortable for our trip to Sembalun and Senaru. The driver was knowledgeable, punctual, and very polite.',
-    textID: 'Pelayanan sangat memuaskan dari Lombok Local Transport! Unit Toyota Innova sangat bersih dan nyaman untuk perjalanan kami sekeluarga ke Sembalun dan Senaru. Driver sangat menguasai rute dan ramah!',
+    name: 'Mr. David & Family',
+    roleEN: 'Family Vacation - Australia',
+    roleID: 'Family Vacation - Australia',
+    textEN: 'Outstanding service from Lombok Local Transport! The Toyota Innova was spotless and extremely comfortable for our journey to Sembalun and Senaru. The driver knew every scenic viewpoint and was punctual and welcoming.',
+    textID: 'Outstanding service from Lombok Local Transport! The Toyota Innova was spotless and extremely comfortable for our journey to Sembalun and Senaru. The driver knew every scenic viewpoint and was punctual and welcoming.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
     carModelEN: 'Toyota Innova',
     carModelID: 'Toyota Innova',
     dateEN: 'August 2026',
-    dateID: 'Agustus 2026'
+    dateID: 'August 2026'
   },
   {
     id: 'testi-2',
-    name: 'Ibu Ratna & Rombongan',
-    roleEN: 'Group Tour - Surabaya',
-    roleID: 'Rombongan Wisata - Surabaya',
-    textEN: 'We booked Toyota Hiace for group transfer from Lombok International Airport to Bangsal Port for Gili Trawangan and Kuta Mandalika. The ride was smooth, air conditioning very cold, and the price was transparent!',
-    textID: 'Kami menyewa Toyota Hiace untuk rombongan dari Bandara BIZAM ke Pelabuhan Bangsal (menuju Gili Trawangan) dan Kuta Mandalika. Mobilnya lega, AC dingin, dan komunikasi via WhatsApp sangat responsif!',
+    name: 'Ms. Sarah & Travel Group',
+    roleEN: 'Group Holiday - Singapore',
+    roleID: 'Group Holiday - Singapore',
+    textEN: 'We booked the Toyota Hiace for our group transfer from Lombok International Airport to Bangsal Port for the Gili Islands and Kuta Mandalika. Very roomy, freezing cold AC, and WhatsApp communication was seamless!',
+    textID: 'We booked the Toyota Hiace for our group transfer from Lombok International Airport to Bangsal Port for the Gili Islands and Kuta Mandalika. Very roomy, freezing cold AC, and WhatsApp communication was seamless!',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200',
     carModelEN: 'Toyota Hiace',
     carModelID: 'Toyota Hiace',
     dateEN: 'July 2026',
-    dateID: 'Juli 2026'
+    dateID: 'July 2026'
   },
   {
     id: 'testi-3',
     name: 'Hendrik & Partner',
-    roleEN: 'Holiday Trip - Bandung',
-    roleID: 'Liburan & Tour - Bandung',
-    textEN: 'Used Toyota Avanza for 3 days exploring Senaru waterfalls, Tetebatu, and Senggigi beach. Reliable local transport partner in Lombok with helpful driver.',
-    textID: 'Sewa Toyota Avanza 3 hari untuk eksplor air terjun di Senaru, sawah Tetebatu, dan Pantai Senggigi. Driver lokal sangat membantu memberikan rekomendasi kuliner dan spot foto terbaik.',
+    roleEN: 'Couples Road Trip - Germany',
+    roleID: 'Couples Road Trip - Germany',
+    textEN: 'Rented the Toyota Avanza for 3 days exploring Senaru waterfalls, Tetebatu rice terraces, and Senggigi beach. Reliable local transport partner in Lombok with helpful driver sharing authentic local tips.',
+    textID: 'Rented the Toyota Avanza for 3 days exploring Senaru waterfalls, Tetebatu rice terraces, and Senggigi beach. Reliable local transport partner in Lombok with helpful driver sharing authentic local tips.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
     carModelEN: 'Toyota Avanza',
     carModelID: 'Toyota Avanza',
     dateEN: 'June 2026',
-    dateID: 'Juni 2026'
+    dateID: 'June 2026'
   }
 ];

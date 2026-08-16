@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Car } from '../types';
 import { CARS } from '../data/cars';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Calendar, Clock, MapPin, User, Phone, CheckCircle2, Sparkles, Award, Users, Navigation } from 'lucide-react';
+import { X, Calendar, MapPin, User, Phone, CheckCircle2, Sparkles, Award, Users, Navigation } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 
 interface BookingModalProps {
@@ -17,16 +17,15 @@ export default function BookingModal({ car, onClose, lang, onCarChange }: Bookin
   const [selectedCarId, setSelectedCarId] = useState<string>(car?.id || 'avanza');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [passengers, setPassengers] = useState(lang === 'EN' ? '4 Passengers' : '4 Orang');
+  const [passengers, setPassengers] = useState('4 Passengers');
   const [departureDate, setDepartureDate] = useState('');
-  const [pickupTime, setPickupTime] = useState(lang === 'EN' ? '08:00 AM' : '08:00 (Pagi)');
+  const [pickupTime, setPickupTime] = useState('08:00 AM');
   const [pickupAddress, setPickupAddress] = useState('');
   const [destinationTrip, setDestinationTrip] = useState('');
   const [notes, setNotes] = useState('');
   const [isBooked, setIsBooked] = useState(false);
 
   const t = TRANSLATIONS[lang];
-  const isEN = lang === 'EN';
 
   useEffect(() => {
     if (car) {
@@ -47,54 +46,35 @@ export default function BookingModal({ car, onClose, lang, onCarChange }: Bookin
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !phone || !departureDate || !pickupAddress) {
-      alert(isEN ? 'Please complete all required fields (*)!' : 'Mohon lengkapi semua kolom yang wajib diisi (*)!');
+      alert('Please complete all required fields (*) before submitting!');
       return;
     }
 
     const waNumber = '6281999344480';
 
-    let serviceType = isEN ? 'Car Rental' : 'Rental Mobil';
-    if (routeCategory === 'airport_transfer') serviceType = isEN ? 'Airport Transfer (BIZAM)' : 'Airport Transfer (BIZAM)';
-    if (routeCategory === 'harbor_transfer') serviceType = isEN ? 'Harbor Transfer (Bangsal/Gili)' : 'Pelabuhan Transfer (Bangsal/Gili)';
-    if (routeCategory === 'tour_trip') serviceType = isEN ? 'Tourism Tour / Custom Trip' : 'Transportasi Wisata / Custom Trip';
+    let serviceType = 'Car Rental';
+    if (routeCategory === 'airport_transfer') serviceType = 'Airport Transfer (BIZAM)';
+    if (routeCategory === 'harbor_transfer') serviceType = 'Harbor Transfer (Bangsal / Gili)';
+    if (routeCategory === 'tour_trip') serviceType = 'Tourism Tour / Custom Trip';
 
-    // Format requested by user:
-    // Tanggal perjalanan → Jumlah penumpang → Kendaraan yang diinginkan → Lokasi penjemputan → Tujuan perjalanan
-    const textTemplate = isEN
-      ? `Hello Lombok Local Transport, I would like to book a transport service:
+    // Format: Travel date → Passengers → Vehicle → Pickup Location → Destination
+    const textTemplate = `Hello Lombok Local Transport, I would like to book a transport service:
 
 📋 *BOOKING DETAILS:*
-• Service: *${serviceType}*
+• Service Category: *${serviceType}*
 • Travel Date: *${departureDate}*
-• Passengers: *${passengers}*
-• Vehicle: *${currentSelectedCar.name}*
+• Passenger Count: *${passengers}*
+• Chosen Vehicle: *${currentSelectedCar.name}*
 • Pickup Location: *${pickupAddress}*
-• Destination: *${destinationTrip || 'Senaru / Sembalun / Mandalika / Bangsal / Custom'}*
+• Travel Destination: *${destinationTrip || 'Senaru / Sembalun / Mandalika / Bangsal / Custom'}*
 • Pickup Time: *${pickupTime}*
 
-👤 *CUSTOMER CONTACT:*
+👤 *PASSENGER CONTACT:*
 • Name: *${name}*
 • WhatsApp: *${phone}*
-• Notes: *${notes || '-'}*
+• Additional Notes: *${notes || '-'}*
 
-Please confirm availability and price quote. Thank you!`
-      : `Halo Lombok Local Transport, saya ingin memesan layanan transportasi:
-
-📋 *FORMAT PEMESANAN:*
-• Layanan: *${serviceType}*
-• Tanggal Perjalanan: *${departureDate}*
-• Jumlah Penumpang: *${passengers}*
-• Kendaraan yang Diinginkan: *${currentSelectedCar.name}*
-• Lokasi Penjemputan: *${pickupAddress}*
-• Tujuan Perjalanan: *${destinationTrip || 'Senaru / Sembalun / Mandalika / Bangsal / Custom'}*
-• Jam Penjemputan: *${pickupTime}*
-
-👤 *DATA PEMESAN:*
-• Nama: *${name}*
-• No. WhatsApp: *${phone}*
-• Catatan Tambahan: *${notes || '-'}*
-
-Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
+Please confirm availability and the best price quote. Thank you!`;
 
     const encodedText = encodeURIComponent(textTemplate);
     const waUrl = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodedText}`;
@@ -139,7 +119,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                   {currentSelectedCar.name}
                 </h3>
                 <p className="font-sans text-xs text-emerald-400 font-bold mt-0.5">
-                  {currentSelectedCar.category} ({currentSelectedCar.seats} {isEN ? 'Seats' : 'Kursi'})
+                  {currentSelectedCar.category} ({currentSelectedCar.seats} Seats)
                 </p>
               </div>
 
@@ -155,16 +135,16 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
               {/* Specs & Facility List */}
               <div className="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
                 <div className="flex justify-between py-1 border-b border-white/5">
-                  <span className="text-slate-400">{isEN ? 'Capacity:' : 'Kapasitas:'}</span>
-                  <span className="font-semibold text-white">{currentSelectedCar.seats} {isEN ? 'Seats' : 'Kursi'}</span>
+                  <span className="text-slate-400">Capacity:</span>
+                  <span className="font-semibold text-white">{currentSelectedCar.seats} Seats</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-white/5">
-                  <span className="text-slate-400">{isEN ? 'Amenities:' : 'Fasilitas:'}</span>
-                  <span className="font-semibold text-emerald-400">Full AC, Bersih, Wangi</span>
+                  <span className="text-slate-400">Amenities:</span>
+                  <span className="font-semibold text-emerald-400">Full AC, Fresh, Spotless</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-white/5">
-                  <span className="text-slate-400">{isEN ? 'Driver Service:' : 'Layanan:'}</span>
-                  <span className="font-semibold text-emerald-300">{isEN ? 'Local Experienced Driver' : 'Sopir Lokal Berpengalaman'}</span>
+                  <span className="text-slate-400">Driver Service:</span>
+                  <span className="font-semibold text-emerald-300">Local Licensed Driver</span>
                 </div>
               </div>
 
@@ -184,7 +164,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
             {/* Footer Trust Info */}
             <div className="pt-4 border-t border-white/10 mt-6 text-[10px] text-slate-400 font-medium flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>{isEN ? 'Direct WhatsApp Response: 081999344480' : 'Respon Cepat WhatsApp: 081999344480'}</span>
+              <span>Direct WhatsApp Response: +62 819-9934-4480</span>
             </div>
           </div>
 
@@ -196,7 +176,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
               onClick={onClose}
               className="absolute top-4 right-4 sm:top-5 sm:right-5 w-9 h-9 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white transition-all flex items-center justify-center shadow-2xl cursor-pointer z-50 hover:scale-110 border-2 border-white"
               id="close-booking-modal"
-              title={isEN ? 'Close Modal' : 'Tutup Modal'}
+              title="Close Modal"
             >
               <X className="w-5 h-5 stroke-[2.5]" />
             </button>
@@ -217,7 +197,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                 {/* 1. SELECT SERVICE TYPE */}
                 <div className="space-y-3 pt-1">
                   <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">
-                    1. {isEN ? 'SELECT SERVICE CATEGORY' : 'PILIH JENIS LAYANAN'}
+                    1. SELECT SERVICE CATEGORY
                   </span>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -230,8 +210,8 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                           : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium'
                       }`}
                     >
-                      <span className="text-[11px] font-bold block">{isEN ? 'Car Rental' : 'Rental Mobil'}</span>
-                      <span className="text-[9px] text-slate-500 block">Harian / Wisata</span>
+                      <span className="text-[11px] font-bold block">Car Rental</span>
+                      <span className="text-[9px] text-slate-500 block">Daily / Private</span>
                     </button>
 
                     <button
@@ -243,8 +223,8 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                           : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium'
                       }`}
                     >
-                      <span className="text-[11px] font-bold block">{isEN ? 'Airport Transfer' : 'Antar Jemput BIZAM'}</span>
-                      <span className="text-[9px] text-slate-500 block">Bandara Lombok</span>
+                      <span className="text-[11px] font-bold block">Airport Transfer</span>
+                      <span className="text-[9px] text-slate-500 block">Lombok Airport (BIZAM)</span>
                     </button>
 
                     <button
@@ -256,8 +236,8 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                           : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium'
                       }`}
                     >
-                      <span className="text-[11px] font-bold block">{isEN ? 'Harbor Transfer' : 'Pelabuhan Bangsal'}</span>
-                      <span className="text-[9px] text-slate-500 block">Penyeberangan Gili</span>
+                      <span className="text-[11px] font-bold block">Harbor Transfer</span>
+                      <span className="text-[9px] text-slate-500 block">Bangsal / Gili Ferry</span>
                     </button>
 
                     <button
@@ -269,8 +249,8 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                           : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium'
                       }`}
                     >
-                      <span className="text-[11px] font-bold block">{isEN ? 'Tour / Custom' : 'Wisata / Custom'}</span>
-                      <span className="text-[9px] text-slate-500 block">Senaru, Mandalika, dll.</span>
+                      <span className="text-[11px] font-bold block">Tour / Custom</span>
+                      <span className="text-[9px] text-slate-500 block">Senaru, Mandalika, etc.</span>
                     </button>
                   </div>
                 </div>
@@ -278,7 +258,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                 {/* 2. CHOOSE FLEET */}
                 <div className="space-y-3 pt-2 border-t border-slate-100">
                   <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">
-                    2. {isEN ? 'CHOOSE VEHICLE' : 'PILIH ARMADA KENDARAAN'}
+                    2. CHOOSE VEHICLE FLEET
                   </span>
                   <div className="grid grid-cols-3 gap-2">
                     {CARS.map(c => (
@@ -296,7 +276,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                         }`}
                       >
                         <span className="text-xs font-bold block">{c.name}</span>
-                        <span className="text-[10px] text-slate-500 block">{c.seats} {isEN ? 'Seats' : 'Kursi'}</span>
+                        <span className="text-[10px] text-slate-500 block">{c.seats} Seats</span>
                       </button>
                     ))}
                   </div>
@@ -305,7 +285,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                 {/* 3. TRIP & PASSENGER DATA */}
                 <div className="space-y-4 pt-2 border-t border-slate-100">
                   <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 block">
-                    3. {isEN ? 'TRIP & PASSENGER DETAILS' : 'DETAIL PERJALANAN & DATA PEMESAN'}
+                    3. TRIP &amp; PASSENGER DETAILS
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -326,14 +306,14 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                     <div className="space-y-1">
                       <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                         <Users className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>{isEN ? 'Passenger Count' : 'Jumlah Penumpang'} *</span>
+                        <span>Passenger Count *</span>
                       </label>
                       <input
                         type="text"
                         required
                         value={passengers}
                         onChange={(e) => setPassengers(e.target.value)}
-                        placeholder={isEN ? "Example: 4 Passengers" : "Contoh: 4 Orang"}
+                        placeholder="Example: 4 Passengers"
                         className="w-full text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50"
                       />
                     </div>
@@ -348,7 +328,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                         required
                         value={pickupAddress}
                         onChange={(e) => setPickupAddress(e.target.value)}
-                        placeholder={isEN ? "Airport BIZAM / Bangsal Port / Hotel..." : "Bandara BIZAM / Pelabuhan Bangsal / Hotel..."}
+                        placeholder="Airport BIZAM / Bangsal Port / Hotel..."
                         className="w-full text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50"
                       />
                     </div>
@@ -356,13 +336,13 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                     <div className="space-y-1">
                       <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                         <Navigation className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>{isEN ? 'Trip Destination' : 'Tujuan Perjalanan'}</span>
+                        <span>Trip Destination</span>
                       </label>
                       <input
                         type="text"
                         value={destinationTrip}
                         onChange={(e) => setDestinationTrip(e.target.value)}
-                        placeholder={isEN ? "Senaru / Sembalun / Mandalika / Bangsal..." : "Senaru / Sembalun / Mandalika / Bangsal / Custom..."}
+                        placeholder="Senaru / Sembalun / Mandalika / Bangsal..."
                         className="w-full text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50"
                       />
                     </div>
@@ -377,7 +357,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder={isEN ? "Your Full Name..." : "Nama Pemesan..."}
+                        placeholder="Your Full Name..."
                         className="w-full text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50"
                       />
                     </div>
@@ -392,7 +372,7 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                         required
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder={isEN ? "Example: 081999344480" : "Contoh: 081999344480"}
+                        placeholder="Example: +62 819-9934-4480"
                         className="w-full text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50"
                       />
                     </div>
@@ -416,18 +396,16 @@ Mohon informasi ketersediaan armada dan penawaran harga terbaik. Terima kasih!`;
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h4 className="font-display font-black text-2xl text-[#0d1b37] uppercase">
-                  {isEN ? 'Reservation Draft Sent!' : 'Format Pemesanan Terkirim!'}
+                  Reservation Draft Sent!
                 </h4>
                 <p className="font-sans text-xs text-slate-600 leading-relaxed font-medium max-w-md mx-auto">
-                  {isEN 
-                    ? 'Thank you! You have been redirected to Lombok Local Transport WhatsApp (081999344480). We will respond promptly.' 
-                    : 'Terima kasih! Anda telah terhubung langsung dengan WhatsApp Lombok Local Transport (081999344480). Tim kami akan segera merespons pemesanan Anda.'}
+                  Thank you! You have been redirected to Lombok Local Transport WhatsApp (+62 819-9934-4480). We will confirm your itinerary and price quote promptly.
                 </p>
                 <button
                   onClick={onClose}
                   className="px-6 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs uppercase cursor-pointer"
                 >
-                  {isEN ? 'Close Window' : 'Tutup Jendela'}
+                  Close Window
                 </button>
               </div>
             )}

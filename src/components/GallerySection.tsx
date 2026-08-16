@@ -18,56 +18,56 @@ export default function GallerySection({ lang }: GallerySectionProps) {
       id: 1,
       category: 'armada',
       title: 'Toyota Avanza',
-      subtitle: 'Praktis untuk Keluarga & Airport Transfer',
+      subtitle: 'Practical for Families & Solo Airport Transfers',
       image: '/Gambar/avanza.avif'
     },
     {
       id: 2,
       category: 'armada',
       title: 'Toyota Innova',
-      subtitle: 'Kenyamanan Jarak Jauh & Perjalanan Wisata',
+      subtitle: 'Long-Distance Comfort & Scenic Touring',
       image: '/Gambar/innova3.avif'
     },
     {
       id: 3,
       category: 'armada',
       title: 'Toyota Hiace',
-      subtitle: 'Kapasitas 12-15 Kursi untuk Wisata Rombongan',
+      subtitle: 'Capacity of 12-15 Seats for Group Tourism',
       image: '/Gambar/hiace.avif'
     },
     {
       id: 4,
       category: 'destinasi',
-      title: 'Air Terjun Senaru',
-      subtitle: 'Sendang Gile & Tiu Kelep, Kaki Gunung Rinjani',
+      title: 'Senaru Waterfalls',
+      subtitle: 'Sendang Gile & Tiu Kelep, Foot of Mount Rinjani',
       image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 5,
       category: 'destinasi',
       title: 'Sembalun Highland',
-      subtitle: 'Bukit Selong, Kebun Stroberi & Pemandangan Rinjani',
+      subtitle: 'Selong Hill, Strawberry Farms & Rinjani View',
       image: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 6,
       category: 'destinasi',
       title: 'Kuta Mandalika',
-      subtitle: 'Sirkuit Mandalika, Bukit Merese & Tanjung Aan',
+      subtitle: 'Mandalika MotoGP Circuit, Merese Hill & Tanjung Aan',
       image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 7,
       category: 'destinasi',
-      title: 'Pelabuhan Bangsal',
-      subtitle: 'Penyeberangan Wisatawan Menuju Gili Trawangan',
+      title: 'Bangsal Harbor',
+      subtitle: 'Island Ferry Crossing to Gili Trawangan, Meno & Air',
       image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 8,
       category: 'destinasi',
-      title: 'Desa Wisata Tetebatu',
-      subtitle: 'Sawah Terasering Hijau & Air Terjun Sarang Walet',
+      title: 'Tetebatu Eco Village',
+      subtitle: 'Emerald Terraced Rice Fields & Sarang Walet Waterfall',
       image: 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&q=80&w=1200'
     }
   ];
@@ -85,17 +85,17 @@ export default function GallerySection({ lang }: GallerySectionProps) {
         <div className="text-center max-w-3xl mx-auto space-y-3" id="gallery-heading">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-display font-extrabold text-xs tracking-wider uppercase">
             <Camera className="w-4 h-4 text-emerald-400" />
-            <span>DOKUMENTASI &amp; ARMADA LOMBOK</span>
+            <span>DOCUMENTATION &amp; LOMBOK FLEET</span>
           </div>
 
           <h2 className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight leading-tight uppercase">
-            Galeri <span className="text-emerald-400">Lombok Local Transport</span>
+            Gallery <span className="text-emerald-400">Lombok Local Transport</span>
           </h2>
 
           <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
 
           <p className="font-sans text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
-            Dokumentasi armada Toyota Avanza, Toyota Innova, Toyota Hiace, dan destinasi wisata populer di Lombok.
+            Photo highlights of our Toyota Avanza, Toyota Innova, Toyota Hiace fleet and top destinations in Lombok.
           </p>
 
           {/* FILTER TABS */}
@@ -108,7 +108,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
                   : 'bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10'
               }`}
             >
-              Semua Foto
+              All Photos
             </button>
             <button
               onClick={() => setActiveFilter('armada')}
@@ -118,7 +118,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
                   : 'bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10'
               }`}
             >
-              Armada Mobil
+              Vehicle Fleet
             </button>
             <button
               onClick={() => setActiveFilter('destinasi')}
@@ -128,7 +128,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
                   : 'bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10'
               }`}
             >
-              Destinasi Wisata
+              Travel Destinations
             </button>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
             </button>
             <img
               src={selectedPhoto}
-              alt="Preview Galeri"
+              alt="Gallery Preview"
               className="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl border border-white/20"
             />
           </motion.div>

@@ -34,7 +34,7 @@ export default function Footer({ lang, onNavigateSection }: FooterProps) {
           </div>
           <div className="md:col-span-4 flex justify-start md:justify-end">
             <a
-              href="https://api.whatsapp.com/send?phone=6281999344480&text=Halo%20Lombok%20Local%20Transport,%20saya%20ingin%20konsultasi%20layanan%20transportasi%20dan%20rental%20mobil%20di%20Lombok"
+              href="https://api.whatsapp.com/send?phone=6281999344480&text=Hello%20Lombok%20Local%20Transport,%20I%20would%20like%20to%20consult%20transportation%20and%20car%20rental%20services%20in%20Lombok"
               target="_blank"
               rel="noreferrer"
               className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-sans font-bold text-xs uppercase px-7 py-4 rounded-full shadow-lg shadow-emerald-600/25 transition-all flex items-center gap-2.5 cursor-pointer"
@@ -81,7 +81,7 @@ export default function Footer({ lang, onNavigateSection }: FooterProps) {
           {/* Column 2: Official Address & Contact */}
           <div className="md:col-span-4 space-y-4">
             <h4 className="font-display font-black text-sm uppercase text-emerald-400 tracking-wider">
-              {lang === 'EN' ? 'Official Address & Contact' : 'Alamat Resmi & Kontak'}
+              Official Address &amp; Contact
             </h4>
 
             <div className="space-y-3 text-xs text-slate-300 font-medium">
@@ -106,7 +106,7 @@ export default function Footer({ lang, onNavigateSection }: FooterProps) {
                       rel="noreferrer"
                       className="text-emerald-300 hover:underline font-bold"
                     >
-                      📱 WhatsApp: 081999344480 (+62 819-9934-4480)
+                      📱 WhatsApp: +62 819-9934-4480
                     </a>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export default function Footer({ lang, onNavigateSection }: FooterProps) {
               <div className="flex items-center gap-2.5 pt-1">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="text-slate-300">
-                  {lang === 'EN' ? 'Open 24/7 Daily for Airport Pickups & Rentals' : 'Layanan 24 Jam Antar-Jemput Bandara & Rental'}
+                  Open 24/7 Daily for Airport Pickups &amp; Car Rentals
                 </span>
               </div>
             </div>
@@ -171,7 +171,7 @@ export default function Footer({ lang, onNavigateSection }: FooterProps) {
             © {new Date().getFullYear()} Lombok Local Transport. All Rights Reserved.
           </span>
           <span className="text-[11px] text-slate-400">
-            Karang Bajo, Bayan, Lombok Utara, NTB 83354
+            Karang Bajo, Bayan, North Lombok, West Nusa Tenggara 83354
           </span>
         </div>
 

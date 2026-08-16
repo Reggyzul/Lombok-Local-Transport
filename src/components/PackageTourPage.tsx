@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TOUR_PACKAGES, TourPackage, TourTier } from '../data/packages';
-import { MapPin, Calendar, ArrowRight, X, MessageCircle, CheckCircle2, Globe, Plane, Sparkles } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, X, MessageCircle, Globe, Plane } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 
 interface PackageTourPageProps {
@@ -9,7 +9,7 @@ interface PackageTourPageProps {
   onNavigateHome?: () => void;
 }
 
-export default function PackageTourPage({ lang, onNavigateHome }: PackageTourPageProps) {
+export default function PackageTourPage({ lang }: PackageTourPageProps) {
   const [activeCategory, setActiveCategory] = useState<'all' | 'domestik' | 'internasional'>('all');
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
   const [selectedTier, setSelectedTier] = useState<TourTier | null>(null);
@@ -38,14 +38,14 @@ export default function PackageTourPage({ lang, onNavigateHome }: PackageTourPag
 
   const handleWhatsAppBooking = (pkg: TourPackage, tier: TourTier) => {
     const waNumber = '6281999344480';
-    const message = `Halo Lombok Local Transport, saya ingin berkonsultasi mengenai reservasi rute / paket transportasi:
+    const message = `Hello Lombok Local Transport, I would like to consult on booking a transport route/package:
 
-Paket/Rute: ${pkg.title} (${pkg.duration})
-Pilihan Armada: ${tier.busType} (${tier.capacity})
-Biaya: ${tier.pricePerPerson}
-Rute Perjalanan: ${pkg.routeDisplay}
+Package/Route: ${pkg.title} (${pkg.duration})
+Chosen Vehicle: ${tier.busType} (${tier.capacity})
+Price: ${tier.pricePerPerson}
+Travel Route: ${pkg.routeDisplay}
 
-Mohon informasi ketersediaan jadwal & mekanisme reservasi. Terima kasih!`;
+Please inform availability and the booking procedure. Thank you!`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
   };
 
@@ -176,7 +176,7 @@ Mohon informasi ketersediaan jadwal & mekanisme reservasi. Terima kasih!`;
                       </span>
                     </div>
                     <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md">
-                      Avanza, Innova &amp; Hiace
+                      Toyota Avanza, Innova &amp; Hiace
                     </span>
                   </div>
                 </div>
@@ -223,7 +223,7 @@ Mohon informasi ketersediaan jadwal & mekanisme reservasi. Terima kasih!`;
                 <button
                   onClick={handleCloseModal}
                   className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-9 h-9 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white transition-all flex items-center justify-center shadow-xl cursor-pointer z-50 hover:scale-110 border-2 border-white"
-                  title="Tutup Modal (Kembali)"
+                  title="Close Modal"
                   id="close-tour-modal"
                 >
                   <X className="w-5 h-5 stroke-[2.5]" />
@@ -305,7 +305,7 @@ Mohon informasi ketersediaan jadwal & mekanisme reservasi. Terima kasih!`;
                   </div>
                 </div>
 
-                {/* 2. HIGHLIGHTS & DESTINASI */}
+                {/* 2. HIGHLIGHTS & DESTINATIONS */}
                 <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1.5">
                   <h4 className="font-display font-bold text-[11px] uppercase tracking-wider text-slate-700">
                     {t.pkg_modal_highlights}
