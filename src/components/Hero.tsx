@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { MapPin, Calendar, Search, ChevronDown } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from '../utils/translations';
 
 interface HeroProps {
@@ -9,145 +8,113 @@ interface HeroProps {
   onBookingClick?: () => void;
 }
 
+const SLIDES = [
+  '/Gambar/tetebatu.avif',
+  '/Gambar/senaru.avif',
+  '/Gambar/sembalun.avif'
+];
+
 export default function Hero({ lang }: HeroProps) {
-  const [destinationInput, setDestinationInput] = useState('Senaru (Sendang Gile & Tiu Kelep Waterfalls)');
-  const [travelDateInput, setTravelDateInput] = useState('');
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const t = TRANSLATIONS[lang];
-
-  const destOptions = [
-    { value: 'Senaru (Sendang Gile & Tiu Kelep Waterfalls)', label: 'Senaru (Sendang Gile & Tiu Kelep Waterfalls)' },
-    { value: 'Bangsal Harbor (Gili Trawangan, Meno, Air Transfers)', label: 'Bangsal Harbor (Gili Trawangan, Meno, Air Transfers)' },
-    { value: 'Lombok International Airport (BIZAM Transfer)', label: 'Lombok International Airport (BIZAM Transfer)' },
-    { value: 'Kuta Mandalika (Mandalika Circuit & Merese Hill)', label: 'Kuta Mandalika (Mandalika Circuit & Merese Hill)' },
-    { value: 'Sembalun (Selong Hill & Rinjani Highland)', label: 'Sembalun (Selong Hill & Rinjani Highland)' },
-    { value: 'Tetebatu (Rice Terraces & Waterfall Nature)', label: 'Tetebatu (Rice Terraces & Waterfall Nature)' },
-    { value: 'Custom Route across Lombok Island', label: 'Custom Route across Lombok Island' }
-  ];
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const waNumber = '6281999344480';
-    const message = `Hello Lombok Local Transport, I would like to consult route / vehicle rental for: ${destinationInput}${travelDateInput ? ` (Planned Date: ${travelDateInput})` : ''}. Please inform price quote & details. Thank you!`;
-    window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section id="home" className="relative pt-16 pb-4 bg-white overflow-hidden text-center">
+    <section className="relative w-full min-h-[620px] sm:min-h-[700px] flex items-center justify-center overflow-hidden pt-28 sm:pt-32 pb-16 text-center text-white">
       
-      {/* 1. HERO BANNER */}
-      <div className="relative w-full min-h-[500px] sm:min-h-[540px] flex flex-col justify-between bg-slate-900 text-white overflow-hidden border-b border-slate-200">
-        
-        {/* Tetebatu Terraced Rice Fields Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/Gambar/tetebatu.avif')`
-          }}
-        />
-
-        {/* Soft Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950/85 backdrop-blur-[0.5px]" />
-
-        {/* Top Spacer */}
-        <div className="h-20 sm:h-24" />
-
-        {/* Hero Central Typography */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 py-6 text-center space-y-3 sm:space-y-4">
-          <motion.p
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-emerald-300 drop-shadow-lg"
-            style={{ fontFamily: "'Great Vibes', cursive, serif" }}
-          >
-            {t.hero_explore}
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1 }}
-            className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase leading-none drop-shadow-lg"
-          >
-            {t.hero_title_1}
-          </motion.h1>
-
+      {/* Background Slideshow (Flatsome fl-bg-slideshow style) */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col items-center justify-center gap-1.5 text-xs sm:text-sm font-sans font-bold text-emerald-200 tracking-wider uppercase drop-shadow-sm"
-          >
-            <span className="bg-emerald-950/80 px-4 py-1 rounded-full border border-emerald-500/40 text-emerald-300">
-              {t.hero_motto}
-            </span>
-            <span className="text-[11px] text-amber-300 font-medium normal-case pt-1">
-              📍 Karang Bajo, Bayan, North Lombok, West Nusa Tenggara 83354 • Toyota Avanza, Toyota Innova &amp; Toyota Hiace
-            </span>
-          </motion.div>
-        </div>
-
-        {/* Bottom Spacer inside Banner */}
-        <div className="h-16 sm:h-20" />
-
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url('${SLIDES[currentSlide]}')` }}
+          />
+        </AnimatePresence>
+        {/* Soft Dark Vignette Overlay for readability matching Beaver Builder */}
+        <div className="absolute inset-0 bg-black/45 backdrop-blur-[0.5px]" />
       </div>
 
-      {/* 2. ELEVATED SEARCH TOUR BOX */}
-      <div className="max-w-5xl mx-auto px-4 -mt-16 sm:-mt-20 relative z-20">
-        <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-2xl border border-slate-200/90 text-left">
-          
-          <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-            
-            {/* Field 1: Destination / Route */}
-            <div className="md:col-span-5 space-y-1">
-              <label className="text-[10px] font-sans font-extrabold text-slate-500 uppercase tracking-wider flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-emerald-600" />
-                <span>{t.search_dest_cat}</span>
-              </label>
-              <div className="relative">
-                <select
-                  value={destinationInput}
-                  onChange={(e) => setDestinationInput(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl py-2.5 px-3 pr-8 text-xs font-sans font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
-                >
-                  {destOptions.map((opt, idx) => (
-                    <option key={idx} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-3 pointer-events-none" />
-              </div>
-            </div>
+      {/* Hero Content Container */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+        
+        {/* WELCOME TO */}
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-white text-2xl sm:text-[34px] font-lato font-extrabold tracking-wide uppercase mb-3 drop-shadow-md"
+        >
+          WELCOME TO
+        </motion.p>
 
-            {/* Field 2: Planned Travel Date */}
-            <div className="md:col-span-4 space-y-1">
-              <label className="text-[10px] font-sans font-extrabold text-slate-500 uppercase tracking-wider flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-emerald-600" />
-                <span>{t.search_travel_date}</span>
-              </label>
-              <input
-                type="date"
-                value={travelDateInput}
-                onChange={(e) => setTravelDateInput(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl py-2.5 px-3 text-xs font-sans font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              />
-            </div>
+        {/* H1 Heading: Lombok Local Transport Service */}
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-3xl sm:text-5xl md:text-6xl font-lato font-black text-white tracking-tight leading-tight uppercase mb-4 drop-shadow-lg"
+        >
+          Lombok Local Transport Service
+        </motion.h1>
 
-            {/* Field 3: Consult Button */}
-            <div className="md:col-span-3 pt-2 md:pt-4">
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-sans font-extrabold text-xs uppercase py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Search className="w-4 h-4" />
-                <span>{t.search_btn}</span>
-              </button>
-            </div>
+        {/* Subheading H3 */}
+        <motion.h3
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg sm:text-2xl md:text-2xl font-lato font-bold text-white max-w-3xl mx-auto mb-5 leading-snug drop-shadow-md"
+        >
+          Your Premier Choice for Safe, Comfortable, and Reliable Travel Across Lombok
+        </motion.h3>
 
-          </form>
+        {/* Descriptive Text */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-sm sm:text-base font-lato text-neutral-100 max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow"
+        >
+          Whether you are arriving at the airport, heading to the stunning waterfalls of the north, or preparing for an epic Mount Rinjani trek, our professional <strong className="text-white font-bold">Lombok Local Transport service</strong> is here to make your journey seamless. Sit back, relax, and let our experienced local drivers show you the beauty of the island.
+        </motion.p>
 
-        </div>
+        {/* Green WhatsApp Message Us Button (Matching .fl-button on senarulomboktransport.com) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="https://wa.me/6281999344480"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1eb956] text-white font-lato font-extrabold text-sm sm:text-base uppercase tracking-wider px-8 py-3.5 rounded-md shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
+          >
+            {/* WhatsApp authentic icon */}
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.76.459 3.474 1.333 4.988l-1.417 5.174 5.293-1.389c1.455.793 3.096 1.211 4.777 1.212h.004c5.505 0 9.989-4.478 9.99-9.985.001-2.668-1.034-5.176-2.919-7.061-1.885-1.884-4.394-2.922-7.061-2.923zm5.952 14.183c-.251.706-1.258 1.346-1.742 1.402-.457.052-1.042.1-3.056-.731-2.585-1.066-4.227-3.704-4.356-3.876-.128-.172-1.047-1.396-1.047-2.663 0-1.267.662-1.889.897-2.14.235-.251.512-.314.683-.314.171 0 .342.002.49.009.158.007.37-.06.578.439.214.513.726 1.77.79 1.9.064.129.107.279.021.45-.085.171-.128.278-.256.427-.128.149-.27.333-.385.448-.128.128-.261.268-.112.524.15.255.664 1.096 1.427 1.776.981.874 1.808 1.144 2.064 1.272.256.128.406.107.556-.064.15-.171.641-.748.812-1.004.171-.256.342-.214.577-.128.235.085 1.493.704 1.75 1.004.256.3.256.556.005 1.262z" />
+            </svg>
+            <span>Message Us</span>
+          </a>
+
+          <a
+            href="tel:+6281999344480"
+            className="inline-flex items-center justify-center gap-2 bg-[#0766ad] hover:bg-[#06538c] text-white font-lato font-bold text-sm sm:text-base uppercase tracking-wider px-7 py-3.5 rounded-md shadow-md hover:shadow-lg transition-all duration-200"
+          >
+            <span>Call: +62 819-9934-4480</span>
+          </a>
+        </motion.div>
+
       </div>
 
     </section>

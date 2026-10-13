@@ -7,9 +7,11 @@ export interface TranslationSchema {
   nav_home: string;
   nav_about: string;
   nav_destinations: string;
+  nav_routes: string;
   nav_rentals: string;
   nav_packages: string;
   nav_gallery: string;
+  nav_payment: string;
   nav_contact: string;
   nav_book_btn: string;
 
@@ -177,11 +179,13 @@ const ENGLISH_TRANSLATIONS: TranslationSchema = {
   // Navigation
   nav_home: "Home",
   nav_about: "About Us",
-  nav_destinations: "Routes & Services",
+  nav_destinations: "Popular Routes",
+  nav_routes: "Popular Routes",
   nav_rentals: "Our Fleet",
   nav_packages: "Tour Routes",
   nav_gallery: "Gallery",
-  nav_contact: "Contact & Address",
+  nav_payment: "Payment",
+  nav_contact: "Contact",
   nav_book_btn: "BOOK VIA WHATSAPP",
 
   // Top Bar

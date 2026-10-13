@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CARS } from '../data/cars';
 import { Car } from '../types';
-import { Users, CheckCircle2, MessageCircle, Sparkles, ChevronDown, ShieldCheck } from 'lucide-react';
+import { Users, CheckCircle2, MessageCircle, ShieldCheck, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { TRANSLATIONS } from '../utils/translations';
 
@@ -16,9 +16,9 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
   const t = TRANSLATIONS[lang];
 
   const categories = [
-    { id: 'all', label: 'All Vehicles' },
+    { id: 'all', label: 'All Fleet Units' },
     { id: 'mpv', label: 'Family & Private (Avanza / Innova)' },
-    { id: 'hiace', label: 'Group Transport (Hiace)' }
+    { id: 'hiace', label: 'Group Transport (Toyota Hiace)' }
   ];
 
   const filteredCars = CARS.filter(car => {
@@ -30,41 +30,37 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
 
   const handleWhatsAppBooking = (car: Car) => {
     const waNumber = '6281999344480';
-    const message = `Hello Lombok Local Transport, I am interested in renting: ${car.name}. Please inform price quote & date availability. Thank you!`;
+    const message = `Hello Lombok Local Transport, I am interested in booking: ${car.name}. Please inform fixed rate quote & availability for my trip. Thank you!`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
   };
 
   return (
-    <section id="cars" className="py-20 bg-slate-50 text-[#0d1b37] overflow-hidden relative border-b border-slate-200 text-left">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="fleet" className="py-16 sm:py-20 bg-white border-b border-neutral-200 text-left">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        {/* Section Heading */}
-        <div className="text-center max-w-4xl mx-auto mb-12 space-y-3" id="cars-heading">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 font-display font-black text-xs uppercase tracking-widest border border-emerald-200 shadow-sm mb-1">
-            <Sparkles className="w-4 h-4 text-emerald-600" />
-            <span>{t.cars_tag}</span>
-          </div>
-
-          <h2 className="font-display font-black text-4xl sm:text-5xl text-[#0d1b37] tracking-tight leading-tight uppercase">
-            Lombok Local Transport Fleet
+        {/* Section Heading matching Flatsome theme */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="text-xs uppercase font-bold tracking-widest text-[#0766ad] mb-2 block">
+            OUR VEHICLE FLEET
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-lato font-bold text-[#111111] mb-3 uppercase tracking-wide">
+            Comfortable Vehicles for Lombok Tours
           </h2>
-
-          <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
-
-          <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium max-w-2xl mx-auto">
-            With Toyota Avanza, Toyota Innova, and Toyota Hiace vehicle choices, Lombok Local Transport is ready to serve individual, family, and group journeys across Lombok.
+          <div className="w-14 h-1 bg-[#0766ad] mx-auto rounded-full mb-4" />
+          <p className="text-sm sm:text-base text-neutral-600 font-lato leading-relaxed">
+            Choose from Toyota Avanza, Toyota Innova, and Toyota Hiace to suit your group size, comfort preference, and scenic travel across Lombok.
           </p>
 
           {/* Filter Category Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-5">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setFilterCategory(cat.id)}
-                className={`px-4 py-2.5 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded text-xs font-bold font-lato uppercase tracking-wider transition-all cursor-pointer ${
                   filterCategory === cat.id
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                    ? 'bg-[#0766ad] text-white shadow'
+                    : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-200'
                 }`}
               >
                 {cat.label}
@@ -74,58 +70,56 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
         </div>
 
         {/* Cars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredCars.map((car) => {
             return (
-              <motion.div
+              <div
                 key={car.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 onClick={() => onSelectCar(car)}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="bg-white rounded-lg border border-neutral-200 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
-                  <div className="relative h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-4">
+                  {/* Car Image Preview */}
+                  <div className="relative h-52 bg-neutral-100 overflow-hidden flex items-center justify-center p-4">
                     <img
                       src={car.image}
                       alt={car.name}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute top-4 left-4 bg-slate-900/85 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider">
+                    <div className="absolute top-3 left-3 bg-[#0766ad] text-white px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider">
                       {car.category}
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-4 text-left">
+                  <div className="p-5 sm:p-6 space-y-3.5">
                     <div>
-                      <h3 className="font-display font-black text-xl text-[#0d1b37] tracking-tight group-hover:text-emerald-700 transition-colors uppercase">
+                      <h3 className="font-lato font-bold text-xl text-[#111111] group-hover:text-[#0766ad] transition-colors">
                         {car.name}
                       </h3>
-                      <p className="font-sans text-xs text-slate-500 font-medium mt-1 line-clamp-2">
+                      <p className="text-xs text-neutral-500 mt-1 line-clamp-2">
                         {car.description}
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-4 text-xs font-bold text-slate-700 pt-2 border-t border-slate-100">
-                      <div className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
-                        <Users className="w-4 h-4 text-emerald-600" />
+                    <div className="flex items-center gap-3 text-xs font-semibold text-neutral-700 pt-2 border-t border-neutral-100">
+                      <div className="flex items-center gap-1.5 bg-neutral-100 px-2.5 py-1 rounded">
+                        <Users className="w-4 h-4 text-[#0766ad]" />
                         <span>{`${car.seats} Seats`}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
-                        <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                      <div className="flex items-center gap-1.5 bg-neutral-100 px-2.5 py-1 rounded">
+                        <ShieldCheck className="w-4 h-4 text-[#0766ad]" />
                         <span>{car.transmission}</span>
                       </div>
                     </div>
 
-                    <div className="space-y-1.5 pt-2">
-                      <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
-                        Key Features &amp; Highlights:
+                    <div className="space-y-1 pt-1">
+                      <span className="text-[10px] font-bold uppercase text-neutral-400 tracking-wider">
+                        Included Facilities:
                       </span>
                       <ul className="space-y-1">
-                        {car.includeList.map((inc, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        {car.includeList.slice(0, 3).map((inc, idx) => (
+                          <li key={idx} className="flex items-start gap-1.5 text-xs text-neutral-600">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#027c31] shrink-0 mt-0.5" />
                             <span>{inc}</span>
                           </li>
                         ))}
@@ -134,48 +128,34 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 space-y-3">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onSelectCar(car);
-                    }}
-                    className="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-display font-black text-xs uppercase py-3.5 rounded-2xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    <span>Book This Vehicle</span>
-                  </button>
-
+                <div className="p-5 sm:p-6 pt-0 space-y-2">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       handleWhatsAppBooking(car);
                     }}
-                    className="w-full bg-[#0f2b5c] hover:bg-[#0a1c3f] text-white font-display font-black text-xs uppercase py-3 rounded-2xl shadow-sm transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
+                    className="w-full bg-[#25D366] hover:bg-[#1eb956] text-white font-lato font-bold text-xs uppercase py-2.5 rounded shadow-sm transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>Consult via WhatsApp</span>
+                    <span>Inquire via WhatsApp</span>
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onSelectCar(car);
+                    }}
+                    className="w-full bg-white hover:bg-neutral-50 text-[#0766ad] border border-[#0766ad] font-lato font-bold text-xs uppercase py-2 rounded transition-all cursor-pointer flex items-center justify-center gap-1 tracking-wider"
+                  >
+                    <span>View Specifications</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
-        {/* View All Fleet Trigger */}
-        {onViewAllCars && (
-          <div className="mt-12 text-center flex flex-col items-center justify-center">
-            <button
-              onClick={onViewAllCars}
-              className="group flex flex-col items-center justify-center gap-1.5 cursor-pointer text-slate-700 hover:text-emerald-700 transition-colors py-2"
-            >
-              <span className="font-display font-black text-xs uppercase tracking-widest text-slate-800 group-hover:text-emerald-700 transition-colors">
-                View All Services
-              </span>
-              <ChevronDown className="w-6 h-6 text-emerald-600 animate-bounce group-hover:translate-y-1 transition-transform" />
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );

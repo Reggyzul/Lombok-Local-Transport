@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Camera, X, MapPin, ZoomIn } from 'lucide-react';
-import { TRANSLATIONS } from '../utils/translations';
+import ContactInfoBox from './ContactInfoBox';
 
 interface GalleryPageProps {
   lang: 'ID' | 'EN';
   onNavigateHome: () => void;
+  onNavigatePage: (page: string) => void;
 }
 
-export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) {
+export default function GalleryPage({ onNavigateHome, onNavigatePage }: GalleryPageProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<{ image: string; title: string; subtitle: string; location: string } | null>(null);
   const [activeCategory, setActiveCategory] = useState<'all' | 'guest' | 'destinations'>('all');
 
-  const t = TRANSLATIONS[lang];
-
   const galleryItems = [
-    // Real Customer Tour Documentation Photos (8 items)
     {
       id: 1,
       category: 'guest',
@@ -23,7 +21,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Golden sunrise emerging above the ethereal sea of clouds atop Mount Rinjani summit',
       location: 'Mount Rinjani Summit (3,726m)',
       image: '/Gambar/gallery-sunrise-clouds.avif',
-      badge: 'Guest Highlight'
+      badge: 'Guest Tour'
     },
     {
       id: 2,
@@ -32,7 +30,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Traveler couple taking in the sweeping ocean of clouds and sunny mountain air',
       location: 'Mount Pergasingan Ridge, Sembalun',
       image: '/Gambar/gallery-couple-clouds.avif',
-      badge: 'Guest Highlight'
+      badge: 'Guest Tour'
     },
     {
       id: 3,
@@ -41,7 +39,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Golden morning light illuminating the geometric farming plots of Sembalun with Mount Rinjani backdrop',
       location: 'Selong Hill Viewpoint, Sembalun',
       image: '/Gambar/gallery-sembalun-rinjani-view.avif',
-      badge: 'Guest Highlight'
+      badge: 'Guest Tour'
     },
     {
       id: 4,
@@ -50,7 +48,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Scenic wooden swing overlooking the colorful agricultural fields of Sembalun & Mount Pergasingan',
       location: 'Pergasingan Hill, Sembalun Lawang',
       image: '/Gambar/gallery-swing.avif',
-      badge: 'Guest Highlight'
+      badge: 'Guest Tour'
     },
     {
       id: 5,
@@ -59,7 +57,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Guest group enjoying the ocean crossing from Lombok harbor to Gili Trawangan',
       location: 'Bangsal Harbor to Gili Islands',
       image: '/Gambar/gallery-gili-boat.avif',
-      badge: 'Guest Highlight'
+      badge: 'Harbor Transfer'
     },
     {
       id: 6,
@@ -68,7 +66,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Guests savoring breakfast with morning clouds over Segara Anak volcanic crater lake',
       location: 'Mount Rinjani Crater Rim Summit',
       image: '/Gambar/gallery-rinjani-caldera.avif',
-      badge: 'Guest Highlight'
+      badge: 'Trekking Tour'
     },
     {
       id: 7,
@@ -77,7 +75,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Travelers visiting the preserved ancient Sasak houses at the base of Mount Rinjani hills',
       location: 'Desa Beleq, Sembalun Lawang',
       image: '/Gambar/gallery-beleq.avif',
-      badge: 'Guest Highlight'
+      badge: 'Cultural Tour'
     },
     {
       id: 8,
@@ -86,10 +84,8 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Trekking along the high mountain ridge overlooking the vast panorama of Sembalun valley',
       location: 'Bukit Selong / Pergasingan, Sembalun',
       image: '/Gambar/gallery-ridge.avif',
-      badge: 'Guest Highlight'
+      badge: 'Guest Tour'
     },
-
-    // Destination Highlights (5 items)
     {
       id: 9,
       category: 'destinations',
@@ -97,7 +93,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Lush tropical rainforest waterfalls nestled in Senaru at the northern base of Mount Rinjani',
       location: 'Senaru, North Lombok',
       image: '/Gambar/senaru.avif',
-      badge: 'Senaru Rinjani'
+      badge: 'Waterfalls'
     },
     {
       id: 10,
@@ -106,7 +102,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Pristine turquoise waters, white pepper sand, and iconic beach gazebos in South Lombok',
       location: 'Kuta Mandalika, Central Lombok',
       image: '/Gambar/mandalika.avif',
-      badge: 'Mandalika Coast'
+      badge: 'Beaches'
     },
     {
       id: 11,
@@ -124,7 +120,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Cascading green rice terraces and serene countryside atmosphere on the southern slope of Rinjani',
       location: 'Tetebatu, Sikur, East Lombok',
       image: '/Gambar/tetebatu.avif',
-      badge: 'Eco Village'
+      badge: 'Rice Terraces'
     },
     {
       id: 13,
@@ -133,7 +129,7 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
       subtitle: 'Colorful geometric farmland plots framed by majestic mountain peaks',
       location: 'Sembalun Valley, East Lombok',
       image: '/Gambar/sembalun.avif',
-      badge: 'Sembalun Highland'
+      badge: 'Highland Valley'
     }
   ];
 
@@ -143,145 +139,101 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
   });
 
   return (
-    <div className="bg-slate-50 text-[#0d1b37] min-h-screen pt-20 text-left">
+    <div className="pt-24 sm:pt-28 bg-white text-left font-lato">
       
-      {/* 1. TOP HEADER BANNER */}
-      <div className="relative w-full h-[260px] sm:h-[320px] bg-slate-950 text-white overflow-hidden flex items-center justify-center">
+      {/* 1. Header Banner */}
+      <div className="relative py-14 sm:py-20 bg-neutral-900 text-white text-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-40 transform scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/Gambar/gallery-sunrise-clouds.avif')`
-          }}
+          className="absolute inset-0 bg-cover bg-center opacity-35"
+          style={{ backgroundImage: `url('/Gambar/gallery-sunrise-clouds.avif')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/65 to-slate-950/95" />
-
-        <div className="relative z-10 text-center space-y-3 px-4 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-600/90 text-white font-extrabold text-[11px] uppercase tracking-widest mb-1 shadow-lg"
-          >
-            <Camera className="w-4 h-4 text-emerald-300" />
-            <span>AUTHENTIC TRAVEL MEMORIES &amp; DESTINATIONS</span>
-          </motion.div>
-
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight uppercase drop-shadow-lg"
-          >
-            Lombok Photo Gallery
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-sans text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-widest"
-          >
-            <span onClick={onNavigateHome} className="hover:text-emerald-400 cursor-pointer transition-colors">HOME</span> / GALLERY
-          </motion.p>
+        <div className="absolute inset-0 bg-[#0766ad]/85" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-lato font-extrabold uppercase tracking-tight text-white mb-3">
+            Gallery
+          </h1>
+          <p className="text-sm sm:text-base text-neutral-100 max-w-2xl mx-auto leading-relaxed">
+            Moments, scenic highlights, and authentic tour documentation from our journeys across Lombok.
+          </p>
         </div>
       </div>
 
-      {/* MAIN CONTENT CONTAINER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+      {/* 2. Gallery Content */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         
-        {/* Section Heading & Category Filter Tabs */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-[#0d1b37]">
-            Guest Moments &amp; Island Highlights
-          </h2>
-          <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full" />
-          <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-            Explore authentic documentation from our tours, island transfers, and scenic travel highlights across Lombok.
-          </p>
-
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-3">
-            <button
-              onClick={() => setActiveCategory('all')}
-              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
-                activeCategory === 'all'
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-              }`}
-            >
-              All Photos ({galleryItems.length})
-            </button>
-            <button
-              onClick={() => setActiveCategory('guest')}
-              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
-                activeCategory === 'guest'
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-              }`}
-            >
-              ★ Guest Moments (8)
-            </button>
-            <button
-              onClick={() => setActiveCategory('destinations')}
-              className={`px-4 py-2 rounded-full font-display font-extrabold text-xs transition-all cursor-pointer ${
-                activeCategory === 'destinations'
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-              }`}
-            >
-              Destinations (5)
-            </button>
-          </div>
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <button
+            onClick={() => setActiveCategory('all')}
+            className={`px-4 py-2 rounded text-xs font-bold font-lato uppercase tracking-wider transition-all cursor-pointer ${
+              activeCategory === 'all'
+                ? 'bg-[#0766ad] text-white shadow'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-300'
+            }`}
+          >
+            All Photos ({galleryItems.length})
+          </button>
+          <button
+            onClick={() => setActiveCategory('guest')}
+            className={`px-4 py-2 rounded text-xs font-bold font-lato uppercase tracking-wider transition-all cursor-pointer ${
+              activeCategory === 'guest'
+                ? 'bg-[#0766ad] text-white shadow'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-300'
+            }`}
+          >
+            Guest Moments (8)
+          </button>
+          <button
+            onClick={() => setActiveCategory('destinations')}
+            className={`px-4 py-2 rounded text-xs font-bold font-lato uppercase tracking-wider transition-all cursor-pointer ${
+              activeCategory === 'destinations'
+                ? 'bg-[#0766ad] text-white shadow'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-300'
+            }`}
+          >
+            Scenic Destinations (5)
+          </button>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => (
-            <motion.div
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: (index % 3) * 0.05 }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {filteredItems.map((item) => (
+            <div
               key={item.id}
               onClick={() => setSelectedPhoto({ image: item.image, title: item.title, subtitle: item.subtitle, location: item.location })}
-              className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer bg-slate-950 border border-slate-200/80"
+              className="group relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer bg-neutral-900 border border-neutral-200"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-95 group-hover:opacity-100"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
 
-              {/* Badge Tag */}
-              <div className="absolute top-3.5 left-3.5 bg-emerald-600 text-white font-display font-extrabold text-[10px] uppercase px-3 py-1 rounded-full shadow-md z-10">
+              <div className="absolute top-3 left-3 bg-[#0766ad] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
                 {item.badge}
               </div>
 
-              {/* Zoom Icon Floater */}
-              <div className="absolute top-3.5 right-3.5 bg-white/90 p-2 rounded-full text-slate-900 opacity-0 group-hover:opacity-100 transition-opacity shadow-md z-10">
-                <ZoomIn className="w-4 h-4 text-emerald-600" />
+              <div className="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 transition-opacity shadow">
+                <ZoomIn className="w-3.5 h-3.5 text-[#0766ad]" />
               </div>
 
-              {/* Card Footer Content */}
-              <div className="absolute bottom-4 left-4 right-4 text-left space-y-1.5 z-10">
-                <div className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-300">
-                  <MapPin className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
+              <div className="absolute bottom-3 left-3 right-3 text-left">
+                <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-300 mb-0.5">
+                  <MapPin className="w-3 h-3 shrink-0" />
                   <span className="truncate">{item.location}</span>
                 </div>
-                
-                <h3 className="font-display font-black text-lg text-white leading-tight group-hover:text-emerald-300 transition-colors">
+                <h3 className="font-lato font-bold text-sm text-white leading-snug">
                   {item.title}
                 </h3>
-
-                <p className="font-sans text-xs text-slate-300 font-medium line-clamp-2">
-                  {item.subtitle}
-                </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
       </div>
 
-      {/* Lightbox Modal Zoom */}
+      {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedPhoto && (
           <motion.div
@@ -289,36 +241,36 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedPhoto(null)}
-            className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer"
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer"
           >
             <div 
               onClick={(e) => e.stopPropagation()} 
-              className="relative max-w-5xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 text-left"
+              className="relative max-w-4xl w-full bg-white rounded-lg overflow-hidden shadow-2xl text-left"
             >
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-slate-700 shadow-md"
+                className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors cursor-pointer"
               >
-                <X className="w-6 h-6" />
+                <X className="w-4 h-4" />
               </button>
 
-              <div className="relative bg-black flex items-center justify-center max-h-[75vh] overflow-hidden">
+              <div className="bg-black flex items-center justify-center max-h-[70vh] overflow-hidden">
                 <img
                   src={selectedPhoto.image}
                   alt={selectedPhoto.title}
-                  className="w-full h-auto max-h-[75vh] object-contain mx-auto"
+                  className="w-full h-auto max-h-[70vh] object-contain mx-auto"
                 />
               </div>
 
-              <div className="p-6 bg-slate-900 space-y-2 border-t border-slate-800">
-                <div className="flex items-center gap-2 text-xs font-bold text-emerald-400">
-                  <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
+              <div className="p-4 bg-white space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#0766ad]">
+                  <MapPin className="w-3.5 h-3.5" />
                   <span>{selectedPhoto.location}</span>
                 </div>
-                <h3 className="font-display font-black text-xl text-white">
+                <h3 className="font-lato font-bold text-lg text-[#111111]">
                   {selectedPhoto.title}
                 </h3>
-                <p className="font-sans text-xs sm:text-sm text-slate-300 font-medium">
+                <p className="text-xs text-neutral-600">
                   {selectedPhoto.subtitle}
                 </p>
               </div>
@@ -326,6 +278,9 @@ export default function GalleryPage({ lang, onNavigateHome }: GalleryPageProps) 
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 3. Bottom Contact Info Box */}
+      <ContactInfoBox onNavigate={onNavigatePage} />
 
     </div>
   );

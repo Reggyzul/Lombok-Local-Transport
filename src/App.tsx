@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import AboutPage from './components/AboutPage';
-import Services from './components/Services';
+import TrustedPartnerSection from './components/TrustedPartnerSection';
+import ServicesSection from './components/ServicesSection';
 import CarList from './components/CarList';
-import DestinationHighlightsPage from './components/DestinationHighlightsPage';
-import TransportRentPage from './components/TransportRentPage';
-import GallerySection from './components/GallerySection';
-import GalleryPage from './components/GalleryPage';
-import BookingSteps from './components/BookingSteps';
+import WhyChooseUsSection from './components/WhyChooseUsSection';
+import BlogSection from './components/BlogSection';
 import Testimonials from './components/Testimonials';
+import CtaBanner from './components/CtaBanner';
+import ContactInfoBox from './components/ContactInfoBox';
+import AboutPage from './components/AboutPage';
+import PopularRoutesPage from './components/PopularRoutesPage';
+import GalleryPage from './components/GalleryPage';
+import PaymentPage from './components/PaymentPage';
+import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import { Car } from './types';
@@ -18,9 +22,10 @@ import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from './utils/translations';
 
+export type AppPage = 'home' | 'about' | 'routes' | 'gallery' | 'payment' | 'contact';
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'rentals' | 'destinations' | 'gallery'>('home');
-  const [activeSection, setActiveSection] = useState('home');
+  const [currentPage, setCurrentPage] = useState<AppPage>('home');
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [lang, setLang] = useState<'EN' | 'ID'>('EN');
@@ -35,7 +40,17 @@ export default function App() {
   useEffect(() => {
     // Dynamic SEO Metadata Synchronization
     document.documentElement.lang = 'en';
-    document.title = t.seo_title;
+    
+    const pageTitles: Record<AppPage, string> = {
+      home: "Lombok Local Transport Service | Airport Transfer & Private Driver In Lombok",
+      about: "About Us | Lombok Local Transport Service",
+      routes: "Popular Routes & Travel Times | Lombok Local Transport Service",
+      gallery: "Gallery | Lombok Local Transport Service",
+      payment: "Payment Option & Policy | Lombok Local Transport Service",
+      contact: "Contact & Location | Lombok Local Transport Service"
+    };
+
+    document.title = pageTitles[currentPage] || t.seo_title;
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -44,7 +59,7 @@ export default function App() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.setAttribute('content', t.seo_description);
-  }, [lang, t.seo_title, t.seo_description]);
+  }, [currentPage, lang, t.seo_title, t.seo_description]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,53 +68,27 @@ export default function App() {
       } else {
         setShowScrollTop(false);
       }
-
-      if (currentPage === 'home') {
-        const sections = ['home', 'cars', 'destinations', 'gallery', 'footer-contact'];
-        const scrollPosition = window.scrollY + 250;
-
-        for (const section of sections) {
-          const el = document.getElementById(section);
-          if (el) {
-            const top = el.offsetTop;
-            const height = el.offsetHeight;
-            if (scrollPosition >= top && scrollPosition < top + height) {
-              setActiveSection(section);
-              break;
-            }
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [currentPage]);
+  }, []);
 
-  const handleNavClick = (sectionId: string) => {
-    if (sectionId === 'about-page' || sectionId === 'about') {
+  const handleNavigate = (page: string) => {
+    if (page === 'destinations' || page === 'popular-routes' || page === 'routes') {
+      setCurrentPage('routes');
+    } else if (page === 'about' || page === 'about-us') {
       setCurrentPage('about');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (sectionId === 'rentals') {
-      setCurrentPage('rentals');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (sectionId === 'destinations' && currentPage !== 'home') {
-      setCurrentPage('destinations');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (sectionId === 'gallery' || sectionId === 'gallery-page') {
+    } else if (page === 'gallery') {
       setCurrentPage('gallery');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (page === 'payment') {
+      setCurrentPage('payment');
+    } else if (page === 'contact') {
+      setCurrentPage('contact');
     } else {
       setCurrentPage('home');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }, 50);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectCar = (car: Car) => {
@@ -111,71 +100,103 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between font-sans antialiased selection:bg-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-white text-[#444444] flex flex-col justify-between font-lato antialiased selection:bg-[#0766ad] selection:text-white">
       
-      {/* Header Bar */}
+      {/* 1. Header Bar matching senarulomboktransport.com */}
       <Header
-        activeSection={activeSection}
-        onNavClick={handleNavClick}
+        currentPage={currentPage}
+        onNavClick={handleNavigate}
         lang={lang}
         setLang={handleSetLang}
         onBookingClick={() => setSelectedCar(CARS[0])}
       />
 
-      {/* Main Page Dynamic Router View */}
+      {/* 2. Main Page Views */}
       <main className="flex-grow">
-        {currentPage === 'home' ? (
+        {currentPage === 'home' && (
           <>
+            {/* Hero Section */}
             <Hero 
-              onExploreClick={() => handleNavClick('destinations')} 
+              onExploreClick={() => handleNavigate('routes')} 
               lang={lang} 
               onBookingClick={() => setSelectedCar(CARS[0])} 
             />
 
+            {/* Trusted Partner & Review Recommendation Section */}
+            <TrustedPartnerSection />
+
+            {/* Our Services Section (Popular Routes Table + 3 Comprehensive Service Cards) */}
+            <ServicesSection onViewAllRoutes={() => handleNavigate('routes')} />
+
+            {/* Vehicle Fleet Catalog */}
             <CarList 
               onSelectCar={handleSelectCar} 
               lang={lang} 
-              onViewAllCars={() => handleNavClick('rentals')}
+              onViewAllCars={() => handleNavigate('routes')}
             />
 
-            <Services 
-              lang={lang} 
-              onViewAllDestinations={() => handleNavClick('destinations')}
-            />
+            {/* Why Choose Us */}
+            <WhyChooseUsSection />
 
-            {/* Gallery Section - 3 Featured Photos on Home */}
-            <GallerySection 
-              lang={lang} 
-              onViewAllGallery={() => handleNavClick('gallery')}
-            />
+            {/* Travel Guides & Blogs */}
+            <BlogSection />
 
-            <BookingSteps lang={lang} />
-
+            {/* Traveler Reviews & Testimonials */}
             <Testimonials lang={lang} />
+
+            {/* Ready to Explore Lombok? CTA Banner */}
+            <CtaBanner />
+
+            {/* CONTACT INFORMATION Box with Quick Buttons */}
+            <ContactInfoBox onNavigate={handleNavigate} />
           </>
-        ) : currentPage === 'about' ? (
-          <AboutPage lang={lang} onNavigateHome={() => handleNavClick('home')} />
-        ) : currentPage === 'destinations' ? (
-          <DestinationHighlightsPage lang={lang} onNavigateHome={() => handleNavClick('home')} />
-        ) : currentPage === 'gallery' ? (
-          <GalleryPage lang={lang} onNavigateHome={() => handleNavClick('home')} />
-        ) : (
-          <TransportRentPage 
-            onSelectCar={handleSelectCar} 
+        )}
+
+        {currentPage === 'about' && (
+          <AboutPage 
+            onNavigateHome={() => handleNavigate('home')} 
+            onNavigatePage={handleNavigate}
+          />
+        )}
+
+        {currentPage === 'routes' && (
+          <PopularRoutesPage 
+            onNavigateHome={() => handleNavigate('home')} 
+            onNavigatePage={handleNavigate}
+          />
+        )}
+
+        {currentPage === 'gallery' && (
+          <GalleryPage 
             lang={lang} 
-            onNavigateHome={() => handleNavClick('home')} 
+            onNavigateHome={() => handleNavigate('home')} 
+            onNavigatePage={handleNavigate}
+          />
+        )}
+
+        {currentPage === 'payment' && (
+          <PaymentPage 
+            onNavigateHome={() => handleNavigate('home')} 
+            onNavigatePage={handleNavigate}
+          />
+        )}
+
+        {currentPage === 'contact' && (
+          <ContactPage 
+            onNavigateHome={() => handleNavigate('home')} 
+            onNavigatePage={handleNavigate}
           />
         )}
       </main>
 
-      {/* Footer Contact */}
-      <Footer onNavigateSection={handleNavClick} lang={lang} />
+      {/* 3. Footer matching senarulomboktransport.com */}
+      <Footer onNavigateSection={handleNavigate} lang={lang} />
 
-      {/* Booking Popup Modal */}
+      {/* 4. Booking Popup Modal */}
       <BookingModal car={selectedCar} onClose={() => setSelectedCar(null)} lang={lang} onCarChange={setSelectedCar} />
 
-      {/* FLOATING ASSISTANT AVATAR WIDGET */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2">
+      {/* 5. Floating Actions: Scroll to Top & WhatsApp Chat Badge */}
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2.5">
         <AnimatePresence>
           {showScrollTop && (
             <motion.button
@@ -183,7 +204,7 @@ export default function App() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={scrollToTop}
-              className="w-10 h-10 rounded-full bg-[#0d1b37] text-white flex items-center justify-center shadow-lg hover:bg-slate-800 transition-colors cursor-pointer border border-slate-700"
+              className="w-10 h-10 rounded-full bg-[#0766ad] text-white flex items-center justify-center shadow-lg hover:bg-[#06538c] transition-colors cursor-pointer border border-white"
               title="Scroll to top"
             >
               <ChevronUp className="w-5 h-5" />
@@ -195,7 +216,7 @@ export default function App() {
         <motion.a
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          href="https://api.whatsapp.com/send?phone=6281999344480&text=Hello%20Lombok%20Local%20Transport,%20I%20would%20like%20to%20consult%20transportation%20and%20car%20rental%20services%20in%20Lombok"
+          href="https://wa.me/6281999344480?text=Hello%20Lombok%20Local%20Transport,%20I%20would%20like%20to%20consult%20transportation%20and%20car%20rental%20services%20in%20Lombok"
           target="_blank"
           rel="noreferrer"
           className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl hover:scale-110 transition-transform duration-300 border-2 border-white cursor-pointer"

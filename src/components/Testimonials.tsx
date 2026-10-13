@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TESTIMONIALS, TestimonialItem } from '../data/cars';
-import { Star, Quote, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from '../utils/translations';
 
@@ -21,7 +21,6 @@ export default function Testimonials({ lang }: TestimonialsProps) {
     setActiveIdx((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
   };
 
-  // Auto scroll testimonials periodically
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIdx((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
@@ -32,74 +31,69 @@ export default function Testimonials({ lang }: TestimonialsProps) {
   const currentRev = reviews[activeIdx];
 
   return (
-    <section id="testimonials" className="py-24 bg-slate-50 overflow-hidden text-left border-b border-slate-200">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-16 sm:py-20 bg-neutral-50/50 overflow-hidden text-left border-b border-neutral-200">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3" id="testimonials-heading">
-          <span className="font-display font-extrabold text-xs text-emerald-700 tracking-widest uppercase bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200 inline-block">
-            {t.testi_tag}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="text-xs uppercase font-bold tracking-widest text-[#0766ad] mb-2 block">
+            GUEST REVIEWS
           </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-[#0d1b37] tracking-tight uppercase">
-            {t.testi_title}
+          <h2 className="text-2xl sm:text-3xl font-lato font-bold text-[#111111] mb-3 uppercase tracking-wide">
+            What Our Travelers Say
           </h2>
-          <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-            {t.testi_desc}
+          <div className="w-14 h-1 bg-[#0766ad] mx-auto rounded-full mb-4" />
+          <p className="text-sm sm:text-base text-neutral-600 font-lato leading-relaxed">
+            Consistently rated 5.0 stars on TripAdvisor &amp; Google Reviews by travelers from across the world.
           </p>
         </div>
 
-        {/* Full-width Testimonial Carousel */}
-        <div className="flex flex-col items-center" id="testimonials-carousel-section">
-
+        {/* Testimonial Card */}
+        <div className="flex flex-col items-center">
           <AnimatePresence mode="wait">
             {reviews.length > 0 && (
               <motion.div
                 key={activeIdx}
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
-                transition={{ duration: 0.45 }}
-                className="w-full bg-white rounded-[32px] p-8 sm:p-12 border border-slate-200 shadow-xl relative"
-                id={`testimonial-bubble-${activeIdx}`}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+                className="w-full bg-white rounded-xl p-8 sm:p-10 border border-neutral-200 shadow-sm relative text-left"
               >
-                {/* Decorative quote icon */}
-                <div className="absolute top-8 right-8 text-slate-200">
-                  <Quote className="w-16 h-16 transform -scale-x-100 fill-current opacity-60" />
+                <div className="absolute top-6 right-6 text-neutral-200">
+                  <Quote className="w-12 h-12 transform -scale-x-100 fill-current opacity-40" />
                 </div>
 
-                <div className="space-y-6 relative z-10 text-left">
-                  {/* Stars row */}
-                  <div className="flex text-amber-400">
+                <div className="space-y-4 relative z-10">
+                  {/* Stars */}
+                  <div className="flex text-amber-500">
                     {[...Array(currentRev.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-current" />
+                      <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
 
-                  {/* Testimonial text block */}
-                  <p className="font-sans text-slate-700 italic text-base sm:text-xl leading-relaxed font-medium">
+                  {/* Review Text */}
+                  <p className="font-lato text-neutral-700 italic text-sm sm:text-base leading-relaxed">
                     "{currentRev.textEN}"
                   </p>
 
-                  {/* Renter profile */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
+                  {/* Profile info */}
+                  <div className="flex items-center gap-3.5 pt-4 border-t border-neutral-100">
                     <img
                       src={currentRev.image}
                       alt={currentRev.name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-emerald-600 shadow-sm"
+                      className="w-12 h-12 rounded-full object-cover border border-neutral-200 shadow-sm"
                       referrerPolicy="no-referrer"
                     />
                     <div>
-                      <h4 className="font-display font-black text-base text-[#0d1b37] uppercase tracking-wide">
+                      <h4 className="font-lato font-bold text-sm text-[#111111]">
                         {currentRev.name}
                       </h4>
-                      <p className="font-sans text-xs text-slate-500 font-semibold">
+                      <p className="text-xs text-neutral-500">
                         {currentRev.roleEN}
                       </p>
-                      <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-emerald-200 mt-1">
-                        <Sparkles className="w-2.5 h-2.5 text-emerald-600" />
-                        <span>
-                          {t.testi_rented_model} {currentRev.carModelEN} ({currentRev.dateEN})
-                        </span>
+                      <span className="text-[11px] font-semibold text-[#0766ad]">
+                        Route: {currentRev.carModelEN} ({currentRev.dateEN})
                       </span>
                     </div>
                   </div>
@@ -108,22 +102,22 @@ export default function Testimonials({ lang }: TestimonialsProps) {
             )}
           </AnimatePresence>
 
-          {/* Carousel Controls */}
-          <div className="flex items-center gap-4 mt-8">
+          {/* Controls */}
+          <div className="flex items-center gap-3 mt-6">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-white hover:bg-emerald-600 hover:text-white text-slate-700 flex items-center justify-center transition-colors shadow-md border border-slate-200 cursor-pointer"
+              className="w-9 h-9 rounded-full bg-white hover:bg-[#0766ad] hover:text-white text-neutral-700 flex items-center justify-center transition-colors shadow-sm border border-neutral-300 cursor-pointer"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               {reviews.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIdx(idx)}
-                  className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                    activeIdx === idx ? 'w-8 bg-emerald-600' : 'w-2.5 bg-slate-300'
+                  className={`h-2 rounded-full transition-all cursor-pointer ${
+                    activeIdx === idx ? 'w-6 bg-[#0766ad]' : 'w-2 bg-neutral-300'
                   }`}
                 />
               ))}
@@ -131,12 +125,11 @@ export default function Testimonials({ lang }: TestimonialsProps) {
 
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-white hover:bg-emerald-600 hover:text-white text-slate-700 flex items-center justify-center transition-colors shadow-md border border-slate-200 cursor-pointer"
+              className="w-9 h-9 rounded-full bg-white hover:bg-[#0766ad] hover:text-white text-neutral-700 flex items-center justify-center transition-colors shadow-sm border border-neutral-300 cursor-pointer"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
-
         </div>
 
       </div>

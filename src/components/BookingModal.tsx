@@ -383,7 +383,7 @@ Please confirm availability and the best price quote. Thank you!`;
                 <div className="pt-4 border-t border-slate-100">
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-display font-black text-xs uppercase py-4 rounded-2xl shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
+                    className="w-full bg-[#25D366] hover:bg-[#1eb956] text-white font-lato font-bold text-xs uppercase py-4 rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 tracking-wider"
                   >
                     <span>{t.modal_btn_confirm}</span>
                   </button>
