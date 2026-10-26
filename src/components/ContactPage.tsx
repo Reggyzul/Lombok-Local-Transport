@@ -203,7 +203,18 @@ I would like to inquire / book a trip:
                   </div>
                   <div>
                     <strong className="block text-slate-900 font-semibold mb-0.5">Base Office:</strong>
-                    <span>Karang Bajo, Bayan District, North Lombok Regency, West Nusa Tenggara 83354</span>
+                    <a 
+                      href="https://maps.app.goo.gl/XyuUg3998NsscnDdA" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="text-slate-600 hover:text-emerald-700 transition-colors inline-block"
+                      title="Lihat di Google Maps"
+                    >
+                      Karang Bajo, Bayan District, North Lombok Regency, West Nusa Tenggara 83354
+                      <span className="inline-flex items-center gap-1 text-emerald-600 font-semibold text-xs ml-1 underline">
+                        (Buka di Maps)
+                      </span>
+                    </a>
                   </div>
                 </div>
 
@@ -213,7 +224,7 @@ I would like to inquire / book a trip:
                   </div>
                   <div>
                     <strong className="block text-slate-900 font-semibold mb-0.5">WhatsApp / Call:</strong>
-                    <a href="https://wa.me/6281999344480" className="text-emerald-700 hover:text-emerald-800 font-bold">
+                    <a href="https://wa.me/6281999344480" target="_blank" rel="noreferrer" className="text-emerald-700 hover:text-emerald-800 font-bold">
                       +62 819-9934-4480
                     </a>
                   </div>
@@ -225,7 +236,7 @@ I would like to inquire / book a trip:
                   </div>
                   <div>
                     <strong className="block text-slate-900 font-semibold mb-0.5">Email Support:</strong>
-                    <a href="mailto:lomboklocaltransport@gmail.com" className="text-emerald-700 hover:text-emerald-800">
+                    <a href="mailto:lomboklocaltransport@gmail.com" className="text-emerald-700 hover:text-emerald-800 font-bold underline">
                       lomboklocaltransport@gmail.com
                     </a>
                   </div>
@@ -246,31 +257,45 @@ I would like to inquire / book a trip:
             {/* Embedded Google Map */}
             <div className="bg-white border border-slate-200/80 rounded-3xl p-7 shadow-lg shadow-slate-200/50 space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-base font-['Outfit'] font-bold text-slate-900">
-                  Google Maps Location
-                </h3>
+                <div>
+                  <h3 className="text-base font-['Outfit'] font-bold text-slate-900">
+                    Google Maps Location
+                  </h3>
+                  <p className="text-xs text-slate-500">Lombok Local Transport - Karang Bajo, Bayan</p>
+                </div>
                 <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Plus Code: PCQG+37W</span>
               </div>
 
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 h-56 bg-slate-100 shadow-inner">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 h-60 bg-slate-100 shadow-inner group">
                 <iframe
-                  title="Office Map"
-                  src="https://maps.google.com/maps?q=Lombok+Local+Transport,+Karang+Bajo,+Bayan,+Lombok+Utara,+Nusa+Tenggara+Barat+83354&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  title="Lombok Local Transport Google Maps"
+                  src="https://maps.google.com/maps?q=-8.262271,116.425712+(Lombok+Local+Transport)&t=&z=15&ie=UTF8&iwloc=B&output=embed"
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
 
-              <a
-                href="https://maps.app.goo.gl/xrvwq3sxJAApxUcX8"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-emerald-700 hover:text-emerald-800 font-bold"
-              >
-                <span>Open in Google Maps App</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+              <div className="flex flex-col sm:flex-row gap-2 pt-1">
+                <a
+                  href="https://maps.app.goo.gl/XyuUg3998NsscnDdA"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-['Outfit'] font-bold tracking-wide shadow-md shadow-emerald-600/20 transition-all transform hover:-translate-y-0.5"
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Direct ke Google Maps (Arahkan Rute)</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href="mailto:lomboklocaltransport@gmail.com"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Kirim Email</span>
+                </a>
+              </div>
             </div>
 
           </div>
