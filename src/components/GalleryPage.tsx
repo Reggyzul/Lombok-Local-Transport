@@ -139,60 +139,66 @@ export default function GalleryPage({ onNavigateHome, onNavigatePage }: GalleryP
   });
 
   return (
-    <div className="pt-24 sm:pt-28 bg-white text-left font-lato">
+    <div className="pt-24 sm:pt-28 bg-slate-50 text-left font-sans">
       
-      {/* 1. Header Banner matching Beaver Builder fl-row-bg-slideshow */}
-      <div className="relative py-16 sm:py-24 bg-neutral-900 text-white text-center overflow-hidden">
+      {/* 1. Header Banner */}
+      <div className="relative py-20 sm:py-28 bg-slate-950 text-white text-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/Gambar/gallery-sunrise-clouds.avif')` }}
         />
-        {/* Dark overlay rgba(0,0,0,0.7) */}
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-950/70" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 
-            className="text-3xl sm:text-5xl md:text-6xl font-lato font-black uppercase tracking-tight mb-3"
-            style={{ color: 'rgb(250, 125, 15)' }}
-          >
-            Our Gallery
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-amber-300 text-xs font-heading font-semibold uppercase tracking-widest mb-4">
+            <Camera className="w-3.5 h-3.5" />
+            <span>Tour Documentation &bull; Authentic Moments</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl font-heading font-black uppercase tracking-tight mb-4">
+            <span className="text-white">Our </span>
+            <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 bg-clip-text text-transparent">
+              Gallery
+            </span>
           </h1>
-          <p className="text-sm sm:text-base text-neutral-100 max-w-2xl mx-auto leading-relaxed">
-            Some Wonderfull moment with our guest
+
+          <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed">
+            Some wonderful moments with our guests across Mount Rinjani, northern waterfalls, and Lombok coastlines.
           </p>
         </div>
       </div>
 
       {/* 2. Gallery Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
         
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
           <button
             onClick={() => setActiveCategory('all')}
-            className={`px-4 py-2 rounded text-xs font-bold font-lato uppercase tracking-wider transition-all cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
               activeCategory === 'all'
-                ? 'bg-[#0766ad] text-white shadow'
-                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-300'
+                ? 'bg-[#0766ad] text-white shadow-md'
+                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
             All Photos ({galleryItems.length})
           </button>
           <button
             onClick={() => setActiveCategory('guest')}
-            className={`px-4 py-2 rounded text-xs font-bold font-lato uppercase tracking-wider transition-all cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
               activeCategory === 'guest'
-                ? 'bg-[#0766ad] text-white shadow'
-                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-300'
+                ? 'bg-[#0766ad] text-white shadow-md'
+                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
             Guest Moments (8)
           </button>
           <button
             onClick={() => setActiveCategory('destinations')}
-            className={`px-4 py-2 rounded text-xs font-bold font-lato uppercase tracking-wider transition-all cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
               activeCategory === 'destinations'
-                ? 'bg-[#0766ad] text-white shadow'
-                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-300'
+                ? 'bg-[#0766ad] text-white shadow-md'
+                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
             Scenic Destinations (5)
@@ -205,29 +211,29 @@ export default function GalleryPage({ onNavigateHome, onNavigatePage }: GalleryP
             <div
               key={item.id}
               onClick={() => setSelectedPhoto({ image: item.image, title: item.title, subtitle: item.subtitle, location: item.location })}
-              className="group relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer bg-neutral-900 border border-neutral-200"
+              className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer bg-slate-900 border border-slate-200/80"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-              <div className="absolute top-3 left-3 bg-[#0766ad] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+              <div className="absolute top-3.5 left-3.5 bg-black/50 backdrop-blur-md text-white text-[10px] font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/20">
                 {item.badge}
               </div>
 
-              <div className="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full text-neutral-800 opacity-0 group-hover:opacity-100 transition-opacity shadow">
+              <div className="absolute top-3.5 right-3.5 bg-white/90 p-2 rounded-full text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity shadow">
                 <ZoomIn className="w-3.5 h-3.5 text-[#0766ad]" />
               </div>
 
-              <div className="absolute bottom-3 left-3 right-3 text-left">
-                <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-300 mb-0.5">
-                  <MapPin className="w-3 h-3 shrink-0" />
+              <div className="absolute bottom-4 left-4 right-4 text-left">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-300 mb-1">
+                  <MapPin className="w-3.5 h-3.5 shrink-0" />
                   <span className="truncate">{item.location}</span>
                 </div>
-                <h3 className="font-lato font-bold text-sm text-white leading-snug">
+                <h3 className="font-heading font-bold text-sm sm:text-base text-white leading-snug drop-shadow-md">
                   {item.title}
                 </h3>
               </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
 
 interface ContactInfoBoxProps {
   onNavigate: (page: string) => void;
@@ -7,82 +8,104 @@ interface ContactInfoBoxProps {
 export default function ContactInfoBox({ onNavigate }: ContactInfoBoxProps) {
   return (
     <section 
-      id="section_2017736022" 
-      className="py-14 sm:py-20 bg-[#f5f5f5] text-center font-lato border-t border-neutral-200"
+      id="section_contact_info" 
+      className="py-16 sm:py-20 bg-slate-100/90 text-center font-sans border-t border-slate-200"
     >
-      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
-        {/* Centered Brand Logo (Matching image_1069206569 from senarulomboktransport.com) */}
-        <div className="mb-4 flex justify-center">
-          <img
-            src="/Gambar/logo.png"
-            alt="Lombok Local Transport Service"
-            className="w-36 sm:w-48 h-auto object-contain drop-shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
-            onClick={() => onNavigate('home')}
-          />
+        {/* Brand Emblem Logo with Pulse */}
+        <div className="mb-5 flex justify-center">
+          <div className="relative group cursor-pointer" onClick={() => onNavigate('home')}>
+            <img
+              src="/Gambar/logo.png"
+              alt="Lombok Local Transport"
+              className="w-28 sm:w-32 h-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
         </div>
 
-        {/* Heading: CONTACT INFORMATION (Matching text-1361783440) */}
-        <div className="mb-3">
-          <h2 className="text-xl sm:text-2xl font-lato font-bold text-[#000000] uppercase tracking-wider">
+        {/* Heading with Character */}
+        <div className="mb-2">
+          <span className="text-[11px] font-heading font-extrabold text-[#0766ad] uppercase tracking-widest block mb-1">
+            24/7 Island Concierge &bull; Head Office
+          </span>
+          <h3 className="text-2xl sm:text-3xl font-heading font-black text-slate-900 tracking-tight uppercase">
             CONTACT INFORMATION
-          </h2>
+          </h3>
         </div>
 
-        {/* Divider .is-divider */}
-        <div className="w-10 h-0.5 bg-neutral-300 mx-auto my-4" />
+        {/* Divider */}
+        <div className="w-12 h-1 bg-gradient-to-r from-[#0766ad] to-amber-500 mx-auto rounded-full my-4" />
 
-        {/* Information Body (Matching text-2423509861) */}
-        <div className="space-y-1.5 text-sm sm:text-base font-lato text-[#000000] leading-relaxed my-4">
-          <p>
-            Address: Karang Bajo, Bayan District, North Lombok Regency, West Nusa Tenggara 83354
-          </p>
-          <p>
-            WhatsApp/Call:{' '}
+        {/* Contact Badges Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 my-6 text-left">
+          
+          {/* Address */}
+          <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <div className="flex items-center gap-2 text-[#0766ad] font-heading font-bold text-xs uppercase tracking-wider">
+              <MapPin className="w-4 h-4 shrink-0" />
+              <span>Office Address</span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Karang Bajo, Bayan, North Lombok Regency, West Nusa Tenggara 83354
+            </p>
+          </div>
+
+          {/* WhatsApp / Phone */}
+          <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <div className="flex items-center gap-2 text-emerald-600 font-heading font-bold text-xs uppercase tracking-wider">
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>WhatsApp / Call</span>
+            </div>
             <a 
               href="https://wa.me/6281999344480" 
               target="_blank" 
               rel="noreferrer" 
-              className="text-[#0766ad] hover:underline font-bold"
+              className="text-xs font-bold text-slate-900 hover:text-emerald-600 block transition-colors"
             >
               +62 819-9934-4480
             </a>
-          </p>
-          <p>
-            E-mail:{' '}
+            <span className="text-[11px] text-slate-400 block">24 Hours Active</span>
+          </div>
+
+          {/* Email */}
+          <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-1">
+            <div className="flex items-center gap-2 text-amber-600 font-heading font-bold text-xs uppercase tracking-wider">
+              <Mail className="w-4 h-4 shrink-0" />
+              <span>E-mail</span>
+            </div>
             <a 
               href="mailto:lomboklocaltransport@gmail.com" 
-              className="text-[#0766ad] hover:underline"
+              className="text-xs font-bold text-slate-900 hover:text-[#0766ad] block transition-colors break-all"
             >
               lomboklocaltransport@gmail.com
             </a>
-          </p>
+            <span className="text-[11px] text-slate-400 block">Instant Quote Reply</span>
+          </div>
+
         </div>
 
-        {/* Divider .is-divider */}
-        <div className="w-10 h-0.5 bg-neutral-300 mx-auto my-5" />
-
-        {/* Action Outline Buttons (Matching button primary/secondary is-outline) */}
+        {/* Quick Navigation Pills */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <button
             onClick={() => onNavigate('home')}
-            className="px-6 py-2 rounded border-2 border-[#0766ad] text-[#0766ad] hover:bg-[#0766ad] hover:text-white font-lato font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer"
+            className="px-6 py-2 rounded-full border border-slate-300 hover:border-[#0766ad] bg-white text-slate-700 hover:text-[#0766ad] font-heading font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer"
           >
-            home
+            Home
           </button>
 
           <button
             onClick={() => onNavigate('payment')}
-            className="px-6 py-2 rounded border-2 border-[#ff6600] text-[#ff6600] hover:bg-[#ff6600] hover:text-white font-lato font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer"
+            className="px-6 py-2 rounded-full border border-slate-300 hover:border-amber-500 bg-white text-slate-700 hover:text-amber-600 font-heading font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer"
           >
-            payment
+            Payment Policy
           </button>
 
           <button
             onClick={() => onNavigate('contact')}
-            className="px-6 py-2 rounded border-2 border-[#0766ad] text-[#0766ad] hover:bg-[#0766ad] hover:text-white font-lato font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer"
+            className="px-6 py-2 rounded-full border border-slate-300 hover:border-emerald-600 bg-white text-slate-700 hover:text-emerald-600 font-heading font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer"
           >
-            contact
+            Contact &amp; Location
           </button>
         </div>
 
