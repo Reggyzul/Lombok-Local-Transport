@@ -36,19 +36,23 @@ I would like to inquire / book a trip:
   return (
     <div className="pt-24 sm:pt-28 bg-white text-left font-lato">
       
-      {/* 1. Header Banner */}
-      <div className="relative py-14 sm:py-20 bg-neutral-900 text-white text-center overflow-hidden">
+      {/* 1. Header Banner matching Beaver Builder fl-row-bg-slideshow */}
+      <div className="relative py-16 sm:py-24 bg-neutral-900 text-white text-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-35"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/Gambar/bangsal.avif')` }}
         />
-        <div className="absolute inset-0 bg-[#0766ad]/85" />
+        {/* Dark overlay rgba(0,0,0,0.7) */}
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-lato font-extrabold uppercase tracking-tight text-white mb-3">
+          <h1 
+            className="text-3xl sm:text-5xl md:text-6xl font-lato font-black uppercase tracking-tight mb-3"
+            style={{ color: 'rgb(250, 125, 15)' }}
+          >
             Get in Touch with Us
           </h1>
           <p className="text-sm sm:text-base text-neutral-100 max-w-2xl mx-auto leading-relaxed">
-            Have questions about routes, car rentals, or airport transfers? We are here to help 24/7.
+            Have a question about a route, need a custom quote for a large group, or ready to book your ride? We are here to help!
           </p>
         </div>
       </div>
@@ -62,8 +66,11 @@ I would like to inquire / book a trip:
             <h2 className="text-xl sm:text-2xl font-lato font-bold text-[#111111] mb-2">
               Send Us a Message
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-600 mb-6">
-              Fill in your trip details below. Your request will open directly in WhatsApp for instant response!
+            <p className="text-xs sm:text-sm text-neutral-600 mb-3 leading-relaxed">
+              At <strong className="text-[#111111]">Lombok Local Transport Service</strong>, our team is available around the clock to make sure your travel plans go off without a hitch. Whether you prefer WhatsApp, email, or a phone call, getting in touch is quick and easy.
+            </p>
+            <p className="text-xs sm:text-sm text-neutral-500 mb-6 leading-relaxed">
+              Reach out to us using the details below, or simply fill out the contact form and your request will open directly in WhatsApp for instant response!
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">

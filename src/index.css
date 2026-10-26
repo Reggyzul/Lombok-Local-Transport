@@ -13,6 +13,7 @@
   --color-fl-footer: #1a74af;
   --color-fl-text: #444444;
   --color-fl-heading: #111111;
+  --color-fl-orange: #fa7d0f;
 }
 
 /* Base resets & typography matching Flatsome theme */
@@ -41,84 +42,90 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Dancing Script', cursive;
 }
 
-/* Custom buttons matching Flatsome */
-.btn-flatsome-primary {
-  background-color: #0766ad;
-  color: #ffffff;
+/* Beaver Builder .fl-button utility styles matching senarulomboktransport.com */
+.fl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 4px;
+  font-size: 16px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.25s ease-in-out;
+  line-height: 18px;
+  padding: 12px 24px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-.btn-flatsome-primary:hover {
+
+.fl-button-green {
+  background-color: rgb(12, 136, 51);
+  border: 1px solid rgb(0, 124, 39);
+  color: #ffffff;
+}
+.fl-button-green:hover {
+  background-color: rgb(252, 115, 3);
+  border: 1px solid rgb(240, 103, 0);
+  color: #ffffff;
+}
+
+.fl-button-primary {
+  background-color: #0766ad;
+  border: 1px solid #06538c;
+  color: #ffffff;
+}
+.fl-button-primary:hover {
   background-color: #06538c;
 }
 
-.btn-flatsome-secondary {
-  background-color: #ff6600;
-  color: #ffffff;
+/* Flatsome outline buttons */
+.button.is-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  background-color: transparent;
   transition: all 0.25s ease-in-out;
+  cursor: pointer;
 }
-.btn-flatsome-secondary:hover {
-  background-color: #e55c00;
-}
-
-.btn-flatsome-outline-primary {
+.button.primary.is-outline {
   border: 2px solid #0766ad;
   color: #0766ad;
-  background-color: transparent;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.25s ease-in-out;
 }
-.btn-flatsome-outline-primary:hover {
+.button.primary.is-outline:hover {
   background-color: #0766ad;
   color: #ffffff;
 }
 
-.btn-flatsome-outline-secondary {
+.button.secondary.is-outline {
   border: 2px solid #ff6600;
   color: #ff6600;
-  background-color: transparent;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.25s ease-in-out;
 }
-.btn-flatsome-outline-secondary:hover {
+.button.secondary.is-outline:hover {
   background-color: #ff6600;
   color: #ffffff;
 }
 
-.btn-whatsapp-message {
-  background-color: #25D366;
-  color: #ffffff;
-  font-weight: 700;
-  transition: all 0.25s ease-in-out;
-}
-.btn-whatsapp-message:hover {
-  background-color: #1eb956;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
-}
-
-/* Divider with Flatsome center styling */
-.flatsome-divider {
-  height: 3px;
+/* Flatsome divider line */
+.is-divider {
+  height: 2px;
   background-color: rgba(0, 0, 0, 0.1);
-  max-width: 60px;
+  max-width: 40px;
   margin: 1.25rem auto;
 }
 
-/* Custom table styling like TablePress */
+/* Custom table styling like TablePress from senarulomboktransport.com */
 .tablepress {
   border-collapse: collapse;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #e6e6e6;
+  font-family: 'Lato', sans-serif;
 }
 .tablepress th {
   background-color: #0766ad;
@@ -127,11 +134,15 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 16px;
   text-align: left;
   border: 1px solid #06538c;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .tablepress td {
   padding: 12px 16px;
-  border: 1px solid #e5e5e5;
-  color: #444;
+  border: 1px solid #e6e6e6;
+  color: #444444;
+  font-size: 14px;
 }
 .tablepress tr:nth-child(even) td {
   background-color: #f9f9f9;
@@ -148,3 +159,4 @@ h1, h2, h3, h4, h5, h6 {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+

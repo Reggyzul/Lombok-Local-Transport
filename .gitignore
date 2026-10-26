@@ -6,3 +6,8 @@ coverage/
 *.log
 .env*
 !.env.example
+.chrome_temp/
+senaru_*.html
+modules_output.txt
+bb_75_layout.css
+

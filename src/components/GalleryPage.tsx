@@ -141,19 +141,23 @@ export default function GalleryPage({ onNavigateHome, onNavigatePage }: GalleryP
   return (
     <div className="pt-24 sm:pt-28 bg-white text-left font-lato">
       
-      {/* 1. Header Banner */}
-      <div className="relative py-14 sm:py-20 bg-neutral-900 text-white text-center overflow-hidden">
+      {/* 1. Header Banner matching Beaver Builder fl-row-bg-slideshow */}
+      <div className="relative py-16 sm:py-24 bg-neutral-900 text-white text-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-35"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/Gambar/gallery-sunrise-clouds.avif')` }}
         />
-        <div className="absolute inset-0 bg-[#0766ad]/85" />
+        {/* Dark overlay rgba(0,0,0,0.7) */}
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-lato font-extrabold uppercase tracking-tight text-white mb-3">
-            Gallery
+          <h1 
+            className="text-3xl sm:text-5xl md:text-6xl font-lato font-black uppercase tracking-tight mb-3"
+            style={{ color: 'rgb(250, 125, 15)' }}
+          >
+            Our Gallery
           </h1>
           <p className="text-sm sm:text-base text-neutral-100 max-w-2xl mx-auto leading-relaxed">
-            Moments, scenic highlights, and authentic tour documentation from our journeys across Lombok.
+            Some Wonderfull moment with our guest
           </p>
         </div>
       </div>

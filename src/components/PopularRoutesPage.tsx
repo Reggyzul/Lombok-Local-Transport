@@ -34,35 +34,47 @@ export default function PopularRoutesPage({ onNavigateHome, onNavigatePage }: Po
   return (
     <div className="pt-24 sm:pt-28 bg-white text-left font-lato">
       
-      {/* 1. Header Banner */}
-      <div className="relative py-14 sm:py-20 bg-neutral-900 text-white text-center overflow-hidden">
+      {/* 1. Header Banner matching Beaver Builder fl-row-bg-slideshow */}
+      <div className="relative py-16 sm:py-24 bg-neutral-900 text-white text-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-35"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/Gambar/senaru.avif')` }}
         />
-        <div className="absolute inset-0 bg-[#0766ad]/85" />
+        {/* Dark overlay rgba(0,0,0,0.7) */}
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-lato font-extrabold uppercase tracking-tight text-white mb-3">
+          <h1 
+            className="text-3xl sm:text-5xl md:text-6xl font-lato font-black uppercase tracking-tight mb-3"
+            style={{ color: 'rgb(250, 125, 15)' }}
+          >
             Popular Routes &amp; Travel Times
           </h1>
-          <p className="text-sm sm:text-base text-neutral-100 max-w-2xl mx-auto leading-relaxed">
-            Check travel durations and routes across Lombok Island. Fixed rates, reliable local drivers, and 24/7 service.
+          <p className="text-sm sm:text-base text-neutral-100 max-w-2xl mx-auto leading-relaxed mb-5">
+            Need a ride to Senaru? Discover exact travel times and popular routes from Lombok Airport, the Gili Islands, Kuta, and more. Book your direct transfer today!
           </p>
+          <div>
+            <a
+              href="#routes-table"
+              className="inline-flex items-center gap-2 bg-[#027c31] hover:bg-[#fc7303] text-white font-lato font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded shadow transition-colors"
+            >
+              Explore our services
+            </a>
+          </div>
         </div>
       </div>
 
       {/* 2. Main Content */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-16" id="routes-table">
         
         {/* Intro */}
-        <div className="mb-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-lato font-bold text-[#111111] mb-3">
-            Lombok Island Travel Durations &amp; Transfer Rates
-          </h2>
-          <div className="w-14 h-1 bg-[#0766ad] mx-auto rounded-full mb-4" />
-          <p className="text-sm text-neutral-600 leading-relaxed text-justify sm:text-center">
-            Whether you need a transfer from the airport to the northern gateway of Mount Rinjani, or a comfortable ride from Bangsal Harbor down to Kuta Mandalika, our fixed-rate private transfers ensure zero stress.
+        <div className="mb-10 text-center max-w-3xl mx-auto space-y-3">
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed text-justify sm:text-center">
+            Welcome to your journey to the foothills of Mount Rinjani. Because Senaru is located in the mountainous highlands of North Lombok, getting here takes a little bit of planning. Whether you are arriving fresh off a flight, stepping off a fast boat from the Gili Islands, or traveling up from the southern beaches, <strong className="text-[#111111]">Lombok Local Transport</strong> provides comfortable, direct private transfers so you can focus on your upcoming adventure.
           </p>
+          <p className="text-sm text-neutral-500 leading-relaxed text-justify sm:text-center">
+            Below is a guide to our most frequently requested routes and estimated travel times to help you plan your itinerary.
+          </p>
+          <div className="w-14 h-1 bg-[#0766ad] mx-auto rounded-full mt-4" />
         </div>
 
         {/* Direction Switcher Tabs */}

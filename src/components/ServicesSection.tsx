@@ -1,101 +1,155 @@
 import React from 'react';
 import PopularRoutesTable from './PopularRoutesTable';
-import { Plane, Mountain, Compass, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface ServicesSectionProps {
   onViewAllRoutes?: () => void;
 }
 
-export default function ServicesSection({ onViewAllRoutes }: ServicesSectionProps) {
-  const services = [
-    {
-      icon: Plane,
-      title: '✈️ Airport & Harbor Transfers',
-      description: 'Start your holiday the right way. We provide prompt pick-up and drop-off services from Lombok International Airport (BIZAM) and all key sea ports including Bangsal Harbor (for Gili Trawangan, Meno, Air) and Lembar Port. Your driver will be waiting with a name board, ready to help with your luggage.'
-    },
-    {
-      icon: Mountain,
-      title: '⛰️ Mount Rinjani Trekking Transport',
-      description: "Conquer Indonesia's second highest volcano with confidence. We offer direct transfers to the official trekking gateways in Senaru and Sembalun. We coordinate seamlessly with your trekking organizers and ensure punctual pickups at trailheads."
-    },
-    {
-      icon: Compass,
-      title: '🌴 Full-Day & Half-Day Island Tours',
-      description: 'Explore Lombok at your own pace. Discover the cascading Sendang Gile & Tiu Kelep waterfalls, picturesque Sembalun valleys, pristine south coast beaches around Kuta Mandalika, and authentic Sasak cultural villages with our knowledgeable local drivers.'
-    }
-  ];
+const GALLERY_IMAGES = [
+  {
+    url: '/Gambar/avanza.avif',
+    title: 'Clean Modern Fleet & Professional Driver',
+    alt: 'Lombok Transport Driver & Vehicle'
+  },
+  {
+    url: '/Gambar/gallery-couple-clouds.avif',
+    title: 'Scenic Mountain & Valley Tour',
+    alt: 'Guest Tour in Lombok Mountain Ridge'
+  },
+  {
+    url: '/Gambar/innova3.avif',
+    title: 'Comfortable Private Car Rental',
+    alt: 'Toyota Innova Reborn Lombok Fleet'
+  },
+  {
+    url: '/Gambar/mandalika.avif',
+    title: 'Pristine South Lombok Beaches',
+    alt: 'Mandalika & Kuta Lombok Beach Tour'
+  },
+  {
+    url: '/Gambar/hiace.avif',
+    title: 'Spacious Group Transport (Toyota Hiace)',
+    alt: 'Toyota Hiace Commuter Lombok Transport'
+  },
+  {
+    url: '/Gambar/gallery-gili-boat.avif',
+    title: 'Harbor & Gili Islands Fast Boat Transfer',
+    alt: 'Bangsal Harbor Gili Transfer'
+  }
+];
 
+export default function ServicesSection({ onViewAllRoutes }: ServicesSectionProps) {
   return (
-    <section className="py-16 sm:py-20 bg-neutral-50/60 border-b border-neutral-200" id="services">
+    <section className="py-14 sm:py-20 bg-white border-b border-neutral-200" id="services">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl sm:text-3xl font-lato font-bold text-[#111111] mb-3 uppercase tracking-wide">
+        {/* Module 11 Heading: Our Services */}
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl font-lato font-bold text-[#111111] uppercase tracking-wide">
             Our Services
           </h2>
-          <div className="w-14 h-1 bg-[#0766ad] mx-auto rounded-full mb-4" />
-          <p className="text-sm sm:text-base text-neutral-600 font-lato leading-relaxed">
+        </div>
+
+        {/* Module 11: 6-Photo Mosaic Gallery (Matching .fl-module-gallery .fl-node-83m1dxwhz9vo) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+          {GALLERY_IMAGES.map((img, idx) => (
+            <div
+              key={idx}
+              className="relative group overflow-hidden rounded-lg bg-neutral-100 shadow-sm border border-neutral-200 h-56 sm:h-64"
+            >
+              <img
+                src={img.url}
+                alt={img.alt}
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <span className="text-white text-xs font-lato font-bold">
+                  {img.title}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Module 12: Rich Text Paragraph */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <p className="text-sm sm:text-base text-[#444444] font-lato leading-relaxed">
             Wherever your adventure takes you in Lombok, we will get you there safely and on time. Check our most popular routes and travel times below, and contact us to book your reliable, fixed-rate ride today.
           </p>
         </div>
 
-        {/* Popular Routes Table Sub-section */}
-        <div className="bg-white rounded-xl p-5 sm:p-7 shadow-sm border border-neutral-200 mb-16">
-          <div className="text-center mb-6">
-            <h3 className="text-xl sm:text-2xl font-lato font-bold text-[#111111]">
-              Popular Routes &amp; Travel Times From Senaru / North Lombok
-            </h3>
-            <p className="text-xs sm:text-sm text-neutral-500 mt-1">
-              Fixed transparent rates for comfortable private transfers island-wide
-            </p>
-          </div>
+        {/* Module 13: Popular Routes & Travel Times From Senaru TablePress Sub-section */}
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-lato font-bold text-[#111111] mb-5 text-center sm:text-left">
+            Popular Routes &amp; Travel Times From Senaru
+          </h2>
 
           <PopularRoutesTable />
         </div>
 
-        {/* Comprehensive Lombok Transport Services Section */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <h3 className="text-xl sm:text-2xl font-lato font-bold text-[#111111] mb-2">
-            Comprehensive Lombok Transport Services
-          </h3>
-          <p className="text-xs sm:text-sm text-neutral-600">
-            We offer a wide range of travel solutions tailored to your itinerary. No matter where you need to go, we have the perfect ride for you.
-          </p>
+        {/* Module 14: Button "Others Popular Routes & Travel Times" */}
+        <div className="text-center mb-16">
+          <button
+            onClick={onViewAllRoutes}
+            className="inline-flex items-center gap-2 bg-[#0766ad] hover:bg-[#06538c] text-white font-lato font-bold text-sm sm:text-base uppercase tracking-wider px-7 py-3 rounded shadow transition-all cursor-pointer"
+          >
+            <span>Others Popular Routes &amp; Travel Times</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
 
-        {/* 3 Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between text-left"
-            >
-              <div>
-                <h4 className="text-lg font-lato font-bold text-[#111111] mb-3 leading-snug">
-                  {item.title}
-                </h4>
-                <p className="text-xs sm:text-sm text-neutral-600 font-lato leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+        {/* Module 15: Separator line */}
+        <div className="w-full h-px bg-neutral-200 my-12" />
 
-              <div className="pt-6 mt-6 border-t border-neutral-100 flex items-center justify-between">
-                <a
-                  href={`https://wa.me/6281999344480?text=${encodeURIComponent(`Hello Lombok Local Transport, I would like to consult about ${item.title}`)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs font-bold font-lato text-[#0766ad] hover:text-[#ff6600] inline-flex items-center gap-1 transition-colors uppercase tracking-wider"
-                >
-                  <span>Book This Service</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          ))}
+        {/* Module 16: Comprehensive Lombok Transport Services */}
+        <div className="max-w-4xl mx-auto space-y-8 text-left">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-lato font-bold text-[#111111] mb-2">
+              Comprehensive Lombok Transport Services
+            </h2>
+            <p className="text-sm text-[#444444] leading-relaxed">
+              We offer a wide range of travel solutions tailored to your itinerary. No matter where you need to go, we have the perfect ride for you.
+            </p>
+          </div>
+
+          {/* 1. Airport & Harbor Transfers */}
+          <div className="bg-[#fcfdfd] border border-neutral-200 rounded-lg p-6 shadow-sm space-y-2">
+            <h3 className="text-lg sm:text-xl font-lato font-bold text-[#111111] flex items-center gap-2">
+              <span>✈️</span>
+              <span>Airport &amp; Harbor Transfers</span>
+            </h3>
+            <p className="text-sm text-[#444444] leading-relaxed">
+              Start your holiday the right way. We provide prompt pick-up and drop-off services from Lombok International Airport (ZAM/LOP) and all major ferry ports (Bangsal, Lembar, Senggigi). Our <b className="text-[#111111]">Lombok Transport</b> team monitors your arrival time so you never have to wait.
+            </p>
+          </div>
+
+          {/* 2. Mount Rinjani Trekking Transport */}
+          <div className="bg-[#fcfdfd] border border-neutral-200 rounded-lg p-6 shadow-sm space-y-2">
+            <h3 className="text-lg sm:text-xl font-lato font-bold text-[#111111] flex items-center gap-2">
+              <span>⛰️</span>
+              <span>Mount Rinjani Trekking Transport</span>
+            </h3>
+            <p className="text-sm text-[#444444] leading-relaxed">
+              Senaru is the famous starting point for Mount Rinjani hikers. We provide specialized <b className="text-[#111111]">Senaru Transport</b> for trekkers, ensuring you and your gear get to the trailhead comfortably and are picked up promptly when your adventure is complete.
+            </p>
+          </div>
+
+          {/* 3. Full-Day & Half-Day Island Tours */}
+          <div className="bg-[#fcfdfd] border border-neutral-200 rounded-lg p-6 shadow-sm space-y-2">
+            <h3 className="text-lg sm:text-xl font-lato font-bold text-[#111111] flex items-center gap-2">
+              <span>🌴</span>
+              <span>Full-Day &amp; Half-Day Island Tours</span>
+            </h3>
+            <p className="text-sm text-[#444444] leading-relaxed">
+              Discover the hidden gems of Lombok. Hire a private car and driver to explore traditional Sasak villages, the majestic Sendang Gile and Tiu Kelep waterfalls, or the pristine southern beaches. Our flexible <b className="text-[#111111]">Lombok Transport service</b> lets you build your own itinerary.
+            </p>
+          </div>
         </div>
 
       </div>
     </section>
   );
 }
+

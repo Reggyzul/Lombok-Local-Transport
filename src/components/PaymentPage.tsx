@@ -11,15 +11,19 @@ export default function PaymentPage({ onNavigateHome, onNavigatePage }: PaymentP
   return (
     <div className="pt-24 sm:pt-28 bg-white text-left font-lato">
       
-      {/* 1. Page Header Banner */}
-      <div className="relative py-14 sm:py-20 bg-neutral-900 text-white text-center overflow-hidden">
+      {/* 1. Page Header Banner matching Beaver Builder fl-row-bg-slideshow */}
+      <div className="relative py-16 sm:py-24 bg-neutral-900 text-white text-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-35"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/Gambar/mandalika.avif')` }}
         />
-        <div className="absolute inset-0 bg-[#0766ad]/85" />
+        {/* Dark overlay rgba(0,0,0,0.7) */}
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-lato font-extrabold uppercase tracking-tight text-white mb-3">
+          <h1 
+            className="text-3xl sm:text-5xl md:text-6xl font-lato font-black uppercase tracking-tight mb-3"
+            style={{ color: 'rgb(250, 125, 15)' }}
+          >
             Payment Option
           </h1>
           <p className="text-sm sm:text-base text-neutral-100 max-w-2xl mx-auto leading-relaxed">
@@ -108,12 +112,12 @@ export default function PaymentPage({ onNavigateHome, onNavigatePage }: PaymentP
             <div className="border-l-4 border-[#0766ad] pl-4">
               <h5 className="font-bold text-sm text-[#111111]">Deposits</h5>
               <p className="text-xs sm:text-sm text-neutral-600 mt-1">
-                A 30%–50% deposit may be requested for round-trip bookings and multi-day island tours. The remaining balance can be settled in cash directly to your driver.
+                A 50% deposit is required for round-trip bookings and multi-day tours. The remaining balance can be paid in cash to your driver.
               </p>
             </div>
 
             <div className="border-l-4 border-[#027c31] pl-4">
-              <h5 className="font-bold text-sm text-[#111111]">Free Cancellation</h5>
+              <h5 className="font-bold text-sm text-[#111111]">Cancellations</h5>
               <p className="text-xs sm:text-sm text-neutral-600 mt-1">
                 We understand that travel plans change. You can cancel or reschedule your ride for free up to 24 hours before your scheduled pick-up time.
               </p>
@@ -122,28 +126,28 @@ export default function PaymentPage({ onNavigateHome, onNavigatePage }: PaymentP
             <div className="border-l-4 border-[#ff6600] pl-4">
               <h5 className="font-bold text-sm text-[#111111] flex items-center gap-1.5">
                 <Plane className="w-4 h-4 text-[#ff6600]" />
-                <span>Flight Delays Guarantee</span>
+                <span>Flight Delays</span>
               </h5>
               <p className="text-xs sm:text-sm text-neutral-600 mt-1">
-                Do not worry if your flight is delayed! We actively track incoming flights to Lombok International Airport (BIZAM) and will automatically adjust your pick-up time at no extra charge.
+                Do not worry if your flight is delayed! We track all incoming flights to Lombok International Airport and will adjust your pick-up time at no extra charge.
               </p>
             </div>
           </div>
         </div>
 
         {/* WhatsApp Fast Response Box */}
-        <div className="bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl p-6 text-center mb-8">
+        <div className="bg-[#fcfcfc] border border-neutral-200 rounded-xl p-6 text-center mb-8">
           <h4 className="font-bold text-base text-[#111111] mb-2">
-            Need Fast Payment Confirmation or Custom Currency?
+            For fast respond please contact us by WhatsApp
           </h4>
           <p className="text-xs sm:text-sm text-neutral-600 mb-4">
-            For fastest response and direct assistance, please contact our team via WhatsApp.
+            Need payment confirmation or prefer customized payment options? We are ready to assist you anytime.
           </p>
           <a
             href="https://wa.me/6281999344480?text=Hello%20Lombok%20Local%20Transport,%20I%20have%20a%20question%20regarding%20payment%20options"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1eb956] text-white font-lato font-bold text-xs uppercase tracking-wider px-6 py-3 rounded shadow transition-all"
+            className="inline-flex items-center gap-2 bg-[#027c31] hover:bg-[#fc7303] text-white font-lato font-bold text-xs uppercase tracking-wider px-6 py-3 rounded shadow transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Chat via WhatsApp (+62 819-9934-4480)</span>

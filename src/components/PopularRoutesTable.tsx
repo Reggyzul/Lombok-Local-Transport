@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Clock, MapPin, ArrowRight } from 'lucide-react';
+import { Search, Clock, MapPin, MessageCircle } from 'lucide-react';
 
 export interface RouteItem {
   from: string;
@@ -9,20 +9,21 @@ export interface RouteItem {
 }
 
 export const POPULAR_ROUTES: RouteItem[] = [
-  { from: 'Senaru / North Lombok', to: 'Bangsal Port / Teluk Nara / Teluk Kodek', duration: '1 Hour 30 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Sembalun Highland', duration: '1 Hour' },
-  { from: 'Senaru / North Lombok', to: 'Senggigi Resort Area', duration: '1 Hour 45 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Mataram City', duration: '2 Hours' },
-  { from: 'Senaru / North Lombok', to: 'Kayangan Port / Labuan Lombok', duration: '2 Hours' },
-  { from: 'Senaru / North Lombok', to: 'Tetebatu Village', duration: '2 Hours 45 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Lembar Port (Ferry to Bali)', duration: '2 Hours 45 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Lombok International Airport (BIZAM)', duration: '3 Hours' },
-  { from: 'Senaru / North Lombok', to: 'Kuta Mandalika', duration: '3 Hours 30 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Selong Belanak Beach', duration: '4 Hours' },
-  { from: 'Senaru / North Lombok', to: 'Tembowong Port (Gili Nanggu)', duration: '4 Hours 30 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Tanjung Aan & Merese Hill', duration: '4 Hours 30 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Sekotong Area', duration: '4 Hours 30 Minutes' },
-  { from: 'Senaru / North Lombok', to: 'Jeeva Bloam / Ekas Beach', duration: '4 Hours 30 Minutes' },
+  { from: 'Senaru', to: 'Bangsal Port / Teluk Nara / Teluk Kodek', duration: '1 Hour 30 Minutes' },
+  { from: 'Senaru', to: 'Sembalun', duration: '1 Hour' },
+  { from: 'Senaru', to: 'Senggigi', duration: '1 Hour 45 Minutes' },
+  { from: 'Senaru', to: 'Mataram City', duration: '2 Hours' },
+  { from: 'Senaru', to: 'Kayangan Port / Labuan Lombok', duration: '2 Hours' },
+  { from: 'Senaru', to: 'Tetebatu Village', duration: '2 Hours 45 Minutes' },
+  { from: 'Senaru', to: 'Lembar Port', duration: '2 Hours 45 Minutes' },
+  { from: 'Senaru', to: 'Lombok International Airport (ZAM)', duration: '3 Hours' },
+  { from: 'Senaru', to: 'Kuta Lombok', duration: '3 Hours 30 Minutes' },
+  { from: 'Senaru', to: 'Selong Belanak', duration: '4 Hours' },
+  { from: 'Senaru', to: 'Tembowong Port', duration: '4 Hours 30 Minutes' },
+  { from: 'Senaru', to: 'Tanjung Aan', duration: '4 hours 30 Minutes' },
+  { from: 'Senaru', to: 'Sekotong Area', duration: '4 Hours 30 Minutes' },
+  { from: 'Senaru', to: 'Jeeva Bloam/ Ekas Beach', duration: '4 Hours 30 Minutes' },
+  { from: 'Custom Itinerary', to: 'One Day Full Service Car Rental', duration: '12 hours' },
 ];
 
 export default function PopularRoutesTable() {
@@ -34,16 +35,16 @@ export default function PopularRoutesTable() {
   );
 
   const getWaLink = (route: RouteItem) => {
-    const text = `Hello Lombok Local Transport, I would like to book a private transfer: From ${route.from} to ${route.to} (Est. Duration: ${route.duration}). Please provide the fixed rate quote. Thank you!`;
+    const text = `Hello Lombok Local Transport, I would like to book a private transfer: From ${route.from} to ${route.to} (Duration: ${route.duration}). Please provide the fixed rate quote. Thank you!`;
     return `https://wa.me/6281999344480?text=${encodeURIComponent(text)}`;
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full font-lato" id="tablepress-1_wrapper">
       {/* Search Input Filter */}
       <div className="mb-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs sm:text-sm font-lato text-neutral-600 font-medium">
-          Showing <strong>{filteredRoutes.length}</strong> popular transfer destinations:
+        <p className="text-xs sm:text-sm text-neutral-600 font-medium">
+          Showing <strong>{filteredRoutes.length}</strong> popular transfer routes:
         </p>
         <div className="relative w-full sm:w-72">
           <input
@@ -57,14 +58,14 @@ export default function PopularRoutesTable() {
         </div>
       </div>
 
-      {/* Responsive TablePress Style Table */}
+      {/* Responsive TablePress Style Table (Exact tablepress-id-1 styling) */}
       <div className="overflow-x-auto shadow-sm rounded border border-neutral-200">
-        <table className="w-full text-left text-xs sm:text-sm font-lato border-collapse">
+        <table className="tablepress w-full text-left text-xs sm:text-sm font-lato border-collapse">
           <thead>
             <tr className="bg-[#0766ad] text-white">
-              <th className="py-3 px-4 font-bold border-r border-[#06538c]">FROM</th>
-              <th className="py-3 px-4 font-bold border-r border-[#06538c]">TO DESTINATION</th>
-              <th className="py-3 px-4 font-bold border-r border-[#06538c] text-center">ESTIMATED DURATION</th>
+              <th className="py-3 px-4 font-bold border-r border-[#06538c] w-1/4">FROM</th>
+              <th className="py-3 px-4 font-bold border-r border-[#06538c] w-1/2">TO DESTINATION</th>
+              <th className="py-3 px-4 font-bold border-r border-[#06538c] text-center w-1/4">ESTIMATED DURATION</th>
               <th className="py-3 px-4 font-bold text-center">ACTION</th>
             </tr>
           </thead>
@@ -72,7 +73,7 @@ export default function PopularRoutesTable() {
             {filteredRoutes.map((route, idx) => (
               <tr 
                 key={idx}
-                className={idx % 2 === 1 ? 'bg-neutral-50/70 hover:bg-[#f1f7fc]' : 'bg-white hover:bg-[#f1f7fc]'}
+                className={idx % 2 === 1 ? 'bg-[#f9f9f9] hover:bg-[#f1f7fc]' : 'bg-white hover:bg-[#f1f7fc]'}
               >
                 <td className="py-3 px-4 font-semibold text-neutral-800 whitespace-nowrap">
                   <div className="flex items-center gap-1.5">
@@ -94,10 +95,10 @@ export default function PopularRoutesTable() {
                     href={getWaLink(route)}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 bg-[#25D366] hover:bg-[#1eb956] text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded transition-all duration-150"
+                    className="inline-flex items-center gap-1 bg-[#0c8833] hover:bg-[#fc7303] text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded transition-all duration-150"
                   >
-                    <span>Book Ride</span>
-                    <ArrowRight className="w-3 h-3" />
+                    <MessageCircle className="w-3 h-3" />
+                    <span>Book</span>
                   </a>
                 </td>
               </tr>

@@ -141,9 +141,6 @@ export default function App() {
             {/* Travel Guides & Blogs */}
             <BlogSection />
 
-            {/* Traveler Reviews & Testimonials */}
-            <Testimonials lang={lang} />
-
             {/* Ready to Explore Lombok? CTA Banner */}
             <CtaBanner />
 
