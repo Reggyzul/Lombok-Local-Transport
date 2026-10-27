@@ -12,12 +12,8 @@ interface HeaderProps {
 }
 
 const LANGUAGES = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'id', name: 'Indonesian', flag: '🇮🇩' },
-  { code: 'zh', name: 'Chinese', flag: '🇨🇳' },
-  { code: 'fr', name: 'French', flag: '🇫🇷' },
-  { code: 'it', name: 'Italian', flag: '🇮🇹' },
-  { code: 'ko', name: 'Korean', flag: '🇰🇷' },
+  { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩', label: 'ID' },
+  { code: 'en', name: 'English', flag: '🇬🇧', label: 'EN' },
 ];
 
 export default function Header({
@@ -99,22 +95,22 @@ export default function Header({
             </span>
           </div>
 
-          {/* Center: Language Selector Pills */}
-          <div className="flex items-center gap-2 mx-auto md:mx-0">
-            <div className="flex items-center bg-black/20 backdrop-blur-sm rounded-full p-0.5 border border-white/10">
+          {/* Center: Language Selector (ID & EN only) */}
+          <div className="flex items-center gap-1.5 mx-auto md:mx-0">
+            <div className="flex items-center bg-black/25 backdrop-blur-sm rounded-full p-0.5 border border-white/15">
               {LANGUAGES.map((l) => (
                 <button
                   key={l.code}
                   onClick={() => handleSelectLanguage(l.code)}
                   title={l.name}
-                  className={`flex items-center justify-center px-2 py-0.5 rounded-full text-xs transition-all cursor-pointer ${
-                    activeLang === l.code 
+                  className={`flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs transition-all cursor-pointer ${
+                    (activeLang === l.code || lang.toLowerCase() === l.code)
                       ? 'bg-white text-emerald-950 font-bold shadow-sm' 
                       : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  <span className="mr-1">{l.flag}</span>
-                  <span className="text-[10px] hidden sm:inline">{l.code.toUpperCase()}</span>
+                  <span className="text-xs">{l.flag}</span>
+                  <span className="text-[11px] font-heading font-bold">{l.label}</span>
                 </button>
               ))}
             </div>
@@ -256,7 +252,30 @@ export default function Header({
                 );
               })}
 
-              <div className="pt-3 border-t border-slate-100 space-y-2">
+              <div className="pt-3 border-t border-slate-100 space-y-2.5">
+                {/* Mobile Language Switcher (Indo & English Only) */}
+                <div className="flex items-center justify-between px-1 py-1">
+                  <span className="text-xs font-heading font-bold text-slate-500 uppercase tracking-wider">
+                    Pilih Bahasa / Language:
+                  </span>
+                  <div className="flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200">
+                    {LANGUAGES.map((l) => (
+                      <button
+                        key={l.code}
+                        onClick={() => handleSelectLanguage(l.code)}
+                        className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-heading font-bold transition-all cursor-pointer ${
+                          (activeLang === l.code || lang.toLowerCase() === l.code)
+                            ? 'bg-emerald-600 text-white shadow-sm'
+                            : 'text-slate-600 hover:text-slate-900'
+                        }`}
+                      >
+                        <span>{l.flag}</span>
+                        <span>{l.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 <a
                   href="https://wa.me/6281999344480?text=Hello%20Lombok%20Local%20Transport,%20I%20would%20like%20to%20inquire%20about%20transport%20services"
                   target="_blank"
