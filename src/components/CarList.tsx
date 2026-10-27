@@ -110,7 +110,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
                     <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-slate-600">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 font-semibold">
                         <Users className="w-3.5 h-3.5 text-[#0766ad]" />
-                        <span>Up to {car.passengers} Guests</span>
+                        <span>Up to {car.seats} Seats</span>
                       </span>
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 font-semibold">
                         <Snowflake className="w-3.5 h-3.5 text-sky-600" />
@@ -124,7 +124,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
 
                     {/* Features list */}
                     <div className="space-y-1.5 pt-2 border-t border-slate-100 text-xs text-slate-600">
-                      {car.features.slice(0, 3).map((feat, i) => (
+                      {(car.includeList || []).slice(0, 3).map((feat, i) => (
                         <div key={i} className="flex items-center gap-2">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           <span>{feat}</span>
@@ -142,7 +142,7 @@ export default function CarList({ onSelectCar, lang, onViewAllCars }: CarListPro
                         Starting From
                       </span>
                       <span className="font-heading font-extrabold text-lg text-slate-900">
-                        {car.price}
+                        {car.priceDisplay || (car.pricePerDay ? `IDR ${car.pricePerDay.toLocaleString()}` : 'Contact Us')}
                       </span>
                     </div>
 
